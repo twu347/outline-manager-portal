@@ -1,7 +1,9 @@
 import React from "react";
+import { Link,Outlet } from "react-router-dom";
 import './login.css'
 
 function Login(){
+    const link = <Link to="/Courses">Login</Link>
     return(
         <div>
             <div class="login">
@@ -9,7 +11,7 @@ function Login(){
                 <input type="text" class="username" placeholder="Please Enter Your Username"/>
                 <input type="text" class="password" placeholder="Please Enter Your Password"/>
                 <a href="https://www.registrar.uwo.ca/resources/student_center_access_guide.html" class="forgotLink">Forgot Username or Password?</a >
-                <button class="loginBtn">Login</button>
+                <button class="loginBtn">{link}</button>
             </div>
 
             <div class="splitBar"></div>
@@ -63,6 +65,7 @@ function Login(){
                     </div>
                 </ul>
             </div>
+            <Outlet />
         </div>
     )
 };

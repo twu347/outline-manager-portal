@@ -14,18 +14,17 @@ class App extends Component{
     return(
       <div className="container">
           <Header/>
-
           <hr/>
-
-          
           <BrowserRouter>
       <Routes>
         <Route path="/"  element={<Login />} />
+        <Route path="/courses"  element={<Courses />}/>
         
       </Routes>
       </BrowserRouter>
 
       <Footer/>
+      
         </div>
       
         
