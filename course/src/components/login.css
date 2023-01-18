@@ -9,17 +9,17 @@
 }
 
 .heading {
-            position: absolute;
-            width: 214px;
-            height: 36px;
-            left: 110px;
-            top: 248px;
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 30px;
-            line-height: 36px;
-            color: #000000;
+    position: absolute;
+    width: 214px;
+    height: 36px;
+    left: 110px;
+    top: 248px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    color: #000000;
 }
 
 .username {
@@ -32,32 +32,30 @@
 }
 
 .password {
-        position: absolute;
-        width: 423px;
-        height: 47px;
-        left: 110px;
-        top: 419px;
-    
-        background: #D9D9D9;
+    position: absolute;
+    width: 423px;
+    height: 47px;
+    left: 110px;
+    top: 419px;
+    background: #D9D9D9;
 }
 
 .forgotLink {
-        position: absolute;
-        width: 297px;
-        height: 24px;
-        left: 110px;
-        top: 471px;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 24px;
-        text-decoration-line: underline;
-        color: #0400DE;
+    position: absolute;
+    width: 297px;
+    height: 24px;
+    left: 110px;
+    top: 471px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-decoration-line: underline;
+    color: #0400DE;
 }
 
 .splitBar {
-
     position: absolute;
     width: 402px;
     height: 0px;
@@ -68,28 +66,27 @@
 }
  
 .aboutHeading {
-        position: absolute;
-        width: 178px;
-        height: 36px;
-        left: 950px;
-        top: 248px;
-    
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 30px;
-        line-height: 36px;
-    
-        color: #000000;
+    position: absolute;
+    width: 178px;
+    height: 36px;
+    left: 950px;
+    top: 248px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    color: #000000;
 }
 
 .about{
-        position: absolute;
-        width: 493px;
-        height: 165px;
-        left: 950px;
-        top: 325px;
+    position: absolute;
+    width: 493px;
+    height: 165px;
+    left: 950px;
+    top: 325px;
 }
+
 p {
     font-weight: bold;
     font-size: 13px;
