@@ -8,7 +8,7 @@ function Login(){
                 <h2 class="heading">Login To Portal</h2>
                 <input type="text" class="username" placeholder="Please Enter Your Username"/>
                 <input type="text" class="password" placeholder="Please Enter Your Password"/>
-                <a href=" " class="forgotLink">Forgot Username or Password</a >
+                <a href="https://www.registrar.uwo.ca/resources/student_center_access_guide.html" class="forgotLink">Forgot Username or Password?</a >
                 <button class="loginBtn">Login</button>
             </div>
 

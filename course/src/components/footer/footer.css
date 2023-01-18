@@ -1,0 +1,27 @@
+.footer{
+    position: absolute;
+    width: 833px;
+    height: 74px;
+    left: 230px;
+    top: 680px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #000000;
+}
+
+.Western{
+    height: 140px;
+    position: absolute;
+    top: 650px;
+    left: 75px;
+}
+
+.Eng{
+    height: 100px;
+    position: absolute;
+    top: 680px;
+    right: 50px;
+}
