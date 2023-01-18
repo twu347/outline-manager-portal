@@ -1,13 +1,20 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/header";
-import Footer from "./components/footer";
-import Login from "./components/login";
 
-function App(){
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { Component } from 'react';
+
+import Header from './components/header/header';
+import Footer from './components/footer/footer';
+import Login from './components/login/login';
+import Courses from './components/courses/courses';
+
+
+class App extends Component{
+  render(){
     return(
       <div className="container">
           <Header/>
+
           <hr/>
 
           
@@ -17,11 +24,20 @@ function App(){
         
       </Routes>
       </BrowserRouter>
+
+      <Footer/>
         </div>
-      
       
         
     )
+
+          
+          
+    
+  }
+
 };
 
 export default App;
+
+

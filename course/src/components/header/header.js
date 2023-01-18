@@ -3,7 +3,7 @@ import './header.css';
 
 function Header(){
     return(
-        <div>
+        <div class="background">
             <h1 class="title">Course Outline Manager Portal</h1>
         </div>
     )
