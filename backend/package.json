@@ -4,7 +4,7 @@
   "description": "This is the backend for Course Outline Manager Application ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/twu347/SE3350---React-UI#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongodb": "^4.13.0",
+    "mongoose": "^6.8.4",
+    "nodemon": "^2.0.20"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3"
   }
 }
