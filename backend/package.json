@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/twu347/SE3350---React-UI#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "mongodb": "^4.13.0",
     "mongoose": "^6.8.4",

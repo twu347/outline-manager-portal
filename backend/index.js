@@ -7,6 +7,9 @@ const express = require("express");
 const app = express();
 const port = 3333;
 
+// emable incoming json request req.body
+app.use(express.json());
+
 // connection to MongoDB 
 const mongoose = require('mongoose');
 const MongoClient = require('mongodb').MongoClient;
@@ -15,12 +18,58 @@ const db = mongoose.connection
 db.on('error', (error) => console.error(error));
 db.once('open', () => console.log('Connected to Database'));
 
-// fetch all username 
+// resolve CORS 
+const cors = require('cors');
+app.use(cors());
+
+// import schema 
+const User = require('./user.js');
+
+// fetch all username and password
 app.get('/api/username', (req, res) => {
     database.collection('Username').find({}).toArray((err, data) => {
         if (err) throw err;
         res.json(data);
     });
+});
+
+// create an account - this should not be implemented in front end 
+app.post('/api/register', async (req, res) => {
+    let user = new User(req.body);
+    let result = await user.save();
+    res.send(result);
+})
+
+// verify username and password - professor panel 
+app.post('/api/login', async (req, res) => {
+    if(req.body.username && req.body.password){
+        let user = await User.findOne(req.body).select("password");
+        if(user){
+            res.send({result:"Login Successful"})
+        }
+        else{
+            res.send({result:"Username or Password is incorrect"});
+        }
+    }
+    else{
+        res.send({result:"Username or Password is incorrect"});
+    }
+});
+
+// fetch by username 
+app.get('/api/username/:username', (req, res) => {
+    username = req.params.username;
+    database.collection('Username').find({username}).toArray((err, result) =>{
+        res.send(result);
+    });
+});
+
+// create an account with username and password 
+app.post('/api/create', (req, res) =>{
+    const username = req.body.username;
+    const user = { name : username };
+    const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+    res.json({accessToken: accessToken});
 });
 
 // get method testing 
