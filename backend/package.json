@@ -1,0 +1,29 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "This is the backend for Course Outline Manager Application ",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twu347/SE3350---React-UI.git"
+  },
+  "author": "Tong Wu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/twu347/SE3350---React-UI/issues"
+  },
+  "homepage": "https://github.com/twu347/SE3350---React-UI#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongodb": "^4.13.0",
+    "mongoose": "^6.8.4",
+    "nodemon": "^2.0.20"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3"
+  }
+}

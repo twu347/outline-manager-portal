@@ -1,18 +1,43 @@
 import React from "react";
 import { Link,Outlet } from "react-router-dom";
 import './login.css'
+import { useState } from "react";
 
 function Login(){
+    
+    // api link 
     const link = <Link to="/Courses">Login</Link>
+
+    // login use state 
+    const [username, setName] = useState('');
+    const [password, setPassword] = useState('');
+
+    // connect backend - under construction
+    async function registerUser(event){
+
+        event.preventDefault();
+        
+        const response = await fetch('http://localhost:3333/api/login', {
+            method: 'POST',
+            headers:{
+                'Content-Type' : 'application/json',
+            },
+            body:JSON.stringify({
+                username,
+                password,
+            }),
+        });
+    };
+
     return(
         <div>
-            <div class="login">
+            <form class="login" onSubmit={registerUser}>
                 <h2 class="heading">Login To Portal</h2>
-                <input type="text" class="username" placeholder="Please Enter Your Username"/>
-                <input type="text" class="password" placeholder="Please Enter Your Password"/>
+                <input type="text" class="username" placeholder="Please Enter Your Username" value={username} onChange={(e) => setName(e.target.value)}/>
+                <input type="text" class="password" placeholder="Please Enter Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <a href="https://www.registrar.uwo.ca/resources/student_center_access_guide.html" class="forgotLink">Forgot Username or Password?</a >
                 <button class="loginBtn">{link}</button>
-            </div>
+            </form>
 
             <div class="splitBar"></div>
 
