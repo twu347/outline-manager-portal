@@ -1,10 +1,10 @@
 import React from "react";
-import { Link,Outlet } from "react-router-dom";
+import { Link,Outlet, useLocation, useNavigate } from "react-router-dom";
 import './login.css'
 import { useState } from "react";
-
 function Login(){
     
+    let navigate = useNavigate();
     // api link 
     const link = <Link to="/Courses">Login</Link>
 
@@ -13,30 +13,58 @@ function Login(){
     const [password, setPassword] = useState('');
 
     // connect backend - under construction
-    async function registerUser(event){
+    // async function registerUser(event){
+
+    //     event.preventDefault();
+        
+    //     const response = await fetch('http://localhost:3333/api/login', {
+    //         method: 'POST',
+    //         headers:{
+    //             'Content-Type' : 'application/json',
+    //         },
+    //         body:JSON.stringify({
+    //             username,
+    //             password,
+    //         }),
+    //     });
+    // };
+
+    function Userlogin(event){
 
         event.preventDefault();
-        
-        const response = await fetch('http://localhost:3333/api/login', {
-            method: 'POST',
-            headers:{
-                'Content-Type' : 'application/json',
-            },
-            body:JSON.stringify({
-                username,
-                password,
-            }),
-        });
-    };
+
+
+        fetch("http://localhost:3333/api/login", {method: 'POST',
+                headers:{
+                    'Content-Type' : 'application/json',
+                },
+                body:JSON.stringify({
+                    username,
+                    password,
+                }),
+    }).then((res)=>{
+        res.json().then(data=>{
+            if(data.result ==1)
+            {
+                alert('success');
+                
+                navigate('/Courses')
+            }
+            else{
+                alert('wrong')
+            }
+        })
+    })
+    }
 
     return(
         <div>
-            <form class="login" onSubmit={registerUser}>
+            <form class="login">
                 <h2 class="heading">Login To Portal</h2>
                 <input type="text" class="username" placeholder="Please Enter Your Username" value={username} onChange={(e) => setName(e.target.value)}/>
                 <input type="text" class="password" placeholder="Please Enter Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <a href="https://www.registrar.uwo.ca/resources/student_center_access_guide.html" class="forgotLink">Forgot Username or Password?</a >
-                <button class="loginBtn">{link}</button>
+                <button class="loginBtn" onClick={Userlogin}>{link}</button>
             </form>
 
             <div class="splitBar"></div>

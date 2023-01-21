@@ -43,9 +43,9 @@ app.post('/api/register', async (req, res) => {
 // verify username and password - professor panel 
 app.post('/api/login', async (req, res) => {
     if(req.body.username && req.body.password){
-        let user = await User.findOne(req.body).select("password");
+        let user = await User.findOne(req.body);
         if(user){
-            res.send({result:"Login Successful"})
+            res.send({result:"1"})
         }
         else{
             res.send({result:"Username or Password is incorrect"});
