@@ -1,61 +1,38 @@
 import React from "react";
-import { Link,Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Link,Outlet, useNavigate } from "react-router-dom";
 import './login.css'
 import { useState } from "react";
 function Login(){
     
+    // API link 
     let navigate = useNavigate();
-    // api link 
     const link = <Link to="/Courses">Login</Link>
 
     // login use state 
     const [username, setName] = useState('');
     const [password, setPassword] = useState('');
 
-    // connect backend - under construction
-    // async function registerUser(event){
-
-    //     event.preventDefault();
-        
-    //     const response = await fetch('http://localhost:3333/api/login', {
-    //         method: 'POST',
-    //         headers:{
-    //             'Content-Type' : 'application/json',
-    //         },
-    //         body:JSON.stringify({
-    //             username,
-    //             password,
-    //         }),
-    //     });
-    // };
-
+    // fetch login back-end API to verify username and password 
     function Userlogin(event){
-
         event.preventDefault();
-
-
         fetch("http://localhost:3333/api/login", {method: 'POST',
-                headers:{
-                    'Content-Type' : 'application/json',
-                },
-                body:JSON.stringify({
-                    username,
-                    password,
-                }),
-    }).then((res)=>{
-        res.json().then(data=>{
-            if(data.result ==1)
-            {
-                alert('success');
-                
-                navigate('/Courses')
-            }
-            else{
-                alert('wrong')
-            }
-        })
-    })
-    }
+            headers:{
+                'Content-Type' : 'application/json',
+            },
+            body:JSON.stringify({
+                username,
+                password,
+            }),
+        }).then((res)=>{
+            res.json().then(data=>{
+                if(data.result == 1){
+                    navigate('/Courses');
+                }else{
+                    alert('Username & Password Incorrect')
+                }
+            });
+        });
+    };
 
     return(
         <div>
@@ -64,7 +41,7 @@ function Login(){
                 <input type="text" class="username" placeholder="Please Enter Your Username" value={username} onChange={(e) => setName(e.target.value)}/>
                 <input type="text" class="password" placeholder="Please Enter Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <a href="https://www.registrar.uwo.ca/resources/student_center_access_guide.html" class="forgotLink">Forgot Username or Password?</a >
-                <button class="loginBtn" onClick={Userlogin}>{link}</button>
+                <button class="loginBtn" onClick={Userlogin}>Login</button>
             </form>
 
             <div class="splitBar"></div>
