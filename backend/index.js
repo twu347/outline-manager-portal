@@ -24,6 +24,7 @@ app.use(cors());
 
 // import schema 
 const User = require('./user.js');
+const { result } = require('lodash');
 
 // fetch all username and password
 app.get('/api/username', (req, res) => {
@@ -43,9 +44,15 @@ app.post('/api/register', async (req, res) => {
 // verify username and password then direct to different page
 app.post('/api/login', async (req, res) => {
     if(req.body.username && req.body.password){
-        let user = await User.findOne(req.body).select("password");
+        let user = await User.findOne(req.body);
         if(user){
-            res.send({result:"Login Successful"})
+            let admin = await user.admin;
+            if(admin) {
+                res.send({result:"1"})
+            }
+            else{
+                res.send({result:"2"});
+            }
         }
         else{
             res.send({result:"Username or Password is incorrect"});
@@ -62,14 +69,6 @@ app.get('/api/username/:username', (req, res) => {
     database.collection('Username').find({username}).toArray((err, result) =>{
         res.send(result);
     });
-});
-
-// create an account with username and password 
-app.post('/api/create', (req, res) =>{
-    const username = req.body.username;
-    const user = { name : username };
-    const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-    res.json({accessToken: accessToken});
 });
 
 // get method testing 

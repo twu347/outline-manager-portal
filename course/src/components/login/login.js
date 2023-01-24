@@ -2,12 +2,10 @@ import React from "react";
 import { Link,Outlet, useNavigate } from "react-router-dom";
 import './login.css'
 import { useState } from "react";
-
 function Login(){
     
     // API link 
     let navigate = useNavigate();
-    // api link 
     const link = <Link to="/Courses">Login</Link>
 
     // login use state 
@@ -43,7 +41,8 @@ function Login(){
                 <input type="text" class="username" placeholder="Please Enter Your Username" value={username} onChange={(e) => setName(e.target.value)}/>
                 <input type="text" class="password" placeholder="Please Enter Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <a href="https://www.registrar.uwo.ca/resources/student_center_access_guide.html" class="forgotLink">Forgot Username or Password?</a >
-                <button class="loginBtn" onClick={Userlogin}>{link}</button>
+
+                <button class="loginBtn" onClick={Userlogin}>Login</button>
             </form>
 
             <div class="splitBar"></div>
