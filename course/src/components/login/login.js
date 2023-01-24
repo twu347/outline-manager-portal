@@ -27,7 +27,11 @@ function Login(){
             res.json().then(data=>{
                 if(data.result == 1){
                     navigate('/Courses');
-                }else{
+                }
+                else if(data.result == 2){
+                    navigate('/Profs');
+                }
+                else{
                     alert('Username & Password Incorrect')
                 }
             });

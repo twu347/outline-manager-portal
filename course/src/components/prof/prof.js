@@ -3,10 +3,7 @@ import './prof.css'
 
 function Prof(){
     return(
-        <div>
-            <div className="box"></div>
-            <h1> This is Professor Panel </h1>
-        </div>
+        <div>This is Prof Panel</div>
     )
 };
 
