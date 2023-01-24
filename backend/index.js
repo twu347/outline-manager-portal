@@ -40,7 +40,7 @@ app.post('/api/register', async (req, res) => {
     res.send(result);
 })
 
-// verify username and password - professor panel 
+// verify username and password then direct to different page
 app.post('/api/login', async (req, res) => {
     if(req.body.username && req.body.password){
         let user = await User.findOne(req.body).select("password");

@@ -1,13 +1,13 @@
 import React from "react";
-import './courses.css'
+import './prof.css'
 
-function Courses(){
+function Prof(){
     return(
         <div>
             <div className="box"></div>
-            <h1> This is Admin Panel </h1>
+            <h1> This is Professor Panel </h1>
         </div>
     )
 };
 
-export default Courses;
+export default Prof;
