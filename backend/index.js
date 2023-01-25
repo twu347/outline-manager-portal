@@ -22,9 +22,12 @@ db.once('open', () => console.log('Connected to Database'));
 const cors = require('cors');
 app.use(cors());
 
-// import schema 
+// import User schema 
 const User = require('./user.js');
 const { result } = require('lodash');
+
+// import Course schema
+const Course = require('./course.js')
 
 // fetch all username and password
 app.get('/api/username', (req, res) => {
@@ -39,6 +42,19 @@ app.post('/api/register', async (req, res) => {
     let user = new User(req.body);
     let result = await user.save();
     res.send(result);
+})
+
+// create a new course
+app.post('/api/newcourse', async (req, res) => {
+    let exist = await Course.findOne(req.body);
+    if(exist){
+        res.send("Already exist !")
+    }else{
+        let course = new Course(req.body);
+        let result = await course.save();
+        res.send(result);
+    }
+    
 })
 
 // verify username and password then direct to different page

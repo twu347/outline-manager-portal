@@ -14,7 +14,12 @@ const User = new mongoose.Schema({
     admin : {
         type : Boolean, 
         required : true,
+    },
+    assignedCourse : {
+        type : Array,
+        required : true,
     }
+
 });
 
 const model = mongoose.model('User', User);
