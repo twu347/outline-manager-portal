@@ -2,6 +2,8 @@ import React from "react";
 import './courses.css'
 import { useState } from "react";
 import Prof from "../prof/prof";
+import courseList from "../courseList/courseList";
+
 function Courses(){
 
     const [users, setUser] = useState([]);
@@ -26,7 +28,7 @@ function Courses(){
         <div>
             <div className="box"></div>
             <h1> This is Admin Panel </h1>
-            <button onClick={setUsers}>Click</button>
+            
             {UserElements}
         </div>
     )

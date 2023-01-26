@@ -84,7 +84,7 @@ app.post('/api/login', async (req, res) => {
 app.get('/api/logins', (req, res) => {
     outlines.collection('users').find({}).toArray((err, data) => {
         if (err) throw err;
-        const result = data.find((p)=>{p.admin == false});
+        const result = data.filter((p)=>p.admin === "false");
         console.log(result);
         res.json(result);
     });
