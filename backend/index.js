@@ -31,8 +31,10 @@ const Course = require('./course.js')
 
 // fetch all username and password
 app.get('/api/username', (req, res) => {
+     
     database.collection('Username').find({}).toArray((err, data) => {
         if (err) throw err;
+        
         res.json(data);
     });
 });
@@ -79,6 +81,15 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
+app.get('/api/logins', (req, res) => {
+    outlines.collection('users').find({}).toArray((err, data) => {
+        if (err) throw err;
+        const result = data.find((p)=>{p.admin == false});
+        console.log(result);
+        res.json(result);
+    });
+});
+
 // fetch by username 
 app.get('/api/username/:username', (req, res) => {
     username = req.params.username;
@@ -97,6 +108,7 @@ app.listen(port, () =>{
     MongoClient.connect(process.env.DATABASE_URL, {useNewUrlParser: true}, (error, result) => {
         if(error) throw error
         database = result.db('SE3350');
+        outlines = result.db('test')
     });
     console.log(`Listing on port ${port}`);
 });

@@ -1,9 +1,9 @@
 import React from "react";
 import './prof.css'
 
-function Prof(){
+function Prof(props){
     return(
-        <div>This is Prof Panel</div>
+        <div>{props.value}</div>
     )
 };
 
