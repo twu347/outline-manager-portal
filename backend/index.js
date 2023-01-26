@@ -85,10 +85,17 @@ app.get('/api/logins', (req, res) => {
     outlines.collection('users').find({}).toArray((err, data) => {
         if (err) throw err;
         const result = data.filter((p)=>p.admin === "false");
-        console.log(result);
         res.json(result);
     });
 });
+
+app.get('/api/courses', (req, res) => {
+    outlines.collection('courses').find({}).toArray((err, data) => {
+        if (err) throw err;
+        res.json(data);
+    });
+});
+
 
 // fetch by username 
 app.get('/api/username/:username', (req, res) => {
@@ -98,10 +105,7 @@ app.get('/api/username/:username', (req, res) => {
     });
 });
 
-// get method testing 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-});
+
 
 // listen port 3333
 app.listen(port, () =>{
