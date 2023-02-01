@@ -1,12 +1,28 @@
 // connect environment variable 
 const { parse } = require('dotenv');
 require('dotenv').config();
-
-// connection to express 
 const express = require("express");
+const router = express.Router(); 
+const cors = require('cors');
+// connection to express 
+
 const app = express();
 const port = 3333;
 
+const corsOptions ={
+    origin:'http://localhost:3000', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+
+app.use(cors(corsOptions));
+router.get("/", (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*")
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    res.setHeader("Access-Control-Max-Age", "1800");
+    res.setHeader("Access-Control-Allow-Headers", "content-type");
+    res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
+});
 // emable incoming json request req.body
 app.use(express.json());
 
@@ -18,12 +34,11 @@ const db = mongoose.connection
 db.on('error', (error) => console.error(error));
 db.once('open', () => console.log('Connected to Database'));
 
-// resolve CORS 
-const cors = require('cors');
-app.use(cors());
+
 
 // import User schema 
 const User = require('./user.js');
+
 const { result } = require('lodash');
 
 // import Course schema
@@ -96,6 +111,46 @@ app.get('/api/courses', (req, res) => {
     });
 });
 
+app.put('/api/putProf/:username', async (req, res) => {
+    let existCourse = await Course.findOne(req.body)
+    if(existCourse){
+        User.updateOne({username: req.params.username}, {
+            // $addToSet is for preventing duplicate element
+              $addToSet: {assignedCourse:req.body.courseName}
+              
+          }).then(result => {
+              res.status(200).json({
+                  updated_product : result
+              })
+          })
+          .catch(err =>{
+              console.log(err);
+              res.status(500).json({
+                  error:err
+              })
+          })
+    }else{
+        res.send({result:"incorrect"});
+    }
+    
+});
+
+app.delete('/api/deleteProf/:username', (req, res) => {
+    User.updateOne({username: req.params.username}, {
+        $pull: {assignedCourse:req.body.coursename}
+        
+    }).then(result => {
+        res.status(200).json({
+            updated_product : result
+        })
+    })
+    .catch(err =>{
+        console.log(err);
+        res.status(500).json({
+            error:err
+        })
+    })
+});
 
 // fetch by username 
 app.get('/api/username/:username', (req, res) => {

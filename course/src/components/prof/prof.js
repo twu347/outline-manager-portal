@@ -3,7 +3,9 @@ import './prof.css'
 
 function Prof(props){
     return(
-        <div>{props.value}</div>
+        <div>
+            {props.value} {props.course}
+        </div>
     )
 };
 
