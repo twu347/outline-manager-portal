@@ -1,8 +1,18 @@
 import React from "react";
 import './indicators.css';
-import './GA2';
-import Table2 from "./GA2";
-import Table1 from "./GA1";
+import './Tables/GA2';
+import Table2 from "./Tables/GA2";
+import Table1 from "./Tables/GA1";
+import Table3 from "./Tables/GA3";
+import Table4 from "./Tables/GA4";
+import Table5 from "./Tables/GA5";
+import Table6 from "./Tables/GA6";
+import Table7 from "./Tables/GA7";
+import Table8 from "./Tables/GA8";
+import Table9 from "./Tables/GA9";
+import Table10 from "./Tables/GA10";
+import Table11 from "./Tables/GA11";
+import Table12 from "./Tables/GA12";
 
 function Indicators(){
     return(
@@ -13,16 +23,16 @@ function Indicators(){
             <div class="catagories">
                 <button id="1" class="catagoryBtn" onClick={showIndicator}>1 - Knowledge Base</button>
                 <button id="2" class="catagoryBtn" onClick={showIndicator}>2 - Problem Analysis</button>
-                <button id="3" class="catagoryBtn">3 - Investigation</button>
-                <button id="4" class="catagoryBtn">4 - Design</button>
-                <button id="5" class="catagoryBtn">5 - Use of Engineering Tools</button>
-                <button id="6" class="catagoryBtn">6 - Individual and Team Work</button>
-                <button id="7" class="catagoryBtn">7 - Communication Skills</button>
-                <button id="8" class="catagoryBtn">8 - Professionalism</button>
-                <button id="9" class="catagoryBtn">9 - Impact of Engineering on Society and Environment</button>
-                <button id="10" class="catagoryBtn">10 - Ethics and Equity</button>
-                <button id="11" class="catagoryBtn">11 - Economics and Project Management</button>
-                <button id="12" class="catagoryBtn">12 - Life-Long Learning</button>
+                <button id="3" class="catagoryBtn" onClick={showIndicator}>3 - Investigation</button>
+                <button id="4" class="catagoryBtn" onClick={showIndicator}>4 - Design</button>
+                <button id="5" class="catagoryBtn" onClick={showIndicator}>5 - Use of Engineering Tools</button>
+                <button id="6" class="catagoryBtn" onClick={showIndicator}>6 - Individual and Team Work</button>
+                <button id="7" class="catagoryBtn" onClick={showIndicator}>7 - Communication Skills</button>
+                <button id="8" class="catagoryBtn" onClick={showIndicator}>8 - Professionalism</button>
+                <button id="9" class="catagoryBtn" onClick={showIndicator}>9 - Impact of Engineering on Society and Environment</button>
+                <button id="10" class="catagoryBtn" onClick={showIndicator}>10 - Ethics and Equity</button>
+                <button id="11" class="catagoryBtn" onClick={showIndicator}>11 - Economics and Project Management</button>
+                <button id="12" class="catagoryBtn" onClick={showIndicator}>12 - Life-Long Learning</button>
             </div>
             <div class="description" id="description">
                 <div id="table1">
@@ -30,6 +40,36 @@ function Indicators(){
                 </div>
                 <div id="table2">
                     <Table2/>
+                </div>
+                <div id="table3">
+                    <Table3/>
+                </div>
+                <div id="table4">
+                    <Table4/>
+                </div>
+                <div id="table5">
+                    <Table5/>
+                </div>
+                <div id="table6">
+                    <Table6/>
+                </div>
+                <div id="table7">
+                    <Table7/>
+                </div>
+                <div id="table8">
+                    <Table8/>
+                </div>
+                <div id="table9">
+                    <Table9/>
+                </div>
+                <div id="table10">
+                    <Table10/>
+                </div>
+                <div id="table11">
+                    <Table11/>
+                </div>
+                <div id="table12">
+                    <Table12/>
                 </div>
             </div>
         </div>
@@ -41,13 +81,183 @@ function Indicators(){
 function showIndicator(e){
     var table1 = document.getElementById("table1");
     var table2 = document.getElementById("table2");
+    var table3 = document.getElementById("table3");
+    var table4 = document.getElementById("table4");
+    var table5 = document.getElementById("table5");
+    var table6 = document.getElementById("table6");
+    var table7 = document.getElementById("table7");
+    var table8 = document.getElementById("table8");
+    var table9 = document.getElementById("table9");
+    var table10 = document.getElementById("table10");
+    var table11 = document.getElementById("table11");
+    var table12 = document.getElementById("table12");
     if (e.target.id == 1){
         table1.style.display = "block";
         table2.style.display = "none";
+        table3.style.display = "none";
+        table4.style.display = "none";
+        table5.style.display = "none";
+        table6.style.display = "none";
+        table7.style.display = "none";
+        table8.style.display = "none";
+        table9.style.display = "none";
+        table10.style.display = "none";
+        table11.style.display = "none";
+        table12.style.display = "none";
     }
     if (e.target.id == 2){
-        table2.style.display = "block"
         table1.style.display = "none";
+        table2.style.display = "block";
+        table3.style.display = "none";
+        table4.style.display = "none";
+        table5.style.display = "none";
+        table6.style.display = "none";
+        table7.style.display = "none";
+        table8.style.display = "none";
+        table9.style.display = "none";
+        table10.style.display = "none";
+        table11.style.display = "none";
+        table12.style.display = "none";
+    }
+    if (e.target.id == 3){
+        table1.style.display = "none";
+        table2.style.display = "none";
+        table3.style.display = "block";
+        table4.style.display = "none";
+        table5.style.display = "none";
+        table6.style.display = "none";
+        table7.style.display = "none";
+        table8.style.display = "none";
+        table9.style.display = "none";
+        table10.style.display = "none";
+        table11.style.display = "none";
+        table12.style.display = "none";
+    }
+    if (e.target.id == 4){
+        table1.style.display = "none";
+        table2.style.display = "none";
+        table3.style.display = "none";
+        table4.style.display = "block";
+        table5.style.display = "none";
+        table6.style.display = "none";
+        table7.style.display = "none";
+        table8.style.display = "none";
+        table9.style.display = "none";
+        table10.style.display = "none";
+        table11.style.display = "none";
+        table12.style.display = "none";
+    }
+    if (e.target.id == 5){
+        table1.style.display = "none";
+        table2.style.display = "none";
+        table3.style.display = "none";
+        table4.style.display = "none";
+        table5.style.display = "block";
+        table6.style.display = "none";
+        table7.style.display = "none";
+        table8.style.display = "none";
+        table9.style.display = "none";
+        table10.style.display = "none";
+        table11.style.display = "none";
+        table12.style.display = "none";
+    }
+    if (e.target.id == 6){
+        table1.style.display = "none";
+        table2.style.display = "none";
+        table3.style.display = "none";
+        table4.style.display = "none";
+        table5.style.display = "none";
+        table6.style.display = "block";
+        table7.style.display = "none";
+        table8.style.display = "none";
+        table9.style.display = "none";
+        table10.style.display = "none";
+        table11.style.display = "none";
+        table12.style.display = "none";
+    }
+    if (e.target.id == 7){
+        table1.style.display = "none";
+        table2.style.display = "none";
+        table3.style.display = "none";
+        table4.style.display = "none";
+        table5.style.display = "none";
+        table6.style.display = "none";
+        table7.style.display = "block";
+        table8.style.display = "none";
+        table9.style.display = "none";
+        table10.style.display = "none";
+        table11.style.display = "none";
+        table12.style.display = "none";
+    }
+    if (e.target.id == 8){
+        table1.style.display = "none";
+        table2.style.display = "none";
+        table3.style.display = "none";
+        table4.style.display = "none";
+        table5.style.display = "none";
+        table6.style.display = "none";
+        table7.style.display = "none";
+        table8.style.display = "block";
+        table9.style.display = "none";
+        table10.style.display = "none";
+        table11.style.display = "none";
+        table12.style.display = "none";
+    }
+    if (e.target.id == 9){
+        table1.style.display = "none";
+        table2.style.display = "none";
+        table3.style.display = "none";
+        table4.style.display = "none";
+        table5.style.display = "none";
+        table6.style.display = "none";
+        table7.style.display = "none";
+        table8.style.display = "none";
+        table9.style.display = "block";
+        table10.style.display = "none";
+        table11.style.display = "none";
+        table12.style.display = "none";
+    }
+    if (e.target.id == 10){
+        table1.style.display = "none";
+        table2.style.display = "none";
+        table3.style.display = "none";
+        table4.style.display = "none";
+        table5.style.display = "none";
+        table6.style.display = "none";
+        table7.style.display = "none";
+        table8.style.display = "none";
+        table9.style.display = "none";
+        table10.style.display = "block";
+        table11.style.display = "none";
+        table12.style.display = "none";
+    }
+    if (e.target.id == 11){
+        table1.style.display = "none";
+        table2.style.display = "none";
+        table3.style.display = "none";
+        table4.style.display = "none";
+        table5.style.display = "none";
+        table6.style.display = "none";
+        table7.style.display = "none";
+        table8.style.display = "none";
+        table9.style.display = "none";
+        table10.style.display = "none";
+        table11.style.display = "block";
+        table12.style.display = "none";
+    }
+    if (e.target.id == 12){
+        table1.style.display = "none";
+        table2.style.display = "none";
+        table3.style.display = "none";
+        table4.style.display = "none";
+        table5.style.display = "none";
+        table6.style.display = "none";
+        table7.style.display = "none";
+        table8.style.display = "none";
+        table9.style.display = "none";
+        table10.style.display = "none";
+        table11.style.display = "none";
+        table12.style.display = "block";
     }
 }
 
