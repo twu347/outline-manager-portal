@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { Link,Outlet, useNavigate } from "react-router-dom";
 import './outline1.css'
 
 function Outline1(){
+    let navigate = useNavigate();
 
     var matchedData={};
-
-    // set input states
-    const [FormValue, setFormValue]= useState({profName:'', courseNumber:'', courseTitle:'', yearFrom:'', yearTo:'', description:'',office:'', extension:'', email:'',consultation:'', calender:'',lectureHours:'', labHours:'', tutHours:'', antirequisite:'', prerequisites:'', corequisite:'', CEABScience:'', CEABDesign:'', textbook:'', requiredRef:'', recommendRef:'', });
 
     // recognzie user input 
     const handleInput = (e) =>{
@@ -16,6 +15,9 @@ function Outline1(){
     }
 
     // prevent refresh page 
+    function goIndicator(){
+        navigate('/Indicators');
+    }
     const handleForm = async (e) => {
         e.preventDefault();
         var count = 0;
@@ -128,6 +130,7 @@ function Outline1(){
                     <input id="courseShow" placeholder="enter course number"/>
                     <input id="profShow" placeholder="enter prof number"/>
                     <button onClick={showInfo}> show </button>
+                    <button id="indicator" onClick={goIndicator}>GA indicator</button>
                 </div>
                 <div className="scroll-bar">
 

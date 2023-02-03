@@ -3,12 +3,17 @@ import './courses.css'
 import { useState } from "react";
 import Prof from "../prof/prof";
 import CourseList from "../courseList/courseList";
+import { Link,Outlet, useNavigate } from "react-router-dom";
 
 function Courses(){
-  
+  let navigate = useNavigate();
   // define use state 
   const [users, setUser] = useState([]);
   const [courses, setCourse] = useState([]);
+
+  function goIndicator(){
+    navigate('/indicators')
+  }
 
   // fetch login API
   function setUsers(){
@@ -67,6 +72,7 @@ function Courses(){
   return(
     
     <div>
+      <button onClick={goIndicator}>GA indicator</button>
       {/* display instructor information */}
       <div className="left-box">
         <div className="left-text"> Instructors And Related Course</div>

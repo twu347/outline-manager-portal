@@ -90,7 +90,7 @@ app.post('/api/outline1', async (req, res) => {
 
 //get all information with course number and instructor name
 app.get('/api/getInfo/:courseNumber/:profName', (req, res) => {
-    outline.collection('outlines').find({"courseNumber": parseInt(req.params.courseNumber), "profName": req.params.profName }).toArray((err, data) => {
+    outlines.collection('outlines').find({"courseNumber": parseInt(req.params.courseNumber), "profName": req.params.profName }).toArray((err, data) => {
         if (err) throw err;
         res.json(data);
     });
@@ -136,7 +136,7 @@ app.put('/api/putInfo/:courseNumber/:profName', (req, res) => {
 
 
 app.get('/api/getDoc', (req, res) => {
-    outline.collection('outlines').find({}).toArray((err, data) => {
+    outlines.collection('outlines').find({}).toArray((err, data) => {
         if (err) throw err;
         res.json(data);
     });
