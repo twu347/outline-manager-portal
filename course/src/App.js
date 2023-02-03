@@ -6,6 +6,7 @@ import Footer from './components/footer/footer';
 import Login from './components/login/login';
 import Courses from './components/courses/courses';
 import Prof from "./components/prof/prof";
+import Indicators from "./components/indicators/indicators";
 
 class App extends Component{
   render(){
@@ -20,6 +21,7 @@ class App extends Component{
           <Route path="/"  element={<Login />} />
           <Route path="/courses" element={<Courses />}/>
           <Route path="/profs" element={<Prof/>}/>
+          <Route path="/indicators" element={<Indicators/>}/>
         </Routes>
       </BrowserRouter>
 
