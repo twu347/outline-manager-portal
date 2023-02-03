@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/twu347/SE3350---React-UI#readme",
   "dependencies": {
+    "body-parser": "^1.20.1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "lodash": "^4.17.21",

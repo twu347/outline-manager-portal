@@ -25,24 +25,32 @@ router.get("/", (req, res) => {
 });
 // emable incoming json request req.body
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// use body parser
+var bodyParser = require('body-parser');
+app.use(bodyParser.json({ type: 'application/*+json' }));
 
 // connection to MongoDB 
 const mongoose = require('mongoose');
 const MongoClient = require('mongodb').MongoClient;
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser:true})
+mongoose.set('strictQuery', false);
 const db = mongoose.connection
 db.on('error', (error) => console.error(error));
 db.once('open', () => console.log('Connected to Database'));
 
-
-
-// import User schema 
+// import schema 
 const User = require('./user.js');
+const Page1 = require('./OutlineSchema/page1.js');
+const CEAB = require('./OutlineSchema/ceab.js');
+const Topics = require('./OutlineSchema/topics.js');
+const Outline = require('./OutlineSchema/outline.js');
+const Course = require('./course.js');
 
+
+// require lodash
 const { result } = require('lodash');
-
-// import Course schema
-const Course = require('./course.js')
 
 // fetch all username and password
 app.get('/api/username', (req, res) => {
@@ -60,6 +68,238 @@ app.post('/api/register', async (req, res) => {
     let result = await user.save();
     res.send(result);
 })
+
+// create course outline first page
+app.post('/api/outline1', async (req, res) => {
+    let one = new Page1({
+        title : req.body.title, 
+	    courseName : req.body.courseName,  
+	    description : req.body.description, 
+	    instructor : req.body.instructor,  
+	    aca : req.body.aca, 
+	    hours : req.body.hours, 
+	    prerequisites : req.body.prerequisites, 
+	    corequisite : req.body.corequisite, 
+	    notice : req.body.notice,
+	    CEAB : req.body.CEAB,
+	    textbook : req.body.textbook,
+    }); 
+    let result = await one.save(); 
+    res.send(result);
+});
+
+//get all information with course number and instructor name
+app.get('/api/getInfo/:courseNumber/:profName', (req, res) => {
+    outline.collection('outlines').find({"courseNumber": parseInt(req.params.courseNumber), "profName": req.params.profName }).toArray((err, data) => {
+        if (err) throw err;
+        res.json(data);
+    });
+});
+
+app.put('/api/putInfo/:courseNumber/:profName', (req, res) => {
+    Outline.updateOne({courseNumber: req.params.courseNumber, profName: req.params.profName},{
+        $set:{
+            courseTitle : req.body.courseTitle, 
+            yearFrom : req.body.yearFrom, 
+            yearTo : req.body.yearTo, 
+            description : req.body.description, 
+            office : req.body.office, 
+            extension : req.body.extension, 
+            email : req.body.email, 
+            consultation : req.body.consultation, 
+            calender : req.body.calender, 
+            lectureHours : req.body.lectureHours, 
+            labHours : req.body.labHours, 
+            tutHours : req.body.tutHours, 
+            antirequisite : req.body.antirequisite, 
+            prerequisites : req.body.prerequisites, 
+            corequisite : req.body.corequisite, 
+            CEABScience : req.body.CEABScience, 
+            CEABDesign : req.body.CEABDesign, 
+            textbook : req.body.textbook, 
+            requiredRef : req.body.requiredRef, 
+            recommendRef : req.body.recommendRef,
+            }
+
+    }).then(result => {
+        res.status(200).json({
+            updated_product : result
+        })
+    })
+    .catch(err =>{
+        console.log(err);
+        res.status(500).json({
+            error:err
+        })
+    })
+});
+
+
+app.get('/api/getDoc', (req, res) => {
+    outline.collection('outlines').find({}).toArray((err, data) => {
+        if (err) throw err;
+        res.json(data);
+    });
+});
+
+
+app.post('/api/outline', async(req, res) => {
+    let input = new Outline({
+        courseNumber : req.body.courseNumber, 
+        courseTitle : req.body.courseTitle, 
+        yearFrom : req.body.yearFrom, 
+        yearTo : req.body.yearTo, 
+        description : req.body.description, 
+        profName : req.body.profName, 
+        office : req.body.office, 
+        extension : req.body.extension, 
+        email : req.body.email, 
+        consultation : req.body.consultation, 
+        calender : req.body.calender, 
+        lectureHours : req.body.lectureHours, 
+        labHours : req.body.labHours, 
+        tutHours : req.body.tutHours, 
+        antirequisite : req.body.antirequisite, 
+        prerequisites : req.body.prerequisites, 
+        corequisite : req.body.corequisite, 
+        CEABScience : req.body.CEABScience, 
+        CEABDesign : req.body.CEABDesign, 
+        textbook : req.body.textbook, 
+        requiredRef : req.body.requiredRef, 
+        recommendRef : req.body.recommendRef,
+    });
+    let result = await input.save(); 
+    res.send(result);
+})
+
+// assign CEAB attributes 
+app.post('/api/ceab', async (req, res) => {
+    let ceab = new CEAB({
+        knowledge : req.body.knowledge, 
+        problem : req.body.problem, 
+        investigation : req.body.investigation, 
+        design : req.body.design, 
+        tools : req.body.tools,
+        team : req.body.team, 
+        communication : req.body.communication, 
+        professionalism : req.body.professionalism, 
+        impact : req.body.impact, 
+        ethics : req.body.ethics, 
+        economics : req.body.economics, 
+        learning : req.body.learning,
+    }); 
+    let result = await ceab.save(); 
+    res.send(result);
+}); 
+
+
+// create course topics and specific learning outcomes 
+app.post('/api/topics', async (req, res) => {
+    let topics = new Topics({
+        courseNumber : req.body.courseNumber,
+        topic : req.body.topic, 
+        CEAB : req.body.CEAB,
+    });
+    let result = await topics.save();
+    res.send(result)
+});
+
+// update course outline first page
+app.put('/api/outline1/:_id', async(req, res) => {
+    Page1.findOneAndUpdate({_id : req.params._id}, {
+        $set : {
+            title : req.body.title, 
+            courseName : req.body.courseName,  
+	        description : req.body.description, 
+	        instructor : req.body.instructor,  
+	        aca : req.body.aca, 
+	        hours : req.body.hours, 
+	        prerequisites : req.body.prerequisites, 
+	        corequisite : req.body.corequisite, 
+	        notice : req.body.notice,
+	        CEAB : req.body.CEAB,
+	        textbook : req.body.textbook,
+        }
+    }).then(result => {
+        res.status(200).json({
+            update_product : result
+        })
+    }).catch(err => {
+        res.status(500).json({
+            error : err
+        })
+    })
+});
+
+// update CEAB attributes
+app.put('/api/ceab/:_id', async(req, res) => {
+    CEAB.findOneAndUpdate({_id : req.params._id}, {
+        $set : {
+            knowledge : req.body.knowledge, 
+            problem : req.body.problem, 
+            investigation : req.body.investigation, 
+            design : req.body.design, 
+            tools : req.body.tools,
+            team : req.body.team, 
+            communication : req.body.communication, 
+            professionalism : req.body.professionalism, 
+            impact : req.body.impact, 
+            ethics : req.body.ethics, 
+            economics : req.body.economics, 
+            learning : req.body.learning,
+        }
+    }).then(result => {
+        res.status(200).json({
+            update_product : result
+        })
+    }).catch(err => {
+        res.status(500).json({
+            error : err
+        })
+    })
+});
+
+// update course topics and specific learning outcomes 
+app.put('/api/topics/:courseNumber', async(req, res) => {
+    Topics.findOneAndUpdate({courseNumber : req.params.courseNumber}, {
+        $set : {
+            topic : req.body.topic, 
+            CEAB : req.body.CEAB,
+        }
+    }).then(result => {
+        res.status(200).json({
+            update_product : result
+        })
+    }).catch(err => {
+        res.status(500).json({
+            error : err
+        })
+    })
+});
+
+// delete course outline first page
+app.delete('/api/outline1/:_id', async(req, res) => {
+    let pending = req.params._id;
+    Page1.findOneAndDelete(({_id: pending}), function(err, docs){
+        res.send(docs);
+    });
+});
+
+// delete CEAB attributes 
+app.delete('/api/ceab/:_id', async(req, res) => {
+    let pending = req.params._id; 
+    CEAB.findOneAndDelete(({_id: pending}), function(err, docs){
+        res.send(docs);
+    });
+})
+
+// delete course topics and specific learning outcomes 
+app.delete('/api/topics/:courseNumber', async(req, res) => {
+    let pending = req.params.courseNumber; 
+    Topics.findOneAndDelete(({courseNumber: pending}), function(err, docs){
+        res.send(docs);
+    });
+});
 
 // create a new course
 app.post('/api/newcourse', async (req, res) => {
@@ -168,6 +408,7 @@ app.listen(port, () =>{
         if(error) throw error
         database = result.db('SE3350');
         outlines = result.db('test')
+
     });
     console.log(`Listing on port ${port}`);
 });

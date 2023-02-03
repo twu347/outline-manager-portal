@@ -29,7 +29,7 @@ function Login(){
                     navigate('/Courses');
                 }
                 else if(data.result == 2){
-                    navigate('/Profs');
+                    navigate('/Outline1');
                 }
                 else{
                     alert('Username & Password Incorrect')
