@@ -1,6 +1,101 @@
-.box {
-    width: 100px;
-    height: 30px;
+.left-box{
+    position:relative; 
+    top:100px;
+    left:90px;
+    height:500px;
+    width: 400px;
+    background-color: lightblue;
     border-radius: 30px;
-    border: 3px solid green;
+}
+
+.right-box{
+    position:relative; 
+    top:-400px;
+    left:1025px;
+    height:500px;
+    width: 400px;
+    background-color: lightgray;
+    border-radius: 30px;
+}
+
+.left-text{
+    position: relative;
+    top:30px;
+    text-align: center;
+}
+
+.right-text{
+    position:relative; 
+    top:30px;
+    text-align: center;
+}
+
+.left-content{
+    position: relative;
+    top:50px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.right-content{
+    position:relative; 
+    top:50px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.input-instructor{
+    position: relative;
+    top:-850px;
+    left:540px;
+    width: 423px;
+    height: 47px;
+    background: #D9D9D9;
+}
+
+.input-course{
+    position:relative; 
+    top:-780px;
+    left:110px;
+    width: 423px;
+    height: 47px;
+    background: #D9D9D9;
+}
+
+.assign-btn {
+    position: absolute;
+    width: 185px;
+    height: 47px;
+    left: 680px;
+    top: 310px;
+    background: #D9D9D9;
+    border-radius: 30px;
+}
+
+.delete-instructor{
+    position: relative;
+    top:-680px;
+    left:540px;
+    width: 423px;
+    height: 47px;
+    background: #D9D9D9;
+}
+
+.delete-course{
+    position: relative;
+    top:-600px;
+    left:110px;
+    width: 423px;
+    height: 47px;
+    background: #D9D9D9;
+}
+
+.btn{
+    position: absolute;
+    width: 185px;
+    height: 47px;
+    left: 680px;
+    top: 550px;
+    background: #D9D9D9;
+    border-radius: 30px;
 }

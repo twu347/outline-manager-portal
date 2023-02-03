@@ -20,8 +20,8 @@ function Login(){
                 'Content-Type' : 'application/json',
             },
             body:JSON.stringify({
-                username,
-                password,
+                username: username,
+                password: password,
             }),
         }).then((res)=>{
             res.json().then(data=>{
@@ -29,7 +29,7 @@ function Login(){
                     navigate('/Courses');
                 }
                 else if(data.result == 2){
-                    navigate('/Profs');
+                    navigate('/Outline1');
                 }
                 else{
                     alert('Username & Password Incorrect')
