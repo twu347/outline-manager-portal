@@ -34,10 +34,15 @@
     color: red;
 }
 
-.description {
+.tables {
+    overflow: auto;
     text-align: center;
     position: relative;
     top: 275px;
+    overflow-y: scroll;
+    height: 325px;
+    border: 1px solid black;
+    padding: 10px;
 }
 
 table, th, td {
@@ -50,4 +55,8 @@ table {
 
 #table1, #table2, #table3, #table4, #table5, #table6, #table7, #table8, #table9, #table10, #table11, #table12 {
     display: none;
+}
+
+li {
+    text-align: left;
 }
