@@ -7,6 +7,7 @@ import Login from './components/login/login';
 import Courses from './components/courses/courses';
 import Indicators from "./components/indicators/indicators";
 import Outline1 from "./components/outline1/outline1";
+import AdminHome from "./components/adminPanel/adminHome";
 
 class App extends Component{
   render(){
@@ -22,6 +23,7 @@ class App extends Component{
           <Route path="/courses" element={<Courses />}/>
           <Route path="/outline1" element={<Outline1/>}/>
           <Route path="/indicators" element={<Indicators/>}/>
+          <Route path="/adminHome" element={<AdminHome/>}/>
         </Routes>
       </BrowserRouter>
 
