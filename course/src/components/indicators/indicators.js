@@ -13,10 +13,18 @@ import Table9 from "./Tables/GA9";
 import Table10 from "./Tables/GA10";
 import Table11 from "./Tables/GA11";
 import Table12 from "./Tables/GA12";
+import { Link,Outlet, useNavigate } from "react-router-dom";
 
 function Indicators(){
+    let navigate = useNavigate();
+
+    function goManagerPortal(){
+        navigate('/Courses');
+    }
+
     return(
         <div>
+            <button class="managerPortal" onClick={goManagerPortal}>Manager Portal</button>
             <div class="header"> 
                 <h2 class="heading">GA Indicator Information</h2>
             </div>
