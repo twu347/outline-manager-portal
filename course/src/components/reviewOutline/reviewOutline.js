@@ -15,12 +15,35 @@ function ReviewOutline() {
 
     return (
         <div class = "box">
-            {console.log(courseOutlines)}
             {courseOutlines.map(courseOutline => (
-                <div class="boxes" key={courseOutline._id} style={{border: "1px solid black", padding: "10px", margin: "10px"}}>
+                <div class="boxes" key={courseOutline._id}>
                     <p>Course Title: {courseOutline.courseTitle}</p>
                     <p>Course Number: {courseOutline.courseNumber}</p>
-                    <button class="approve-btn">Approve</button>
+                    <p>Approved: {courseOutline.approved}</p>
+                    <button
+                    className="approve-btn"
+                    onClick={() => {
+                        // Call PUT request to update courseOutline.approved
+                        fetch(`/api/outline/${encodeURIComponent(courseOutline._id)}`, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                approved : "true"
+                            })
+                        }).then(response => {
+                            // Handle response
+                            console.log(response);
+                        }).catch(error => {
+                            // Handle error
+                            console.error("Error: "+error);
+                        });
+                        window.location.reload();
+                    }}
+                >
+                    Approve
+                </button>
                     <button>Review</button>
                 </div>
             ))}
