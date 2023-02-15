@@ -12,7 +12,7 @@ function AdminHome(){
     }
     
     function goReview(){
-        navigate('/review')
+        navigate('/reviewOutline')
     }
 
     function goLogin(){
