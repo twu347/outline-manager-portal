@@ -1,18 +1,12 @@
 .scroll-bar{
     height: 500px;
-    width: 1400pt;
+    width: 1400px;
     position: relative;
     top: 100px;
     left: 70px;
     border: 3px solid gray;
     font-family : 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    
-    word-wrap: normal;
-}
-#test{
-    background-color: chocolate;
-    height: auto;
-    width: 500pt;
+    overflow: auto;
 }
 
 .scroll-bar .line1{

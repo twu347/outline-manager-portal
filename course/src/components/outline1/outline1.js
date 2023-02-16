@@ -1,8 +1,5 @@
 import React, { useEffect } from "react";
-/* ES6 */
-import * as htmlToImage from 'html-to-image';
-import { jsPDF } from "jspdf";
-import html2canvas from 'html2canvas';
+import { useState } from "react";
 import { Link,Outlet, useNavigate } from "react-router-dom";
 import './outline1.css'
 
@@ -126,29 +123,16 @@ function Outline1(){
         });
     };
 
-    function print(){
-        var element = document.querySelector("#myPage");
-        var doc = new jsPDF("p", "pt", [2100, element.offsetHeight*10]);
-        doc.html(element,{
-            callback: function(pdf){
-                pdf.save("mupdf.pdf");
-            }
-        })
-    }
-    
-
     return(
         <div>
             <div >
                 <div>
-                    
                     <input id="courseShow" placeholder="enter course number"/>
                     <input id="profShow" placeholder="enter prof number"/>
                     <button onClick={showInfo}> show </button>
                     <button id="indicator" onClick={goIndicator}>GA indicator</button>
-                    <button onClick={print}>Print as PDF</button>
                 </div>
-                <div className="scroll-bar" id='myPage'>
+                <div className="scroll-bar">
 
                     {/* Flow Event (Full Instructions): 
                     Pre-conditions: the user choose a course 
