@@ -9,6 +9,7 @@ import Indicators from "./components/indicators/indicators";
 import Outline1 from "./components/outline1/outline1";
 import AdminHome from "./components/adminPanel/adminHome";
 import ReviewOutline from "./components/reviewOutline/reviewOutline";
+import ViewOutline from "./components/viewOutline/viewOutline";
 
 class App extends Component{
   render(){
@@ -26,6 +27,7 @@ class App extends Component{
           <Route path="/indicators" element={<Indicators/>}/>
           <Route path="/adminHome" element={<AdminHome/>}/>
           <Route path="/reviewOutline" element={<ReviewOutline/>}/>
+          <Route path="/viewOutline" element={<ViewOutline/>}/>
         </Routes>
       </BrowserRouter>
 

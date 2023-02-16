@@ -6,6 +6,11 @@ import { Link,Outlet, useNavigate } from "react-router-dom";
 
 function ReviewOutline() {
     const [courseOutlines, setCourseOutlines] = useState([]);
+    let navigate = useNavigate();
+
+    function goViewOutline(){
+        navigate('/viewOutline');
+    }
 
     useEffect(() => {
         fetch('http://localhost:3333/api/courseOutlines')
@@ -44,7 +49,7 @@ function ReviewOutline() {
                 >
                     Approve
                 </button>
-                    <button>Review</button>
+                    <button onClick={goViewOutline}>Review</button>
                 </div>
             ))}
         </div>
