@@ -1,13 +1,9 @@
-<<<<<<< Updated upstream
-import React, { useEffect } from "react";
-import { useState } from "react";
-=======
+
 import React, { useEffect, useState } from "react";
 /* ES6 */
 import * as htmlToImage from 'html-to-image';
 import { jsPDF } from "jspdf";
 import html2canvas from 'html2canvas';
->>>>>>> Stashed changes
 import { Link,Outlet, useNavigate } from "react-router-dom";
 import './outline1.css'
 
