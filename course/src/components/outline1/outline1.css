@@ -1,6 +1,11 @@
 .scroll-bar{
+<<<<<<< Updated upstream
     height: 500px;
     width: 1400px;
+=======
+    height: 7000px;
+    width: 1400pt;
+>>>>>>> Stashed changes
     position: relative;
     top: 100px;
     left: 70px;
