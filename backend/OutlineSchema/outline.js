@@ -1,4 +1,3 @@
-const { Int32 } = require('mongodb');
 const mongoose = require('mongoose');
 
 // this schema should try to combine with ceab.js schema 
@@ -12,13 +11,9 @@ const Outline = new mongoose.Schema({
     }, 
     yearFrom:{
         type:Number, 
-        min:00, 
-        max:99,
     }, 
     yearTo:{
         type:Number, 
-        min:00, 
-        max:99, 
     },
     description:{
         type:String,
@@ -29,13 +24,9 @@ const Outline = new mongoose.Schema({
     }, 
     office:{
         type:Number, 
-        min:000, 
-        max:999,
     }, 
     extension:{
         type:Number, 
-        min:00000, 
-        max:99999,
     }, 
     email:{
         type:String, 
@@ -79,7 +70,159 @@ const Outline = new mongoose.Schema({
     recommendRef:{
         type:String, 
     }, 
-
+    // the GA indicator schema 
+    knowledge : {
+        type : String, 
+    }, 
+    problem : {
+        type : String, 
+    },
+    investigation : {
+        type : String, 
+    }, 
+    design : {
+        type : String, 
+    }, 
+    tools : {
+        type : String, 
+    },
+    team : {
+        type : String, 
+    },
+    communication : {
+        type : String, 
+    }, 
+    professionalism : {
+        type : String, 
+    }, 
+    impact : {
+        type : String, 
+    }, 
+    ethics : {
+        type : String, 
+    }, 
+    economics : {
+        type : String, 
+    }, 
+    learning : {
+        type : String, 
+    },
+    textarea01 : {
+        type : String, 
+    },
+    textarea02 : {
+        type : String, 
+    }, 
+    textarea03 : {
+        type : String,
+    }, 
+    textarea04 : {
+        type : String, 
+    }, 
+    textarea11 : {
+        type : String, 
+    }, 
+    textarea12 : {
+        type : String, 
+    }, 
+    textarea13 : {
+        type : String, 
+    }, 
+    textarea14 : {
+        type : String, 
+    }, 
+    textarea21 : {
+        type : String, 
+    }, 
+    textarea22 : {
+        type : String, 
+    }, 
+    textarea23 : {
+        type : String, 
+    }, 
+    textarea24 : {
+        type : String, 
+    }, 
+    textarea31 : {
+        type : String, 
+    }, 
+    textarea32 : {
+        type : String, 
+    }, 
+    textarea33 : {
+        type : String, 
+    }, 
+    textarea34 : {
+        type : String, 
+    }, 
+    GAType1 : {
+        type : String, 
+        enum: ['KB', 'PA', 'I', 'D', 'ET', 'ITW', 'CS', 'PR', 'IESE', 'EE', 'EPM', 'LL'],
+    }, 
+    GAType2 : {
+        type : String, 
+        enum: ['KB', 'PA', 'I', 'D', 'ET', 'ITW', 'CS', 'PR', 'IESE', 'EE', 'EPM', 'LL'],
+    }, 
+    GAType3 : {
+        type : String, 
+        enum: ['KB', 'PA', 'I', 'D', 'ET', 'ITW', 'CS', 'PR', 'IESE', 'EE', 'EPM', 'LL'],
+    }, 
+    GAType4 : {
+        type : String, 
+        enum: ['KB', 'PA', 'I', 'D', 'ET', 'ITW', 'CS', 'PR', 'IESE', 'EE', 'EPM', 'LL'],
+    }, 
+    GAValue1 : {
+        type : String, 
+        enum: ['1', '2', '3', '4'],
+    }, 
+    GAValue2 : {
+        type : String, 
+        enum: ['1', '2', '3', '4'],
+    }, 
+    GAValue3 : {
+        type : String, 
+        enum: ['1', '2', '3', '4'],
+    }, 
+    GAValue4 : {
+        type : String, 
+        enum: ['1', '2', '3', '4'],
+    }, 
+    gradeHomework : {
+        type : String, 
+    }, 
+    gradeQuiz : {
+        type : String, 
+    }, 
+    gradeLab : {
+        type : String, 
+    }, 
+    gradeMidterm : {
+        type : String, 
+    }, 
+    homeworkAssignment : {
+        type : String, 
+    }, 
+    quizzes : {
+        type : String, 
+    }, 
+    lab : {
+        type : String, 
+    }, 
+    midterm : {
+        type : String, 
+    }, 
+    latePolicy : {
+        type : String, 
+    }, 
+    locker : {
+        type : String, 
+    }, 
+    mobileDevice : {
+        type : String, 
+    }, 
+    clicker : {
+        type : String, 
+    }
 });
 
 const model = mongoose.model('Outline', Outline);
