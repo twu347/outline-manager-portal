@@ -26,7 +26,7 @@ function Login(){
         }).then((res)=>{
             res.json().then(data=>{
                 if(data.result == 1){
-                    navigate('/Courses');
+                    navigate('/adminHome');
                 }
                 else if(data.result == 2){
                     navigate('/Outline1');

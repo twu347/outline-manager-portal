@@ -61,6 +61,24 @@ app.get('/api/username', (req, res) => {
     });
 });
 
+app.get('/api/courseOutlines', (req, res) => {
+     
+    outlines.collection('outlines').find({}).toArray((err, data) => {
+        if (err) throw err;
+        
+        res.json(data);
+    });
+});
+
+// fetch all outlines
+app.get('/api/courseOutlines', (req, res) => {
+     
+    outlines.collection('outlines').find({}).toArray((err, data) => {
+        if (err) throw err;
+        res.json(data);
+    });
+});
+
 // create an account - this should not be implemented in front end 
 app.post('/api/register', async (req, res) => {
     let user = new User(req.body);
@@ -297,6 +315,23 @@ app.put('/api/outline1/:_id', async(req, res) => {
 	        notice : req.body.notice,
 	        CEAB : req.body.CEAB,
 	        textbook : req.body.textbook,
+        }
+    }).then(result => {
+        res.status(200).json({
+            update_product : result
+        })
+    }).catch(err => {
+        res.status(500).json({
+            error : err
+        })
+    })
+});
+
+// update course outline first page
+app.put('/api/outline/:_id', async(req, res) => {
+    Outline.findOneAndUpdate({_id : req.params._id}, {
+        $set : {
+            approved : "true", 
         }
     }).then(result => {
         res.status(200).json({

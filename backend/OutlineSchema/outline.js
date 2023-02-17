@@ -13,6 +13,11 @@ const Outline = new mongoose.Schema({
     courseTitle:{
         type:String, 
     }, 
+    approved:{
+        type: String,
+        required: true,
+        default: false,
+    },
     yearFrom:{
         type:Number, 
     }, 
