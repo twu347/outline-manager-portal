@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { jsPDF } from "jspdf";
 import { Link,Outlet, useNavigate } from "react-router-dom";
 import { jsPDF } from "jspdf";
 import './outline1.css'
