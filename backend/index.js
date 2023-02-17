@@ -80,6 +80,7 @@ app.get('/api/getInfo/:courseNumber/:profName', (req, res) => {
 app.put('/api/putInfo/:courseNumber/:profName', (req, res) => {
     Outline.updateOne({courseNumber: req.params.courseNumber, profName: req.params.profName},{
         $set:{
+        timeStamp : req.body.timeStamp,
         courseTitle : req.body.courseTitle, 
         yearFrom : req.body.yearFrom, 
         yearTo : req.body.yearTo, 
@@ -174,6 +175,7 @@ app.get('/api/getDoc', (req, res) => {
 // create a new course outline 
 app.post('/api/outline', async(req, res) => {
     let input = new Outline({
+        timeStamp : req.body.timeStamp,
         courseNumber : req.body.courseNumber, 
         courseTitle : req.body.courseTitle, 
         yearFrom : req.body.yearFrom, 

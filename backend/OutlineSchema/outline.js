@@ -6,6 +6,10 @@ const Outline = new mongoose.Schema({
         type:Number, 
         required:true,
     }, 
+    timeStamp:{
+        type:String,
+        required:true, 
+    },
     courseTitle:{
         type:String, 
     }, 
@@ -157,35 +161,35 @@ const Outline = new mongoose.Schema({
     }, 
     GAType1 : {
         type : String, 
-        enum: ['KB', 'PA', 'I', 'D', 'ET', 'ITW', 'CS', 'PR', 'IESE', 'EE', 'EPM', 'LL'],
+        enum: ['KB', 'PA', 'I', 'D', 'ET', 'ITW', 'CS', 'PR', 'IESE', 'EE', 'EPM', 'LL', ''],
     }, 
     GAType2 : {
         type : String, 
-        enum: ['KB', 'PA', 'I', 'D', 'ET', 'ITW', 'CS', 'PR', 'IESE', 'EE', 'EPM', 'LL'],
+        enum: ['KB', 'PA', 'I', 'D', 'ET', 'ITW', 'CS', 'PR', 'IESE', 'EE', 'EPM', 'LL', ''],
     }, 
     GAType3 : {
         type : String, 
-        enum: ['KB', 'PA', 'I', 'D', 'ET', 'ITW', 'CS', 'PR', 'IESE', 'EE', 'EPM', 'LL'],
+        enum: ['KB', 'PA', 'I', 'D', 'ET', 'ITW', 'CS', 'PR', 'IESE', 'EE', 'EPM', 'LL', ''],
     }, 
     GAType4 : {
         type : String, 
-        enum: ['KB', 'PA', 'I', 'D', 'ET', 'ITW', 'CS', 'PR', 'IESE', 'EE', 'EPM', 'LL'],
+        enum: ['KB', 'PA', 'I', 'D', 'ET', 'ITW', 'CS', 'PR', 'IESE', 'EE', 'EPM', 'LL', ''],
     }, 
     GAValue1 : {
         type : String, 
-        enum: ['1', '2', '3', '4'],
+        enum: ['1', '2', '3', '4', ''],
     }, 
     GAValue2 : {
         type : String, 
-        enum: ['1', '2', '3', '4'],
+        enum: ['1', '2', '3', '4', ''],
     }, 
     GAValue3 : {
         type : String, 
-        enum: ['1', '2', '3', '4'],
+        enum: ['1', '2', '3', '4', ''],
     }, 
     GAValue4 : {
         type : String, 
-        enum: ['1', '2', '3', '4'],
+        enum: ['1', '2', '3', '4', ''],
     }, 
     gradeHomework : {
         type : String, 

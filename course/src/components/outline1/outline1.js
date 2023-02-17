@@ -32,6 +32,7 @@ function Outline1(){
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
+                            timeStamp: document.getElementById('timeStamp').value,
                             profName:document.getElementById('profName').value ,
                             courseNumber:document.getElementById('courseNumber').value,
                             courseTitle:document.getElementById('courseTitle').value, 
@@ -111,6 +112,7 @@ function Outline1(){
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
+                            timeStamp: document.getElementById('timeStamp').value,
                             courseTitle:document.getElementById('courseTitle').value, 
                             yearFrom:document.getElementById('yearFrom').value, 
                             yearTo:document.getElementById('yearTo').value, 
@@ -192,6 +194,7 @@ function Outline1(){
         const profShow = document.getElementById('profShow').value;
         fetch(`http://localhost:3333/api/getInfo/${courseShow}/${profShow}`).then((res)=>{
             res.json().then((data)=>{
+                document.getElementById('timeStamp').value = data[0].timeStamp;
                 document.getElementById('courseNumber').value = data[0].courseNumber;
                 document.getElementById('courseTitle').value = data[0].courseTitle;
                 document.getElementById('yearFrom').value=data[0].yearFrom;
@@ -468,6 +471,7 @@ function Outline1(){
                 <div className="scroll-bar" id='myPage'>
 
                     <button onClick={handleForm}>Save</button>
+                    <input type="text" id='timeStamp' placeholder="Enter time you edited"/>
                     <h3 className="line1">Western University</h3>
                     <h3 className="line1">Faculty of Engineering</h3>
                     <h3 className="line1">Department of Electrical and Computer Engineering</h3>
