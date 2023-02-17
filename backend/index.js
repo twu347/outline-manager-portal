@@ -4,17 +4,19 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router(); 
 const cors = require('cors');
-// connection to express 
 
+// connection to express 
 const app = express();
 const port = 3333;
 
-const corsOptions ={
+// set cors 
+const corsOptions = {
     origin:'http://localhost:3000', 
-    credentials:true,            //access-control-allow-credentials:true
+    credentials:true,            
     optionSuccessStatus:200
 }
 
+// set cors headers
 app.use(cors(corsOptions));
 router.get("/", (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*")
@@ -23,6 +25,7 @@ router.get("/", (req, res) => {
     res.setHeader("Access-Control-Allow-Headers", "content-type");
     res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
 });
+
 // emable incoming json request req.body
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -36,7 +39,7 @@ const mongoose = require('mongoose');
 const MongoClient = require('mongodb').MongoClient;
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser:true})
 mongoose.set('strictQuery', false);
-const db = mongoose.connection
+const db = mongoose.connection;
 db.on('error', (error) => console.error(error));
 db.once('open', () => console.log('Connected to Database'));
 
@@ -47,15 +50,20 @@ const CEAB = require('./OutlineSchema/ceab.js');
 const Topics = require('./OutlineSchema/topics.js');
 const Outline = require('./OutlineSchema/outline.js');
 const Course = require('./course.js');
-
-
 // require lodash
 const { result } = require('lodash');
 
 // fetch all username and password
 app.get('/api/username', (req, res) => {
-     
     database.collection('Username').find({}).toArray((err, data) => {
+        if (err) throw err;
+        res.json(data);
+    });
+});
+
+app.get('/api/courseOutlines', (req, res) => {
+     
+    outlines.collection('outlines').find({}).toArray((err, data) => {
         if (err) throw err;
         
         res.json(data);
@@ -78,26 +86,7 @@ app.post('/api/register', async (req, res) => {
     res.send(result);
 })
 
-// create course outline first page
-app.post('/api/outline1', async (req, res) => {
-    let one = new Page1({
-        title : req.body.title, 
-	    courseName : req.body.courseName,  
-	    description : req.body.description, 
-	    instructor : req.body.instructor,  
-	    aca : req.body.aca, 
-	    hours : req.body.hours, 
-	    prerequisites : req.body.prerequisites, 
-	    corequisite : req.body.corequisite, 
-	    notice : req.body.notice,
-	    CEAB : req.body.CEAB,
-	    textbook : req.body.textbook,
-    }); 
-    let result = await one.save(); 
-    res.send(result);
-});
-
-//get all information with course number and instructor name
+// get all information with course number and instructor name
 app.get('/api/getInfo/:courseNumber/:profName', (req, res) => {
     outlines.collection('outlines').find({"courseNumber": parseInt(req.params.courseNumber), "profName": req.params.profName }).toArray((err, data) => {
         if (err) throw err;
@@ -105,31 +94,80 @@ app.get('/api/getInfo/:courseNumber/:profName', (req, res) => {
     });
 });
 
+// change course outline base on instructor name and course number 
 app.put('/api/putInfo/:courseNumber/:profName', (req, res) => {
     Outline.updateOne({courseNumber: req.params.courseNumber, profName: req.params.profName},{
         $set:{
-            courseTitle : req.body.courseTitle, 
-            yearFrom : req.body.yearFrom, 
-            yearTo : req.body.yearTo, 
-            description : req.body.description, 
-            office : req.body.office, 
-            extension : req.body.extension, 
-            email : req.body.email, 
-            consultation : req.body.consultation, 
-            calender : req.body.calender, 
-            lectureHours : req.body.lectureHours, 
-            labHours : req.body.labHours, 
-            tutHours : req.body.tutHours, 
-            antirequisite : req.body.antirequisite, 
-            prerequisites : req.body.prerequisites, 
-            corequisite : req.body.corequisite, 
-            CEABScience : req.body.CEABScience, 
-            CEABDesign : req.body.CEABDesign, 
-            textbook : req.body.textbook, 
-            requiredRef : req.body.requiredRef, 
-            recommendRef : req.body.recommendRef,
-            }
-
+        courseTitle : req.body.courseTitle, 
+        yearFrom : req.body.yearFrom, 
+        yearTo : req.body.yearTo, 
+        description : req.body.description, 
+        profName : req.body.profName, 
+        office : req.body.office, 
+        extension : req.body.extension, 
+        email : req.body.email, 
+        consultation : req.body.consultation, 
+        calender : req.body.calender, 
+        lectureHours : req.body.lectureHours, 
+        labHours : req.body.labHours, 
+        tutHours : req.body.tutHours, 
+        antirequisite : req.body.antirequisite, 
+        prerequisites : req.body.prerequisites, 
+        corequisite : req.body.corequisite, 
+        CEABScience : req.body.CEABScience, 
+        CEABDesign : req.body.CEABDesign, 
+        textbook : req.body.textbook, 
+        requiredRef : req.body.requiredRef, 
+        recommendRef : req.body.recommendRef,
+        knowledge : req.body.knowledge, 
+        problem : req.body.problem, 
+        investigation : req.body.investigation, 
+        design : req.body.design, 
+        tools : req.body.tools, 
+        team : req.body.team, 
+        communication : req.body.communication, 
+        professionalism : req.body.professionalism, 
+        impact : req.body.impact, 
+        ethics : req.body.ethics, 
+        economics : req.body.economics, 
+        learning : req.body.learning, 
+        textarea01 : req.body.textarea01, 
+        textarea02 : req.body.textarea02, 
+        textarea03 : req.body.textarea03, 
+        textarea04 : req.body.textarea04, 
+        textarea11 : req.body.textarea11, 
+        textarea12 : req.body.textarea12, 
+        textarea13 : req.body.textarea13, 
+        textarea14 : req.body.textarea14, 
+        textarea21 : req.body.textarea21, 
+        textarea22 : req.body.textarea22, 
+        textarea23 : req.body.textarea23, 
+        textarea24 : req.body.textarea24, 
+        textarea31 : req.body.textarea31, 
+        textarea32 : req.body.textarea32, 
+        textarea33 : req.body.textarea33, 
+        textarea34 : req.body.textarea34, 
+        GAType1 : req.body.GAType1, 
+        GAType2 : req.body.GAType2, 
+        GAType3 : req.body.GAType3, 
+        GAType4 : req.body.GAType4, 
+        GAValue1 : req.body.GAValue1, 
+        GAValue2 : req.body.GAValue2, 
+        GAValue3 : req.body.GAValue3, 
+        GAValue4 : req.body.GAValue4, 
+        gradeHomework : req.body.gradeHomework, 
+        gradeQuiz : req.body.gradeQuiz, 
+        gradeLab : req.body.gradeLab, 
+        gradeMidterm : req.body.gradeMidterm, 
+        homeworkAssignment : req.body.homeworkAssignment, 
+        quizzes : req.body.quizzes, 
+        lab : req.body.lab, 
+        midterm : req.body.midterm, 
+        latePolicy : req.body.latePolicy, 
+        locker : req.body.locker, 
+        mobileDevice : req.body.mobileDevice, 
+        clicker : req.body.clicker,
+        }
     }).then(result => {
         res.status(200).json({
             updated_product : result
@@ -143,7 +181,7 @@ app.put('/api/putInfo/:courseNumber/:profName', (req, res) => {
     })
 });
 
-
+// fetch outlines in outline collection 
 app.get('/api/getDoc', (req, res) => {
     outlines.collection('outlines').find({}).toArray((err, data) => {
         if (err) throw err;
@@ -151,7 +189,7 @@ app.get('/api/getDoc', (req, res) => {
     });
 });
 
-
+// create a new course outline 
 app.post('/api/outline', async(req, res) => {
     let input = new Outline({
         courseNumber : req.body.courseNumber, 
@@ -176,6 +214,54 @@ app.post('/api/outline', async(req, res) => {
         textbook : req.body.textbook, 
         requiredRef : req.body.requiredRef, 
         recommendRef : req.body.recommendRef,
+        knowledge : req.body.knowledge, 
+        problem : req.body.problem, 
+        investigation : req.body.investigation, 
+        design : req.body.design, 
+        tools : req.body.tools, 
+        team : req.body.team, 
+        communication : req.body.communication, 
+        professionalism : req.body.professionalism, 
+        impact : req.body.impact, 
+        ethics : req.body.ethics, 
+        economics : req.body.economics, 
+        learning : req.body.learning, 
+        textarea01 : req.body.textarea01, 
+        textarea02 : req.body.textarea02, 
+        textarea03 : req.body.textarea03, 
+        textarea04 : req.body.textarea04, 
+        textarea11 : req.body.textarea11, 
+        textarea12 : req.body.textarea12, 
+        textarea13 : req.body.textarea13, 
+        textarea14 : req.body.textarea14, 
+        textarea21 : req.body.textarea21, 
+        textarea22 : req.body.textarea22, 
+        textarea23 : req.body.textarea23, 
+        textarea24 : req.body.textarea24, 
+        textarea31 : req.body.textarea31, 
+        textarea32 : req.body.textarea32, 
+        textarea33 : req.body.textarea33, 
+        textarea34 : req.body.textarea34, 
+        GAType1 : req.body.GAType1, 
+        GAType2 : req.body.GAType2, 
+        GAType3 : req.body.GAType3, 
+        GAType4 : req.body.GAType4, 
+        GAValue1 : req.body.GAValue1, 
+        GAValue2 : req.body.GAValue2, 
+        GAValue3 : req.body.GAValue3, 
+        GAValue4 : req.body.GAValue4, 
+        gradeHomework : req.body.gradeHomework, 
+        gradeQuiz : req.body.gradeQuiz, 
+        gradeLab : req.body.gradeLab, 
+        gradeMidterm : req.body.gradeMidterm, 
+        homeworkAssignment : req.body.homeworkAssignment, 
+        quizzes : req.body.quizzes, 
+        lab : req.body.lab, 
+        midterm : req.body.midterm, 
+        latePolicy : req.body.latePolicy, 
+        locker : req.body.locker, 
+        mobileDevice : req.body.mobileDevice, 
+        clicker : req.body.clicker,
     });
     let result = await input.save(); 
     res.send(result);
@@ -200,7 +286,6 @@ app.post('/api/ceab', async (req, res) => {
     let result = await ceab.save(); 
     res.send(result);
 }); 
-
 
 // create course topics and specific learning outcomes 
 app.post('/api/topics', async (req, res) => {
@@ -362,6 +447,7 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
+// login for instructors 
 app.get('/api/logins', (req, res) => {
     outlines.collection('users').find({}).toArray((err, data) => {
         if (err) throw err;
@@ -370,6 +456,7 @@ app.get('/api/logins', (req, res) => {
     });
 });
 
+// fetch all the courses 
 app.get('/api/courses', (req, res) => {
     outlines.collection('courses').find({}).toArray((err, data) => {
         if (err) throw err;
@@ -377,34 +464,34 @@ app.get('/api/courses', (req, res) => {
     });
 });
 
+// assign course based on instructor's username 
 app.put('/api/putProf/:username', async (req, res) => {
     let existCourse = await Course.findOne(req.body)
     if(existCourse){
         User.updateOne({username: req.params.username}, {
             // $addToSet is for preventing duplicate element
-              $addToSet: {assignedCourse:req.body.courseName}
-              
-          }).then(result => {
-              res.status(200).json({
-                  updated_product : result
-              })
-          })
-          .catch(err =>{
-              console.log(err);
-              res.status(500).json({
-                  error:err
-              })
-          })
-    }else{
+            $addToSet: {assignedCourse:req.body.courseName}
+        }).then(result => {
+            res.status(200).json({
+                updated_product : result
+            })
+        })
+        .catch(err =>{
+            console.log(err);
+            res.status(500).json({
+                error:err
+            })
+        })
+    }
+    else{
         res.send({result:"incorrect"});
     }
-    
 });
 
+// delete an assigned course based on instructor username 
 app.delete('/api/deleteProf/:username', (req, res) => {
     User.updateOne({username: req.params.username}, {
         $pull: {assignedCourse:req.body.coursename}
-        
     }).then(result => {
         res.status(200).json({
             updated_product : result
@@ -425,8 +512,6 @@ app.get('/api/username/:username', (req, res) => {
         res.send(result);
     });
 });
-
-
 
 // listen port 3333
 app.listen(port, () =>{

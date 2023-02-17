@@ -11,6 +11,7 @@ import AdminHome from "./components/adminPanel/adminHome";
 import ReviewOutline from "./components/reviewOutline/reviewOutline";
 import ViewOutline from "./components/viewOutline/viewOutline";
 
+
 class App extends Component{
   render(){
     return(
@@ -28,10 +29,11 @@ class App extends Component{
           <Route path="/adminHome" element={<AdminHome/>}/>
           <Route path="/reviewOutline" element={<ReviewOutline/>}/>
           <Route path="/viewOutline" element={<ViewOutline/>}/>
+          <Route path="/outlines" element={<Outline1/>}/>
         </Routes>
       </BrowserRouter>
 
-      <Footer/>
+      {/* <Footer/> */}
     </div>   
     ) 
   }

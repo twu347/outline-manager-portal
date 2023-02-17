@@ -1,81 +1,53 @@
 import React from "react";
 
-function Table7() {
-    return (
-        <table>
-        <thead>
-            <tr>
-            <th>Indicator</th>
-            <th>Unacceptable</th>
-            <th>Below Expectations</th>
-            <th>Meets Expectations</th>
-            <th>Exceeds Expectations</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td>CS 1 – Demonstrate ability to follow instructions (listening and reading for comprehension).</td>
-            <td>Unable to discern main message of reading material</td>
-            <td>Comprehends main message of reading material, but unable to provide specific relevant details of the material read</td>
-            <td>Demonstrates comprehension of the primary message through appropriate action and/or response. </td>
-            <td>Meets expectations, plus:<br />
-    Demonstrates effective synthesis of material read into current project or initiative.</td>
-            </tr>
-            <tr>
-            <td>CS 2 – Demonstrate the ability to communicate orally using
-    appropriate materials, language, non-verbal communication and effective graphical tools.</td>
-            <td>Poor quality presentation with
-    ineffective materials; graphical
-    tools not used; poor quality of
-    spoken delivery</td>
-            <td>Presentation not of a
-    professional standard with
-    marginal material; graphical
-    tools only partially effective;
-    marginal spoken delivery.</td>
-            <td>Presentation of a
-    professional standard using
-    appropriate material that is
-    tailored to target audience;
-    effective use of graphics;
-    professional quality spoken
-    delivery.</td>
-            <td>Meets expectations, plus:<br />
-    Presentation is enlightening and
-    engaging.</td>
-            </tr>
-            <tr>
-            <td>CS 3 – Demonstrate ability to articulate ideas in writing using appropriate technical language, and effective graphical tools.</td>
-            <td>Technical language is unclear,
-    with much jargon, presentation
-    is incoherent, spelling grammar
-    and syntax mostly incorrect,
-    graphical tools not used where
-    appropriate.</td>
-            <td>Technical language is
-    sometimes unclear or
-    inappropriate to the audience,
-    ideas and arguments are
-    unpersuasive; spelling grammar
-    and syntax interfere with
-    understanding; graphical tools
-    used but only partly effective.</td>
-            <td>Technical language is clear,
-    and appropriate to the
-    audience, ideas are
-    persuasive, spelling,
-    grammar and syntax are
-    mostly correct, graphical
-    tools are used effectively.</td>
-            <td>Meets expectations plus:<br />
-    Written document is sufficiently
-    engaging to be understood and
-    interesting to readers from other
-    disciplines</td>
-            </tr>
-        </tbody>
-        </table>
-    );
-}
+const Table7 = () => {
+        const data = [  
+                {
+                        indicator: 'CS 1: Demonstrate ability to follow instructions (listening and reading for comprehension).',    
+                        unacceptable: 'Unable to discern main message of reading material',    
+                        below: 'Comprehends main message of reading material, but unable to provide specific relevant details of the material read',
+                        meets: 'Demonstrates comprehension of the primary message through appropriate action and/or response.',
+                        exceeds: 'Meets expectations, plus:\n\nDemonstrates effective synthesis of material read into current project or initiative.'  
+                },  
+                {    
+                        indicator: 'CS 2: Demonstrate the ability to communicate orally using\nappropriate materials, language, non-verbal communication and effective graphical tools.',
+                        unacceptable: 'Poor quality presentation with\nineffective materials; graphical\ntools not used; poor quality of\nspoken delivery',
+                        below: 'Presentation not of a\nprofessional standard with\nmarginal material; graphical\ntools only partially effective;\nmarginal spoken delivery.',    
+                        meets: 'Presentation of a\nprofessional standard using\nappropriate material that is\ntailored to target audience;\neffective use of graphics;\nprofessional quality spoken\ndelivery.',    
+                        exceeds: 'Meets expectations, plus:\n\nPresentation is enlightening and\nengaging.'  
+                },  
+                {    
+                        indicator: 'CS 3 – Demonstrate ability to articulate ideas in writing using appropriate technical language, and effective graphical tools.',    
+                        unacceptable: 'Technical language is unclear,\nwith much jargon, presentation\nis incoherent, spelling grammar\nand syntax mostly incorrect,\ngraphical tools not used where\nappropriate.',    
+                        below: 'Technical language is\nsometimes unclear or\ninappropriate to the audience,\nideas and arguments are\nunpersuasive; spelling grammar\nand syntax interfere with\nunderstanding; graphical tools\nused but only partly effective.',    
+                        meets: 'Technical language is clear,\nand appropriate to the\naudience, ideas are\npersuasive, spelling,\ngrammar and syntax are\nmostly correct, graphical\ntools are used effectively.',    
+                        exceeds: 'Meets expectations plus:\n\nWritten document is sufficiently\nengaging to be understood and\ninteresting to readers from other\ndisciplines'  
+                }
+        ];
+        return(
+                <table>
+                <thead>
+                        <tr>
+                        <th>Indicator</th>
+                        <th>Unacceptable</th>
+                        <th>Below Expectations</th>
+                        <th>Meets Expectations</th>
+                        <th>Exceeds Expectations</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        {data.map((row, index) => (
+                        <tr key={index}>
+                        <td>{row.indicator}</td>
+                        <td>{row.unacceptable}</td>
+                        <td>{row.below}</td>
+                        <td>{row.meets}</td>
+                        <td>{row.exceeds}</td>
+                        </tr>
+                        ))}
+                </tbody>
+                </table>
+        );
+};
 
 export default Table7;

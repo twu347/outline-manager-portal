@@ -97,6 +97,17 @@ function Login(){
                                 <p>Virtual Helpline</p >
                             </a>
                         </li>
+
+                        <br></br>
+                        <li class="list">
+                            <p>To view the user manual</p>
+                        </li>
+
+                        <li class="list">
+                            <a href="https://forested-screw-a88.notion.site/Course-Outline-Manager-User-Manual-ad333e426c104d118a043c27e404bff7" target="_blank">
+                                <p>User Manual</p>
+                            </a>
+                        </li>
                     </div>
                 </ul>
             </div>

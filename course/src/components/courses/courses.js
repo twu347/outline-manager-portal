@@ -19,6 +19,10 @@ function Courses(){
     navigate('/')
   }
 
+  function goOutlines(){
+    navigate('/viewOutlines')
+  }
+
   // fetch login API
   function setUsers(){
     fetch('http://localhost:3333/api/logins').then((res)=>{
@@ -78,6 +82,7 @@ function Courses(){
     <div>
       <button class="goIndicator" onClick={goIndicator}>GA indicator</button>
       <button class="backToLogin" onClick={goLogin}>Return to Login Portal</button>
+      <button class="viewOutlines" onClick={goOutlines}>View Course Outlines</button>
       {/* display instructor information */}
       <div className="left-box">
         <div className="left-text"> Instructors And Related Course</div>
