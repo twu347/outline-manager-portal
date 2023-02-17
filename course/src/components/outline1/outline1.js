@@ -457,10 +457,11 @@ function Outline1(){
         <div>
             <div >
                 <div>
+
+                    <input id="courseShow" placeholder="Enter course number"/>
+                    <input id="profShow" placeholder="Enter prof name"/>
+                    <button onClick={showInfo}> Show </button>
                     
-                    <input id="courseShow" placeholder="enter course number"/>
-                    <input id="profShow" placeholder="enter prof number"/>
-                    <button onClick={showInfo}> show </button>
                     <button id="indicator" onClick={goIndicator}>GA indicator</button>
                     <button onClick={print}>Print as PDF</button>
                 </div>
