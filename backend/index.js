@@ -62,6 +62,15 @@ app.get('/api/username', (req, res) => {
     });
 });
 
+app.get('/api/courseOutlines', (req, res) => {
+     
+    outlines.collection('outlines').find({}).toArray((err, data) => {
+        if (err) throw err;
+        
+        res.json(data);
+    });
+});
+
 // create an account - this should not be implemented in front end 
 app.post('/api/register', async (req, res) => {
     let user = new User(req.body);
