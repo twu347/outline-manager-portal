@@ -1,10 +1,6 @@
-
 import React, { useEffect, useState } from "react";
-/* ES6 */
-import * as htmlToImage from 'html-to-image';
-import { jsPDF } from "jspdf";
-import html2canvas from 'html2canvas';
 import { Link,Outlet, useNavigate } from "react-router-dom";
+import { jsPDF } from "jspdf";
 import './outline1.css'
 
 function Outline1(){
@@ -283,6 +279,17 @@ function Outline1(){
         });
     };
 
+    // print as PDF 
+    function print(){
+        var element = document.querySelector("#myPage");
+        var doc = new jsPDF("p", "pt", [2100, element.offsetHeight*10]);
+        doc.html(element,{
+            callback: function(pdf){
+                pdf.save("mupdf.pdf");
+            }
+        })
+    }
+
     // define the GA indicator drop down menu 
     const options = {
         KB:  ["1", "2", "3", "4"],
@@ -456,11 +463,11 @@ function Outline1(){
                     <input id="profShow" placeholder="enter prof number"/>
                     <button onClick={showInfo}> show </button>
                     <button id="indicator" onClick={goIndicator}>GA indicator</button>
+                    <button onClick={print}>Print as PDF</button>
                 </div>
-                <div className="scroll-bar">
+                <div className="scroll-bar" id="myPage">
 
                     <button onClick={handleForm}>Save</button>
-
                     <h3 className="line1">Western University</h3>
                     <h3 className="line1">Faculty of Engineering</h3>
                     <h3 className="line1">Department of Electrical and Computer Engineering</h3>
