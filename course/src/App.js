@@ -10,6 +10,7 @@ import Outline1 from "./components/outline1/outline1";
 import AdminHome from "./components/adminPanel/adminHome";
 import ReviewOutline from "./components/reviewOutline/reviewOutline";
 import ViewOutline from "./components/viewOutline/viewOutline";
+import ViewOutlines from "./components/viewOutlines/viewOutlines";
 
 
 class App extends Component{
@@ -30,6 +31,7 @@ class App extends Component{
           <Route path="/reviewOutline" element={<ReviewOutline/>}/>
           <Route path="/viewOutline" element={<ViewOutline/>}/>
           <Route path="/outlines" element={<Outline1/>}/>
+          <Route path="/viewOutlines" element={<ViewOutlines/>}/>
         </Routes>
       </BrowserRouter>
 

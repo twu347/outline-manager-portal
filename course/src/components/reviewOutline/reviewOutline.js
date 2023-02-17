@@ -19,7 +19,7 @@ function ReviewOutline() {
     }, []);
 
     return (
-        <div class = "box">
+        <div class = "box1">
             {courseOutlines.map(courseOutline => (
                 <div class="boxes" key={courseOutline._id}>
                     <p>Course Title: {courseOutline.courseTitle}</p>

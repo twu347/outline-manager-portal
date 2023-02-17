@@ -466,7 +466,7 @@ function Outline1(){
                     <button onClick={print}>Print as PDF</button>
                 </div>
 
-                <div className="scroll-bar" id='myPage'>
+                <div className="scroll-bar1" id='myPage'>
 
                     <button onClick={handleForm}>Save</button>
                     <h3 className="line1">Western University</h3>
