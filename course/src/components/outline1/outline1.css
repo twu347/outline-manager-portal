@@ -1,6 +1,6 @@
 .scroll-bar{
-    height: 500px;
-    width: 1400pt;
+    width: 1400px;
+    height: 7000px;
     position: relative;
     top: 100px;
     left: 70px;
@@ -62,5 +62,187 @@
     display: flex;
     align-items: center;
     left:100px;
+}
+
+.classNumber{
+    align-items: center;
+    width:100px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.classTitle{
+    align-items: center;
+    width:100px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.classDate{
+    align-items: center;
+    width:35px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.instructorName{
+    align-items: center;
+    width:100px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.instructorOffice{
+    align-items: center;
+    width:100px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.instructorExt{
+    align-items: center;
+    width:100px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.instructorEmail{
+    align-items: center;
+    width:100px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.instructorConsulation{
+    align-items: center;
+    width:100px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.profName{
+    position: relative; 
+    top:-10px;
+    display: flex;
+    align-items: center;
+    left: 300px;
+}
+
+.profOther{
+    position: relative; 
+    top:10px;
+    display: flex;
+    align-items: center;
+    left: 295px;
+}
+
+.profHours{
+    position: relative; 
+    top:20px;
+    display: flex;
+    align-items: center;
+    left: 295px;
+}
+
+.prof-box{
+    align-items: center;
+    width:200px;
+    height: 30px;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.school-hours{
+    position: relative; 
+    top:-10px;
+    display: flex;
+    align-items: center;
+    left: 295px;
+}
+
+.hour-box{
+    align-items: center;
+    width:50px;
+    height: 30px;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.ceab-box{
+    position: relative; 
+    top:-15px;
+    display: flex;
+    align-items: center;
+    left: 380px;
+}
+
+.indicator-table{
+    position: relative;
+    top:50px;
+    left:100px;
+    width: 1200px;
+    height: 300px;
+    border-collapse: collapse;
+}
+
+.table-right{
+    width:10%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table-left{
+    width:20%;
+    margin-left: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table-text{
+    width:98%;
+    height:98%;
+    text-align: center;
+}
+
+.ga-table{
+    position: relative;
+    top:50px;
+    left:100px;
+    width: 1200px;
+    border-collapse: collapse;
+}
+
+.ga-left{
+    width:25%;
+    margin-left: 10px;
+}
+
+.ga-right{
+    width:5%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.right-text{
+    width:95%;
+    height:100%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+textarea {
+    height: 50px;
+    width: 900px;
+}
+
+.grade-table{
+    position: relative;
+    top:50px;
+    left:500px;
+    width: 500px;
+    height: 200px;
+    border-collapse: collapse;
 }
 

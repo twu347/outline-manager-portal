@@ -1,14 +1,12 @@
-import React, { useEffect } from "react";
-/* ES6 */
-import * as htmlToImage from 'html-to-image';
+import React, { useEffect, useState } from "react";
 import { jsPDF } from "jspdf";
-import html2canvas from 'html2canvas';
 import { Link,Outlet, useNavigate } from "react-router-dom";
+import { jsPDF } from "jspdf";
 import './outline1.css'
 
 function Outline1(){
-    let navigate = useNavigate();
 
+    let navigate = useNavigate();
     var matchedData={};
 
     // recognzie user input 
@@ -57,6 +55,55 @@ function Outline1(){
                             textbook:document.getElementById('textbook').value, 
                             requiredRef:document.getElementById('requiredRef').value, 
                             recommendRef:document.getElementById('recommendRef').value,
+                            GAType1: document.getElementById('ga1').value,
+                            GAType2: document.getElementById('ga2').value,
+                            GAType3: document.getElementById('ga3').value,
+                            GAType4: document.getElementById('ga4').value,
+                            GAValue1: document.getElementById('nm1').value,
+                            GAValue2: document.getElementById('nm2').value,
+                            GAValue3: document.getElementById('nm3').value,
+                            GAValue4: document.getElementById('nm4').value,
+                            knowledge: document.getElementById('knowledge-base').value, 
+                            problem: document.getElementById('problem-analysis').value, 
+                            investigation: document.getElementById('investigation').value,
+                            design: document.getElementById('design').value,
+                            tools: document.getElementById('engineering-tools').value,
+                            team: document.getElementById('individual-team').value,
+                            communication: document.getElementById('communication-skills').value,
+                            professionalism: document.getElementById('professionalism').value,
+                            impact: document.getElementById('impact').value,
+                            ethics: document.getElementById('ethic-equity').value,
+                            economics: document.getElementById('project-management').value,
+                            learning: document.getElementById('life-long-learning').value,
+                            textarea01: document.getElementById('textarea01').value,
+                            textarea02: document.getElementById('textarea02').value,
+                            textarea03: document.getElementById('textarea03').value,
+                            textarea04: document.getElementById('textarea04').value,
+                            textarea11: document.getElementById('textarea11').value,
+                            textarea12: document.getElementById('textarea12').value,
+                            textarea13: document.getElementById('textarea13').value,
+                            textarea14: document.getElementById('textarea14').value,
+                            textarea21: document.getElementById('textarea21').value,
+                            textarea22: document.getElementById('textarea22').value,
+                            textarea23: document.getElementById('textarea23').value,
+                            textarea24: document.getElementById('textarea24').value,
+                            textarea31: document.getElementById('textarea31').value,
+                            textarea32: document.getElementById('textarea32').value,
+                            textarea33: document.getElementById('textarea33').value,
+                            textarea34: document.getElementById('textarea34').value,
+                            gradeHomework: document.getElementById('homeworkWeight').value,
+                            gradeQuiz: document.getElementById('quizWeight').value,
+                            gradeLab: document.getElementById('labWeight').value,
+                            gradeMidterm: document.getElementById('midtermWeight').value,
+                            homeworkAssignment: document.getElementById('homework-assignment-info').value,
+                            quizzes: document.getElementById('quizzes-info').value,
+                            lab: document.getElementById('lab-info').value,
+                            midterm: document.getElementById('midterm-info').value,
+                            latePolicy: document.getElementById('late-policy').value,
+                            locker: document.getElementById('locker-location').value,
+                            mobileDevice: document.getElementById('device-info').value,
+                            clicker: document.getElementById('clicker-info').value, 
+                                                        
                         })
                     });
                 }
@@ -85,6 +132,54 @@ function Outline1(){
                             textbook:document.getElementById('textbook').value, 
                             requiredRef:document.getElementById('requiredRef').value, 
                             recommendRef:document.getElementById('recommendRef').value,
+                            GAType1: document.getElementById('ga1').value,
+                            GAType2: document.getElementById('ga2').value,
+                            GAType3: document.getElementById('ga3').value,
+                            GAType4: document.getElementById('ga4').value,
+                            GAValue1: document.getElementById('nm1').value,
+                            GAValue2: document.getElementById('nm2').value,
+                            GAValue3: document.getElementById('nm3').value,
+                            GAValue4: document.getElementById('nm4').value,
+                            knowledge: document.getElementById('knowledge-base').value, 
+                            problem: document.getElementById('problem-analysis').value, 
+                            investigation: document.getElementById('investigation').value,
+                            design: document.getElementById('design').value,
+                            tools: document.getElementById('engineering-tools').value,
+                            team: document.getElementById('individual-team').value,
+                            communication: document.getElementById('communication-skills').value,
+                            professionalism: document.getElementById('professionalism').value,
+                            impact: document.getElementById('impact').value,
+                            ethics: document.getElementById('ethic-equity').value,
+                            economics: document.getElementById('project-management').value,
+                            learning: document.getElementById('life-long-learning').value,
+                            textarea01: document.getElementById('textarea01').value,
+                            textarea02: document.getElementById('textarea02').value,
+                            textarea03: document.getElementById('textarea03').value,
+                            textarea04: document.getElementById('textarea04').value,
+                            textarea11: document.getElementById('textarea11').value,
+                            textarea12: document.getElementById('textarea12').value,
+                            textarea13: document.getElementById('textarea13').value,
+                            textarea14: document.getElementById('textarea14').value,
+                            textarea21: document.getElementById('textarea21').value,
+                            textarea22: document.getElementById('textarea22').value,
+                            textarea23: document.getElementById('textarea23').value,
+                            textarea24: document.getElementById('textarea24').value,
+                            textarea31: document.getElementById('textarea31').value,
+                            textarea32: document.getElementById('textarea32').value,
+                            textarea33: document.getElementById('textarea33').value,
+                            textarea34: document.getElementById('textarea34').value,
+                            gradeHomework: document.getElementById('homeworkWeight').value,
+                            gradeQuiz: document.getElementById('quizWeight').value,
+                            gradeLab: document.getElementById('labWeight').value,
+                            gradeMidterm: document.getElementById('midtermWeight').value,
+                            homeworkAssignment: document.getElementById('homework-assignment-info').value,
+                            quizzes: document.getElementById('quizzes-info').value,
+                            lab: document.getElementById('lab-info').value,
+                            midterm: document.getElementById('midterm-info').value,
+                            latePolicy: document.getElementById('late-policy').value,
+                            locker: document.getElementById('locker-location').value,
+                            mobileDevice: document.getElementById('device-info').value,
+                            clicker: document.getElementById('clicker-info').value, 
                         })
                     });
                 }
@@ -120,12 +215,73 @@ function Outline1(){
                 document.getElementById('textbook').value = data[0].textbook; 
                 document.getElementById('requiredRef').value = data[0].requiredRef; 
                 document.getElementById('recommendRef').value = data[0].recommendRef;
+                document.getElementById('ga1').value = data[0].GAType1;
+                document.getElementById('ga2').value = data[0].GAType2;
+                document.getElementById('ga3').value = data[0].GAType3;
+                document.getElementById('ga4').value = data[0].GAType4;
+                document.getElementById('nm1').value = data[0].GAValue1;
+                document.getElementById('nm2').value = data[0].GAValue2;
+                document.getElementById('nm3').value = data[0].GAValue3;
+                document.getElementById('nm4').value = data[0].GAValue4;
+                document.getElementById('knowledge-base').value = data[0].knowledge;
+                document.getElementById('problem-analysis').value = data[0].problem;
+                document.getElementById('investigation').value = data[0].investigation;
+                document.getElementById('design').value = data[0].design;
+                document.getElementById('engineering-tools').value = data[0].tools;
+                document.getElementById('individual-team').value = data[0].team;
+                document.getElementById('communication-skills').value = data[0].communication;
+                document.getElementById('professionalism').value = data[0].professionalism;
+                document.getElementById('impact').value = data[0].impact;
+                document.getElementById('ethic-equity').value = data[0].ethics;
+                document.getElementById('project-management').value = data[0].economics;
+                document.getElementById('life-long-learning').value = data[0].learning;
+                document.getElementById('textarea01').value = data[0].textarea01;
+                document.getElementById('textarea02').value = data[0].textarea02;
+                document.getElementById('textarea03').value = data[0].textarea03;
+                document.getElementById('textarea04').value = data[0].textarea04;
+                document.getElementById('textarea11').value = data[0].textarea11;
+                document.getElementById('textarea12').value = data[0].textarea12;
+                document.getElementById('textarea13').value = data[0].textarea13;
+                document.getElementById('textarea14').value = data[0].textarea14;
+                document.getElementById('textarea21').value = data[0].textarea21;
+                document.getElementById('textarea22').value = data[0].textarea22;
+                document.getElementById('textarea23').value = data[0].textarea23;
+                document.getElementById('textarea24').value = data[0].textarea24;
+                document.getElementById('textarea31').value = data[0].textarea31;
+                document.getElementById('textarea32').value = data[0].textarea32;
+                document.getElementById('textarea33').value = data[0].textarea33;
+                document.getElementById('textarea34').value = data[0].textarea34;
+                document.getElementById('homeworkWeight').value = data[0].gradeHomework;
+                document.getElementById('quizWeight').value = data[0].gradeQuiz;
+                document.getElementById('labWeight').value = data[0].gradeLab;
+                document.getElementById('midtermWeight').value = data[0].gradeMidterm;
+                document.getElementById('homework-assignment-info').value = data[0].homeworkAssignment;
+                document.getElementById('quizzes-info').value = data[0].quizzes;
+                document.getElementById('lab-info').value = data[0].lab;
+                document.getElementById('midterm-info').value = data[0].midterm;
+                document.getElementById('late-policy').value = data[0].latePolicy;
+                document.getElementById('locker-location').value = data[0].locker;
+                document.getElementById('device-info').value = data[0].mobileDevice;
+                document.getElementById('clicker-info').value = data[0].clicker;
                 matchedData = data[0];
+                setSelectedGA1(data[0].GAType1);
+                setSelectedNumber(data[0].GAValue1);
+
+                setSelectedGA2(data[0].GAType2);
+                setSelectedNumber2(data[0].GAValue2);
+
+                setSelectedGA3(data[0].GAType3);
+                setSelectedNumber3(data[0].GAValue3);
+
+                setSelectedGA4(data[0].GAType4);
+                setSelectedNumber4(data[0].GAValue4);
                 
             });
         });
     };
 
+
+    // print as PDF 
     function print(){
         var element = document.querySelector("#myPage");
         var doc = new jsPDF("p", "pt", [2100, element.offsetHeight*10]);
@@ -135,8 +291,169 @@ function Outline1(){
             }
         })
     }
-    
 
+    // define the GA indicator drop down menu 
+    const options = {
+        KB:  ["1", "2", "3", "4"],
+        PA:  ["1", "2", "3"],
+        I:   ["1", "2", "3"],
+        D:   ["1", "2", "3", "4"], 
+        ET:  ["1", "2", "3"],
+        ITW: ["1", "2", "3"],
+        CS:  ["1", "2", "3"],
+        PR:  ["1", "2", "3"],
+        IESE:["1", "2", "3"],
+        EE:  ["1", "2", "3"],
+        EPM: ["1", "2", "3", "4"],
+        LL:  ["1", "2"]
+    };
+
+    // Set up state for the selected GA and values 
+    const [selectedGA1, setSelectedGA1] = useState("");
+    const [selectedNumber, setSelectedNumber] = useState("");
+
+    const [selectedGA2, setSelectedGA2] = useState("");
+    const [selectedNumber2, setSelectedNumber2] = useState("");
+
+    const [selectedGA3, setSelectedGA3] = useState("");
+    const [selectedNumber3, setSelectedNumber3] = useState("");
+
+    const [selectedGA4, setSelectedGA4] = useState("");
+    const [selectedNumber4, setSelectedNumber4] = useState("");
+
+
+    // Handle changes to the GA select element
+    const handleGA1Change = (event) => {
+        const value = event.target.value;
+        setSelectedGA1(value);
+        setSelectedNumber("");
+        const id = event.target.id;
+        matchedData[id] = event.target.value
+    }
+
+    const handleGA2Change = (event) => {
+        const value = event.target.value;
+        setSelectedGA2(value);
+        setSelectedNumber2("");
+        const id = event.target.id;
+        matchedData[id] = event.target.value
+    }
+
+    const handleGA3Change = (event) => {
+        const value = event.target.value;
+        setSelectedGA3(value);
+        setSelectedNumber3("");
+        const id = event.target.id;
+        matchedData[id] = event.target.value
+    }
+
+    const handleGA4Change = (event) => {
+        const value = event.target.value;
+        setSelectedGA4(value);
+        setSelectedNumber4("");
+        const id = event.target.id;
+        matchedData[id] = event.target.value
+    }
+
+    // Generate the options for the number select element based on the selected GA indicator
+    const numberOptions1 = selectedGA1 ? options[selectedGA1].map(number => (
+        <option key={number} value={number}>{number}</option>
+    )) : null;
+
+    const numberOptions2 = selectedGA2 ? options[selectedGA2].map(number => (
+        <option key={number} value={number}>{number}</option>
+    )) : null;
+
+    const numberOptions3 = selectedGA3 ? options[selectedGA3].map(number => (
+        <option key={number} value={number}>{number}</option>
+    )) : null;
+
+    const numberOptions4 = selectedGA4 ? options[selectedGA4].map(number => (
+        <option key={number} value={number}>{number}</option>
+    )) : null;
+
+    // click the button, add a new textarea box 
+    // Set up state for the textareas
+    const [textareas, setTextareas] = useState([{id: 1}]);
+    const [nextId, setNextId] = useState(2);
+    
+    const [textareas2, setTextareas2] = useState([{id: 100}]);
+    const [nextId2, setNextId2] = useState(2);
+
+    const [textareas3, setTextareas3] = useState([{id: 1000}]);
+    const [nextId3, setNextId3] = useState(2);
+
+    const [textareas4, setTextareas4] = useState([{id: 10000}]);
+    const [nextId4, setNextId4] = useState(2);
+
+    // Handle click event for the "Add" button
+    const handleAddTextarea = () => {
+        setTextareas([...textareas, {id: nextId}]);
+        setNextId(nextId + 1);
+    }
+
+    const handleAddTextarea2 = () => {
+        setTextareas2([...textareas2, {id: nextId2}]);
+        setNextId2(nextId2 + 1);
+        console.log(document.getElementById('100').value);
+    }
+
+    const handleAddTextarea3 = () => {
+        setTextareas3([...textareas3, {id: nextId3}]);
+        setNextId3(nextId3 + 1);
+    }
+
+    const handleAddTextarea4 = () => {
+        setTextareas4([...textareas4, {id: nextId4}]);
+        setNextId4(nextId4 + 1);
+    }
+
+    // Handle click event for the "Remove" button
+    const handleRemoveTextarea = (id) => {
+        setTextareas(textareas.filter(textarea => textarea.id !== id));
+    }
+
+    const handleRemoveTextarea2 = (id) => {
+        setTextareas2(textareas2.filter(textarea => textarea.id !== id));
+    }
+
+    const handleRemoveTextarea3 = (id) => {
+        setTextareas3(textareas3.filter(textarea => textarea.id !== id));
+    }
+
+    const handleRemoveTextarea4 = (id) => {
+        setTextareas4(textareas4.filter(textarea => textarea.id !== id));
+    }
+
+    // Render the textareas
+    const textareaElements = textareas.map(textarea => (
+        <div key={textarea.id}>
+            <textarea type="text" />
+            <button onClick={() => handleRemoveTextarea(textarea.id)}>Remove</button>
+        </div>
+    ));
+
+    const textareaElements2 = textareas2.map(textarea => (
+        <div key={textarea.id}>
+            <textarea type="text" />
+            <button onClick={() => handleRemoveTextarea2(textarea.id)}>Remove</button>
+        </div>
+    ));
+
+    const textareaElements3 = textareas3.map(textarea => (
+        <div key={textarea.id}>
+            <textarea type="text" />
+            <button onClick={() => handleRemoveTextarea3(textarea.id)}>Remove</button>
+        </div>
+    ));
+
+    const textareaElements4 = textareas4.map(textarea => (
+        <div key={textarea.id}>
+            <textarea type="text" />
+            <button onClick={() => handleRemoveTextarea4(textarea.id)}>Remove</button>
+        </div>
+    ));
+ 
     return(
         <div>
             <div >
@@ -148,51 +465,54 @@ function Outline1(){
                     <button id="indicator" onClick={goIndicator}>GA indicator</button>
                     <button onClick={print}>Print as PDF</button>
                 </div>
+
                 <div className="scroll-bar" id='myPage'>
 
-                    {/* Flow Event (Full Instructions): 
-                    Pre-conditions: the user choose a course 
-                        1. The user fills the template -> save to mongodb, primary key should be courseNumber, profName, time
-                        2. The user clicks the save button (or jump to 6)
-                        3. The user close the template 
-                        4. The user reopens the template -> should use the primary key to fetch the data
-                        5. The user continue fill the template -> notice that the file is not submit, therefore a admin visibility boolean attribute is required
-                        6. The user submit to admin 
-                        7. The admin approves the file (if diapprove, jump back to 4) -> there should be a boolean attribute called approve 
-                        8. The user prints the file  */}
-
+                    <button onClick={handleForm}>Save</button>
                     <h3 className="line1">Western University</h3>
                     <h3 className="line1">Faculty of Engineering</h3>
                     <h3 className="line1">Department of Electrical and Computer Engineering</h3>
+            
+                    <h3 className="line1">
+                        ECE <input type="number" id="courseNumber" className="classNumber" name='courseNumber'  onChange={handleInput} placeholder="XXXX A/B" required/>
+                        A/B:<input type="text"   id="courseTitle"  className="classTitle" name='courseTitle'  onChange={handleInput} placeholder="Course Title"/>
+                    </h3>
                     
-                    <button onClick={handleForm}>Save</button>
-
-                    <input type="number" id="courseNumber" className="title" name='courseNumber'  onChange={handleInput} placeholder="Enter Course Number" required/>
-                    <br></br>
-                    <input type="text"   id="courseTitle"  className="title" name='courseTitle'  onChange={handleInput} placeholder="Enter Course Title"/>
-                    <br></br>
-                    <input type="number"  id="yearFrom" className="courseName" name='yearFrom'  onChange={handleInput} placeholder="Enter Start Calendar Year"/>
-                    <br></br>
-                    <input type="number" id="yearTo" className="courseName" name='yearTo'  onChange={handleInput} placeholder="Enter End Calendar Year"/>
+                    <h3 className="line1">
+                        Year 20 <input type="number"  id="yearFrom" className="classDate" name='yearFrom'  onChange={handleInput} placeholder="YY"/>
+                        - <input type="number" id="yearTo" className="classDate" name='yearTo'  onChange={handleInput} placeholder="YY"/>
+                    </h3>
                     
                     <h3 className="titles">Description:</h3>
-                    <input type="text" id="description" className="description-box" name='description'  onChange={handleInput} placeholder="Enter Course Description"/>
+                    <textarea type="text" id="description" className="description-box" name='description'  onChange={handleInput} placeholder="Enter Course Description"/>
 
                     <h3 className="titles">Instructor:</h3>
-                    <input id="profName" type="text" className="title" name='profName'  onChange={handleInput} placeholder="Enter Instructor Name" required/>
-                    <input id="office" type="number" className="title" name='office'  onChange={handleInput} placeholder="Enter Office Number"/>
-                    <input id="extension" type="number" className="title" name='extension'  onChange={handleInput} placeholder="Enter Phone Extension"/>
-                    <input id ="email" type="email" className="title" name='email'  onChange={handleInput} placeholder="Enter Instructor Email" pattern=".*@uwo.ca"/>
-                    <input id="consulation" type="text" className="title" name='consultation'  onChange={handleInput} placeholder="Enter Consultation Hours"/>
 
+                    <div className="profName">
+                        Dr. <input id="profName" type="text" className="prof-box" name='profName'  onChange={handleInput} placeholder="Name" required/>,P.Eng.
+                    </div>
+
+                    <div className="profOther">
+                        TEB <input id="office" type="number" className="prof-box" name='office'  onChange={handleInput} placeholder="XXXX"/>, 519-661-2111 ext.
+                        <input id="extension" type="number" className="prof-box" name='extension'  onChange={handleInput} placeholder="XXXXX"/>
+                        <input id ="email" type="email" className="prof-box" name='email'  onChange={handleInput} placeholder="Email" pattern=".*@uwo.ca"/>
+                    </div>
+
+                    <div className="profHours">
+                        Consultation hours: <input id="consulation" type="text" className="prof-box" name='consultation'  onChange={handleInput} placeholder="Consulation"/>
+                    </div>
+                    
                     <h3 className="titles">Academic Calendar Copy:</h3>
                     <br></br>
                     <input id="calender" type="text" className="title" name='calender'  onChange={handleInput} placeholder="Enter Academic Calendar Copy"/>
 
                     <h3 className="titles">Contact Hours:</h3>
-                    <input id="lectureHours" type="number" className="title" name='lectureHours' onChange={handleInput} placeholder="Enter Lecture Hours"/>
-                    <input id="labHours" type="number" className="title" name='labHours'  onChange={handleInput} placeholder="Enter Labortary Hours"/>
-                    <input id="tutHours" type="number" className="title" name='tutHours' onChange={handleInput} placeholder="Enter Tutorial Hours"/>
+
+                    <div className="school-hours">
+                        <input id="lectureHours" type="number" className="hour-box" name='lectureHours' onChange={handleInput} placeholder="X"/> lecture hours,
+                        <input id="labHours" type="number" className="hour-box" name='labHours'  onChange={handleInput} placeholder="Y"/> laboratory hours,
+                        <input id="tutHours" type="number" className="hour-box" name='tutHours' onChange={handleInput} placeholder="Z"/> tutorial hours, 0.5 course.
+                    </div>
 
                     <h3 className="titles">Antirequisite:</h3>
                     <input id="antirequisite" type="text" className="title" name='antirequisite'  onChange={handleInput} placeholder="Enter Antirequisite:"/>
@@ -206,9 +526,13 @@ function Outline1(){
                     <span className="policy1"><br></br>Unless you have either the requisites for this course or written special permission from your Dean to enroll in it, you will be removed from this course and it will be deleted from your re-</span>
                     <span className="policy1">cord. This decision may not be appealed. You will receive no adjustment to your fees in the event that you are dropped from a course for failing to have the necessary prerequisites</span>
 
-                    <h3 className="titles">CEAB Academic Units</h3>
-                    <input id="CEABScience" type="number" className="title" name='CEABScience'  onChange={handleInput} placeholder="Enter CEAB Sciences Units"/>
-                    <input id="CEABDesign" type="number" className="title" name='CEABDesign'  onChange={handleInput} placeholder="Enter CEAB Design Units"/>
+                    <br></br>
+                    <h3 className="titles">CEAB Academic Units:</h3>
+
+                    <div className="ceab-box">
+                        Engineering Sciences <input id="CEABScience" type="number" className="hour-box" name='CEABScience'  onChange={handleInput} placeholder="X"/>%,
+                        Engineering Design <input id="CEABDesign" type="number" className="hour-box" name='CEABDesign'  onChange={handleInput} placeholder="Y"/>%.
+                    </div>
 
                     <h3 className="titles">Required Textbook:</h3>
                     <input id="textbook" type="text" className="title" name='textbook'  onChange={handleInput} placeholder="Enter Textbook Information"/>
@@ -219,29 +543,240 @@ function Outline1(){
                     <h3 className="titles">Recommended References:</h3>
                     <input id="recommendRef" type="text" className="title" name='recommendRef'  onChange={handleInput} placeholder="Enter Other Recommended References"/>
 
-                    {/* design table for CEAB attributes */}
+                    {/* design table for CEAB attributes */}    
                     <h3 className="titles">General Learning Objectives (CEAB Graduate Attributes)</h3>
+                    <table className="indicator-table">
+                        <tbody>
+                            <tr>
+                                <td className="table-left">Knowledge Base</td>
+                                <td className="table-right"><input type="text" id="knowledge-base" className="table-text" onChange={handleInput} placeholder="X"/></td>
+                                <td className="table-left">Use of Engineering Tools</td>
+                                <td className="table-right"><input type="text" id="engineering-tools" className="table-text" onChange={handleInput} placeholder="X"/></td>
+                                <td className="table-left">Impact on Society and the Environment</td>
+                                <td className="table-right"><input type="text" id="impact" className="table-text" onChange={handleInput} placeholder="X"/></td>
+                            </tr>
+                            <tr>
+                                <td className="table-left">Problem Analysis</td>
+                                <td className="table-right"><input type="text" id="problem-analysis" className="table-text" onChange={handleInput} placeholder="X"/></td>
+                                <td className="table-left">Individual and Team Work</td>
+                                <td className="table-right"><input type="text" id="individual-team" className="table-text" onChange={handleInput} placeholder="X"/></td>
+                                <td className="table-left">Ethics and Equity</td>
+                                <td className="table-right"><input type="text" id="ethic-equity" className="table-text" onChange={handleInput} placeholder="X"/></td>
+                            </tr>
+                            <tr>
+                                <td className="table-left">Investigation</td>
+                                <td className="table-right"><input type="text" id="investigation" className="table-text" onChange={handleInput} placeholder="X"/></td>
+                                <td className="table-left">Communication Skills</td>
+                                <td className="table-right"><input type="text" id="communication-skills" className="table-text" onChange={handleInput} placeholder="X"/></td>
+                                <td className="table-left">Economics and Project Management</td>
+                                <td className="table-right"><input type="text" id="project-management" className="table-text" onChange={handleInput} placeholder="X"/></td>
+                            </tr>
+                            <tr>
+                                <td className="table-left">Design</td>
+                                <td className="table-right"><input type="text" id="design" className="table-text" onChange={handleInput} placeholder="X"/></td>
+                                <td className="table-left">Professionalism</td>
+                                <td className="table-right"><input type="text" id="professionalism" className="table-text" onChange={handleInput} placeholder="X"/></td>
+                                <td className="table-left">Life Long Learning</td>
+                                <td className="table-right"><input type="text" id="life-long-learning" className="table-text" onChange={handleInput} placeholder="X"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br></br>
+                    <br></br>
+
                     <span className="policy1">Notation: where x be I: Introductory, D: Intermediate, A: Advanced, or empty. I – The instructor will introduce the topic at the level required.  It is not necessary for the student to have seen </span>
                     <span className="policy1">the material before. D – There may be a reminder or review, but the student is expected to have seen and been tested on the material before taking the course. A – It is expected that the</span>
                     <span className="policy1">student can apply the knowledge without prompting (e.g. no review).</span>
                     
-                    {/* design table for course topic and specific attributes */}
+                    <table className="ga-table">
+                        <tbody>
+                            <tr>
+                                <td>Course Topics and Specific Learning Outcomes</td>
+                                <td>CEAB Graduate Attributes Indicators</td>
+                            </tr>
+                            <tr>
+                                <td className="ga-left">
+                                    <p>At the end of the section, student will able to:</p>
+                                    {/* {textareaElements}
+                                    <button onClick={handleAddTextarea}>Add</button> */}
+                                    <textarea type="text" id="textarea01" onChange={handleInput} />
+                                    <textarea type="text" id="textarea02" onChange={handleInput} />
+                                    <textarea type="text" id="textarea03" onChange={handleInput} />
+                                    <textarea type="text" id="textarea04" onChange={handleInput} />
+                                </td>
+                                <td className="ga-right">
+                                    <select id='ga1' value={selectedGA1} onChange={handleGA1Change}>
+                                        <option value="">Select GA Type</option>
+                                        <option value="KB">KB</option>
+                                        <option value="PA">PA</option>
+                                        <option value="I">I</option>
+                                        <option value="D">D</option>
+                                        <option value="ET">ET</option>
+                                        <option value="ITW">ITW</option>
+                                        <option value="CS">CS</option>
+                                        <option value="PR">PR</option>
+                                        <option value="EE">EE</option>
+                                        <option value="EPM">EPM</option>
+                                        <option value="IESE">IESE</option>
+                                        <option value="LL">LL</option>
+                                    </select>
+                                    <select id='nm1' value={selectedNumber} onChange={(event) => {setSelectedNumber(event.target.value);const id = event.target.id; matchedData[id] = event.target.value}}>
+                                        <option value="">Select GA Value</option>
+                                        {numberOptions1}
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="ga-left">
+                                    <p>At the end of the section, student will able to:</p>
+                                    {/* {textareaElements2}
+                                    <button onClick={handleAddTextarea2}>Add</button> */}
+                                    <textarea type="text" id="textarea11" onChange={handleInput} />
+                                    <textarea type="text" id="textarea12" onChange={handleInput} />
+                                    <textarea type="text" id="textarea13" onChange={handleInput} />
+                                    <textarea type="text" id="textarea14" onChange={handleInput} />
+                                </td>
+                                <td className="ga-right">
+                                <select id='ga2' value={selectedGA2} onChange={handleGA2Change}>
+                                        <option value="">Select GA Type</option>
+                                        <option value="KB">KB</option>
+                                        <option value="PA">PA</option>
+                                        <option value="I">I</option>
+                                        <option value="D">D</option>
+                                        <option value="ET">ET</option>
+                                        <option value="ITW">ITW</option>
+                                        <option value="CS">CS</option>
+                                        <option value="PR">PR</option>
+                                        <option value="EE">EE</option>
+                                        <option value="EPM">EPM</option>
+                                        <option value="IESE">IESE</option>
+                                        <option value="LL">LL</option>
+                                    </select>
+                                    <select id='nm2' value={selectedNumber2} onChange={(event) => {setSelectedNumber2(event.target.value);const id = event.target.id;matchedData[id] = event.target.value}}>
+                                        <option value="">Select GA Value</option>
+                                        {numberOptions2}
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="ga-left">
+                                    <p>At the end of the section, student will able to:</p>
+                                    {/* {textareaElements3}
+                                    <button onClick={handleAddTextarea3}>Add</button> */}
+                                    <textarea type="text" id="textarea21" onChange={handleInput} />
+                                    <textarea type="text" id="textarea22" onChange={handleInput} />
+                                    <textarea type="text" id="textarea23" onChange={handleInput} />
+                                    <textarea type="text" id="textarea24" onChange={handleInput} />
+                                </td>
+                                <td className="ga-right">
+                                <select id='ga3' value={selectedGA3} onChange={handleGA3Change}>
+                                        <option value="">Select GA Type</option>
+                                        <option value="KB">KB</option>
+                                        <option value="PA">PA</option>
+                                        <option value="I">I</option>
+                                        <option value="D">D</option>
+                                        <option value="ET">ET</option>
+                                        <option value="ITW">ITW</option>
+                                        <option value="CS">CS</option>
+                                        <option value="PR">PR</option>
+                                        <option value="EE">EE</option>
+                                        <option value="EPM">EPM</option>
+                                        <option value="IESE">IESE</option>
+                                        <option value="LL">LL</option>
+                                    </select>
+                                    <select id='nm3' value={selectedNumber3} onChange={(event) => {setSelectedNumber3(event.target.value);const id = event.target.id;matchedData[id] = event.target.value}}>
+                                        <option value="">Select GA Value</option>
+                                        {numberOptions3}
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="ga-left">
+                                    <p>At the end of the section, student will able to:</p>
+                                    {/* {textareaElements4}
+                                    <button onClick={handleAddTextarea4}>Add</button> */}
+                                    <textarea type="text" id="textarea31" onChange={handleInput} />
+                                    <textarea type="text" id="textarea32" onChange={handleInput} />
+                                    <textarea type="text" id="textarea33" onChange={handleInput} />
+                                    <textarea type="text" id="textarea34" onChange={handleInput} />
+                                </td>
+                                <td className="ga-right">
+                                <select id='ga4' value={selectedGA4} onChange={handleGA4Change}>
+                                        <option value="">Select GA Type</option>
+                                        <option value="KB">KB</option>
+                                        <option value="PA">PA</option>
+                                        <option value="I">I</option>
+                                        <option value="D">D</option>
+                                        <option value="ET">ET</option>
+                                        <option value="ITW">ITW</option>
+                                        <option value="CS">CS</option>
+                                        <option value="PR">PR</option>
+                                        <option value="EE">EE</option>
+                                        <option value="EPM">EPM</option>
+                                        <option value="IESE">IESE</option>
+                                        <option value="LL">LL</option>
+                                    </select>
+                                    <select id='nm4' value={selectedNumber4} onChange={(event) => {setSelectedNumber4(event.target.value);const id = event.target.id; matchedData[id] = event.target.value}}>
+                                        <option value="">Select GA Value</option>
+                                        {numberOptions4}
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
+                    <br/>
                     <h3 className="titles">Evaluation:</h3>
-                    {/* design table for evaluation  */}
+                    <table className="grade-table">
+                        <tr>
+                            <td>Course Component</td>
+                            <td>Weight</td>
+                        </tr>
+                        <tr>
+                            <td>Homework Assignments</td>
+                            <td><input type="number" id="homeworkWeight" name="homeworkWeight" onChange={handleInput} />%</td>
+                        </tr>
+                        <tr>
+                            <td>Quizzes</td>
+                            <td><input type="number" id="quizWeight" name="quizWeight" onChange={handleInput} />%</td>
+                        </tr>
+                        <tr>
+                            <td>Laboratory</td>
+                            <td><input type="number" id="labWeight" name="labWeight" onChange={handleInput} />%</td>
+                        </tr>
+                        <tr>
+                            <td>Midterm Test</td>
+                            <td><input type="number" id="midtermWeight" name="midtermWeight" onChange={handleInput} />%</td>
+                        </tr>
+                        <tr>
+                            <td>Final Examination</td>
+                            <td>50%</td>
+                        </tr>
+                    </table>
+
+                    <br/>
+                    <br/>
+                    <br/>
                     <span className="policy1">To obtain a passing grade in the course, a mark of 50% or more must be achieved on the final examination as well as on the laboratory. A final examination or laboratory mark less than 50%</span>
                     <span className="policy1">will result in a final course grade of 48% or less.</span>
 
                     <h3 className="titles">Homework Assignments:</h3>
+                    <input type="text" className="title" id="homework-assignment-info" onChange={handleInput} placeholder="Enter Homework Assignments Information"/>
                     <h3 className="titles">Quizzes: </h3>
+                    <input type="text" className="title" id="quizzes-info" onChange={handleInput} placeholder="Enter Quizzes Information"/>
                     <h3 className="titles">Laboratory: </h3>
+                    <input type="text" className="title" id="lab-info" onChange={handleInput} placeholder="Enter Laboratory Information"/>
                     <h3 className="titles">Midterm Test:</h3>
+                    <input type="text" className="title" id="midterm-info" onChange={handleInput} placeholder="Enter Midterm Information"/>
 
                     <h3 className="titles">Final Examination: </h3>
                     <span className="policy1">The final examination will be take place during the regular examination period. </span>
 
                     <h3 className="titles">Late Submission Policy: </h3>
+                    <input type="text" className="title" id="late-policy" placeholder="Enter Late Policy" onChange={handleInput} />
+
                     <h3 className="titles">Assignment Submission Locker:</h3>
+                    <input type="text" className="title" id="locker-location" placeholder="Enter Locker Location" onChange={handleInput} />
 
                     <h3 className="titles">Use of English:</h3>
                     <span className="policy1">In accordance with Senate and Faculty Policy, students may be penalized up to 10% of the marks on all assignments, tests, and examinations for improper use of English. Additionally, poorly </span>
@@ -288,9 +823,11 @@ function Outline1(){
                         <a href="http://www.uwo.ca/univsec/pdf/academic_policies/appeals/scholastic_discipline_undergrad.pdf">http://www.uwo.ca/univsec/pdf/academic_policies/appeals/scholastic_discipline_undergrad.pdf</a>
                     </span>
 
-                    {/* add text box in here */}
+                   
                     <h3 className="titles">Use of Electronic Devices:</h3>
+                    <input type="text" className="title" id="device-info" placeholder="Enter Electronic Devices Information" onChange={handleInput} />
                     <h3 className="titles">Use of Personal Response Devices (“Clickers”):</h3>
+                    <input type="text" className="title" id="clicker-info" placeholder="Enter Clicker Information" onChange={handleInput} />
 
                     <h3 className="titles">Policy on Repeating All Components of a Course:</h3>
                     <span className="policy1">Students who are required to repeat an Engineering course must repeat all components of the course. No special permissions will be granted enabling a student to retain laboratory, assig-</span>
