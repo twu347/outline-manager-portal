@@ -24,7 +24,7 @@ function ReviewOutline() {
                 <div class="boxes" key={courseOutline._id}>
                     <p>Course Title: {courseOutline.courseTitle}</p>
                     <p>Course Number: {courseOutline.courseNumber}</p>
-                    <p>Approved: {courseOutline.approved}</p>
+                    <p>Professor: {courseOutline.profName}</p>
                     <button
                     className="approve-btn"
                     onClick={() => {

@@ -7,6 +7,10 @@ import { Link,Outlet, useNavigate } from "react-router-dom";
 function ViewOutline(){
     let navigate = useNavigate();
 
+    function goReviewOutline(){
+        navigate('/reviewOutline');
+    }
+
     var matchedData={};
 
     // fetch saved information based on profName and courseNumber
@@ -50,6 +54,7 @@ function ViewOutline(){
                     <input id="courseShow" placeholder="enter course number"/>
                     <input id="profShow" placeholder="enter prof name"/>
                     <button onClick={showInfo}> show </button>
+                    <button onClick={goReviewOutline}>Back to Review Panel</button>
                 </div>
                 <div className="scroll-bar">
 
