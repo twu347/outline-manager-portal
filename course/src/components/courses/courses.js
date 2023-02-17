@@ -15,6 +15,10 @@ function Courses(){
     navigate('/indicators')
   }
 
+  function goLogin(){
+    navigate('/')
+  }
+
   // fetch login API
   function setUsers(){
     fetch('http://localhost:3333/api/logins').then((res)=>{
@@ -72,7 +76,8 @@ function Courses(){
   return(
     
     <div>
-      <button onClick={goIndicator}>GA indicator</button>
+      <button class="goIndicator" onClick={goIndicator}>GA indicator</button>
+      <button class="backToLogin" onClick={goLogin}>Return to Login Portal</button>
       {/* display instructor information */}
       <div className="left-box">
         <div className="left-text"> Instructors And Related Course</div>

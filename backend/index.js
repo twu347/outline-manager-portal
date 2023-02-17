@@ -10,7 +10,7 @@ const app = express();
 const port = 3333;
 
 // set cors 
-const corsOptions ={
+const corsOptions = {
     origin:'http://localhost:3000', 
     credentials:true,            
     optionSuccessStatus:200
@@ -39,7 +39,7 @@ const mongoose = require('mongoose');
 const MongoClient = require('mongodb').MongoClient;
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser:true})
 mongoose.set('strictQuery', false);
-const db = mongoose.connection
+const db = mongoose.connection;
 db.on('error', (error) => console.error(error));
 db.once('open', () => console.log('Connected to Database'));
 
@@ -50,7 +50,6 @@ const CEAB = require('./OutlineSchema/ceab.js');
 const Topics = require('./OutlineSchema/topics.js');
 const Outline = require('./OutlineSchema/outline.js');
 const Course = require('./course.js');
-
 // require lodash
 const { result } = require('lodash');
 

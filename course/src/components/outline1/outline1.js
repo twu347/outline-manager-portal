@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { jsPDF } from "jspdf";
 import { Link,Outlet, useNavigate } from "react-router-dom";
 import { jsPDF } from "jspdf";
 import './outline1.css'
@@ -279,6 +280,7 @@ function Outline1(){
         });
     };
 
+
     // print as PDF 
     function print(){
         var element = document.querySelector("#myPage");
@@ -423,8 +425,6 @@ function Outline1(){
         setTextareas4(textareas4.filter(textarea => textarea.id !== id));
     }
 
-    
-
     // Render the textareas
     const textareaElements = textareas.map(textarea => (
         <div key={textarea.id}>
@@ -454,18 +454,19 @@ function Outline1(){
         </div>
     ));
  
-
     return(
         <div>
             <div >
                 <div>
+                    
                     <input id="courseShow" placeholder="enter course number"/>
                     <input id="profShow" placeholder="enter prof number"/>
                     <button onClick={showInfo}> show </button>
                     <button id="indicator" onClick={goIndicator}>GA indicator</button>
                     <button onClick={print}>Print as PDF</button>
                 </div>
-                <div className="scroll-bar" id="myPage">
+
+                <div className="scroll-bar" id='myPage'>
 
                     <button onClick={handleForm}>Save</button>
                     <h3 className="line1">Western University</h3>
