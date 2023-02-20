@@ -2,6 +2,7 @@ import React from "react";
 import { Link,Outlet, useNavigate } from "react-router-dom";
 import './login.css'
 import { useState } from "react";
+import Footer from "../footer/footer";
 function Login(){
     
     // API link 
@@ -40,12 +41,11 @@ function Login(){
 
     return(
         <div>
+            <h2 className="heading">Login To Portal</h2>
             <form class="login">
-                <h2 class="heading">Login To Portal</h2>
                 <input type="text" class="username" placeholder="Please Enter Your Username" value={username} onChange={(e) => setName(e.target.value)}/>
                 <input type="text" class="password" placeholder="Please Enter Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <a href="https://www.registrar.uwo.ca/resources/student_center_access_guide.html" class="forgotLink">Forgot Username or Password?</a >
-
                 <button class="loginBtn" onClick={Userlogin}>Login</button>
             </form>
 
@@ -104,7 +104,7 @@ function Login(){
                         </li>
 
                         <li class="list">
-                            <a href="https://forested-screw-a88.notion.site/Course-Outline-Manager-User-Manual-ad333e426c104d118a043c27e404bff7" target="_blank">
+                            <a href="/manual" target="_blank">
                                 <p>User Manual</p>
                             </a>
                         </li>
@@ -112,6 +112,7 @@ function Login(){
                 </ul>
             </div>
             <Outlet />
+            <Footer/>
         </div>
     )
 };

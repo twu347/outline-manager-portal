@@ -7,20 +7,20 @@
     border: 3px solid gray;
     font-family : 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     word-wrap: normal;
-
 }
+
 #test{
     background-color: chocolate;
     height: auto;
     width: 500pt;
 }
 
-.scroll-bar .line1{
+.scroll-bar1 .line1{
     position: relative;
     text-align: center;
 }
 
-.scroll-bar .title{
+.scroll-bar1 .title{
     position: relative;
     display: flex;
     align-items: center;
@@ -29,7 +29,7 @@
     border-radius: 5px;
 }
 
-.scroll-bar .courseName{
+.scroll-bar1 .courseName{
     position:relative;
     display: flex;
     width:1200px;
@@ -39,7 +39,7 @@
     border-radius: 5px;
 }
 
-.scroll-bar .description-box{
+.scroll-bar1 .description-box{
     position: relative;
     width:1000px;
     height: 100px;
@@ -48,7 +48,7 @@
     border-radius: 5px;
 }
 
-.scroll-bar .titles{
+.scroll-bar1 .titles{
     position: relative; 
     top:30px;
     display: flex;
@@ -56,7 +56,7 @@
     left: 100px;
 }
 
-.scroll-bar .policy1{
+.scroll-bar1 .policy1{
     position: relative;
     top:30px;
     display: flex;
