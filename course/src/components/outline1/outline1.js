@@ -527,7 +527,7 @@ function Outline1(){
                     <h3 className="titles">Co-requisite:</h3>
                     <input id="corequisite" type="text" className="title" name='corequisite'  onChange={handleInput} placeholder="Enter Co-requisites"/>
                     
-                    <span className="policy1"><br></br>Unless you have either the requisites for this course or written special permission from your Dean to enroll in it, you will be removed from this course and it will be deleted from your re-</span>
+                    <span className="policy1"><br></br><br/>Unless you have either the requisites for this course or written special permission from your Dean to enroll in it, you will be removed from this course and it will be deleted from your re-</span>
                     <span className="policy1">cord. This decision may not be appealed. You will receive no adjustment to your fees in the event that you are dropped from a course for failing to have the necessary prerequisites</span>
 
                     <br></br>

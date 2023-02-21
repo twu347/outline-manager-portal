@@ -41,7 +41,7 @@ function Login(){
     return(
         <div>
             <form class="login">
-                <h2 class="heading">Login To Portal</h2>
+                {/* <h2 class="heading">Login To Portal</h2> */}
                 <input type="text" class="username" placeholder="Please Enter Your Username" value={username} onChange={(e) => setName(e.target.value)}/>
                 <input type="text" class="password" placeholder="Please Enter Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <a href="https://www.registrar.uwo.ca/resources/student_center_access_guide.html" class="forgotLink">Forgot Username or Password?</a >
