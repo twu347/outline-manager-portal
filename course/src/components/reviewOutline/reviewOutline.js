@@ -3,6 +3,7 @@ import './reviewOutline.css'
 import { useState } from "react";
 import CourseList from "../courseList/courseList";
 import { Link,Outlet, useNavigate } from "react-router-dom";
+import process from "process";
 
 function ReviewOutline() {
     const [courseOutlines, setCourseOutlines] = useState([]);
@@ -21,7 +22,7 @@ function ReviewOutline() {
     }
 
     useEffect(() => {
-        fetch('http://localhost:3333/api/courseOutlines')
+        fetch(process.env.REACT_APP_CLIENT_APP_API_ADDRESS + '/api/courseOutlines')
             .then(res => res.json())
             .then(data => setCourseOutlines(data));
     }, []);

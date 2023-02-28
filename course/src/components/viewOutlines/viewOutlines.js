@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./viewOutlines.css";
 import { Link,Outlet, useNavigate } from "react-router-dom";
-
+import process from "process";
 
 function ViewOutlines(){
     let navigate = useNavigate();
@@ -12,7 +12,7 @@ function ViewOutlines(){
     }
     
     useEffect(() => {
-    fetch('http://localhost:3333/api/courseOutlines')
+    fetch(process.env.REACT_APP_CLIENT_APP_API_ADDRESS + '/api/courseOutlines')
     .then(res=>res.json())
     .then(data => setCourseOutlines(data));
     }, []);
