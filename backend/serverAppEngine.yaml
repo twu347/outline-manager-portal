@@ -1,2 +1,2 @@
-runtime: node18
+runtime: nodejs18
 service: server
