@@ -3,6 +3,8 @@ import { Link,Outlet, useNavigate } from "react-router-dom";
 import './login.css'
 import { useState } from "react";
 import Footer from "../footer/footer";
+import process from "process";
+
 function Login(){
     
     // API link 
@@ -16,7 +18,7 @@ function Login(){
     // fetch login back-end API to verify username and password 
     function Userlogin(event){
         event.preventDefault();
-        fetch("http://localhost:3333/api/login", {method: 'POST',
+        fetch(process.env.REACT_APP_CLIENT_APP_API_ADDRESS + "/api/login", {method: 'POST',
             headers:{
                 'Content-Type' : 'application/json',
             },
