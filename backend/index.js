@@ -7,9 +7,11 @@ const cors = require('cors');
 
 // connection to express 
 const app = express();
-const port = 3333;
+// const port = 3333;
 
-// set cors 
+const PORT = process.env.PORT || 3333;
+
+//set cors 
 const corsOptions = {
     origin:'http://localhost:3000', 
     credentials:true,            
@@ -516,12 +518,12 @@ app.get('/api/username/:username', (req, res) => {
 });
 
 // listen port 3333
-app.listen(port, () =>{
+app.listen(PORT, () =>{
     MongoClient.connect(process.env.DATABASE_URL, {useNewUrlParser: true}, (error, result) => {
         if(error) throw error
         database = result.db('SE3350');
         outlines = result.db('test')
 
     });
-    console.log(`Listing on port ${port}`);
+    console.log(`Listing on port ${PORT}`);
 });

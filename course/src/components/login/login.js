@@ -41,7 +41,6 @@ function Login(){
 
     return(
         <div>
-            <h2 className="heading">Login To Portal</h2>
             <form class="login">
                 <input type="text" class="username" placeholder="Please Enter Your Username" value={username} onChange={(e) => setName(e.target.value)}/>
                 <input type="text" class="password" placeholder="Please Enter Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
@@ -52,6 +51,7 @@ function Login(){
             <div class="splitBar"></div>
 
             <div>
+                <h2 className="aboutHeading2">Login To Portal</h2>
                 <h2 class="aboutHeading">About Portal</h2>
             </div>
 
