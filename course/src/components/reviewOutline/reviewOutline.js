@@ -12,6 +12,14 @@ function ReviewOutline() {
         navigate('/viewOutline');
     }
 
+    function goLogin(){
+        navigate('/');
+    }
+
+    function goAdminPanel(){
+        navigate('/adminHome');
+    }
+
     useEffect(() => {
         fetch('http://localhost:3333/api/courseOutlines')
             .then(res => res.json())
@@ -19,6 +27,9 @@ function ReviewOutline() {
     }, []);
 
     return (
+        <div>
+            <button onClick={goAdminPanel}>Return to Admin Panel</button>
+            <button onClick={goLogin}>Logout</button>
         <div class = "box1">
             {courseOutlines.map(courseOutline => (
                 <div class="boxes" key={courseOutline._id}>
@@ -52,6 +63,7 @@ function ReviewOutline() {
                     <button onClick={goViewOutline}>Review</button>
                 </div>
             ))}
+        </div>
         </div>
     );
 }

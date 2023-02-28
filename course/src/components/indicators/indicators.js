@@ -24,7 +24,7 @@ function Indicators(){
 
     return(
         <div>
-            <button class="managerPortal" onClick={goManagerPortal}>Manager Portal</button>
+            <button class="managerPortal" onClick={goManagerPortal}>Assign Courses</button>
             <div class="header"> 
                 <h2 class="heading">GA Indicator Information</h2>
             </div>

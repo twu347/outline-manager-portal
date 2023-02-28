@@ -14,7 +14,10 @@ function Outline1(){
         matchedData[id] = e.target.value
     }
 
-    // prevent refresh page 
+    function goLogin(){
+        navigate('/')
+    }
+
     function goIndicator(){
         navigate('/Indicators');
     }
@@ -464,9 +467,9 @@ function Outline1(){
                     <input id="courseShow" placeholder="Enter course number"/>
                     <input id="profShow" placeholder="Enter prof name"/>
                     <button onClick={showInfo}> Show </button>
-                    
                     <button id="indicator" onClick={goIndicator}>GA indicator</button>
                     <button onClick={print}>Print as PDF</button>
+                    <button onClick={goLogin}>Log Out</button>
                 </div>
 
                 <div className="scroll-bar1" id='myPage'>

@@ -15,8 +15,8 @@ function Courses(){
     navigate('/indicators')
   }
 
-  function goLogin(){
-    navigate('/')
+  function goAdminPanel(){
+    navigate('/adminHome')
   }
 
   function goOutlines(){
@@ -81,7 +81,7 @@ function Courses(){
     
     <div>
       <button class="goIndicator" onClick={goIndicator}>GA indicator</button>
-      <button class="backToLogin" onClick={goLogin}>Return to Login Portal</button>
+      <button class="backToLogin" onClick={goAdminPanel}>Return to Admin Panel</button>
       <button class="viewOutlines" onClick={goOutlines}>View Course Outlines</button>
       {/* display instructor information */}
       <div className="left-box">

@@ -19,7 +19,7 @@ function ViewOutlines(){
 
     return(
         <div>
-            <button class="managerPortal" onClick={goManagerPortal}>Manager Portal</button>
+            <button class="managerPortal" onClick={goManagerPortal}>Assign Courses</button>
             <div class="header"> 
                 <h2 class="heading">All Course Outlines</h2>
             </div>
