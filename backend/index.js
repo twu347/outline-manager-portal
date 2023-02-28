@@ -7,8 +7,8 @@ const cors = require('cors');
 
 // connection to express 
 const app = express();
-// const port = 3333;
 
+// localhost port 3333, google cloud console use environment variable port 
 const PORT = process.env.PORT || 3333;
 
 //set cors 

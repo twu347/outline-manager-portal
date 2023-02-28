@@ -23,7 +23,8 @@
     "lodash": "^4.17.21",
     "mongodb": "^4.13.0",
     "mongoose": "^6.8.4",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "process": "^0.11.10"
   },
   "devDependencies": {
     "dotenv": "^16.0.3"

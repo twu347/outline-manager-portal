@@ -4,6 +4,7 @@ import { useState } from "react";
 import Prof from "../prof/prof";
 import CourseList from "../courseList/courseList";
 import { Link,Outlet, useNavigate } from "react-router-dom";
+import process from "process";
 
 function Courses(){
   let navigate = useNavigate();
@@ -25,7 +26,7 @@ function Courses(){
 
   // fetch login API
   function setUsers(){
-    fetch('http://localhost:3333/api/logins').then((res)=>{
+    fetch(process.env.REACT_APP_CLIENT_APP_API_ADDRESS + "/api/logins").then((res)=>{
       res.json().then((data)=>{
         setUser(data);
       });
@@ -34,7 +35,7 @@ function Courses(){
 
   // fetch course API
   function setCourses(){
-    fetch('http://localhost:3333/api/courses').then((res)=>{
+    fetch(process.env.REACT_APP_CLIENT_APP_API_ADDRESS + '/api/courses').then((res)=>{
       res.json().then((data)=>{
         setCourse(data);
       })
@@ -45,7 +46,7 @@ function Courses(){
   function assignCourse(){
     const inputUsername = document.getElementById('prof').value;
     const inputCourse = document.getElementById('course').value;
-    fetch(`http://localhost:3333/api/putProf/${inputUsername}`, {
+    fetch(`${process.env.REACT_APP_CLIENT_APP_API_ADDRESS}/api/putProf/${inputUsername}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({courseName: inputCourse})
@@ -58,13 +59,13 @@ function Courses(){
           }
       });
   })
-  }
+}
 
   // delete assigned course 
   function deleteCourse(){
     const deleteUsername = document.getElementById('deleteProf').value;
     const deleteCourse = document.getElementById('deleteCourse').value;
-    fetch(`http://localhost:3333/api/deleteProf/${deleteUsername}`, {
+    fetch(`${process.env.REACT_APP_CLIENT_APP_API_ADDRESS}/api/deleteProf/${deleteUsername}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({coursename: deleteCourse})
