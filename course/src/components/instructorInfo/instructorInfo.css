@@ -1,0 +1,30 @@
+.header {
+    white-space: nowrap;
+    text-align: center;
+    position: absolute;
+    top: 100px;
+    left: 550px;
+}
+
+.boxes {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+}
+
+.box1 {
+    overflow: auto;
+    text-align: center;
+    position: relative;
+    overflow-y: scroll;
+    height: 500px;
+    width: 60%;
+    top: 100px;
+    left: 20%;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.approve-btn {
+    margin-right: 10px;
+}

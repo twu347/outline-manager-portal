@@ -13,6 +13,7 @@ import ViewOutline from "./components/viewOutline/viewOutline";
 import ViewOutlines from "./components/viewOutlines/viewOutlines";
 import Manual from "./components/manual/manual";
 import InstructorHome from "./components/instructorHome/instructorHome";
+import InstructorInfo from "./components/instructorInfo/instructorInfo";
 
 class App extends Component{
   render(){
@@ -35,6 +36,7 @@ class App extends Component{
           <Route path="/viewOutlines" element={<ViewOutlines/>}/>
           <Route path="/manual" element={<Manual/>}/>
           <Route path="/instructorHome" element={<InstructorHome/>}/>
+          <Route path="/instructorInfo" element={<InstructorInfo/>}/>
         </Routes>
       </BrowserRouter>
 

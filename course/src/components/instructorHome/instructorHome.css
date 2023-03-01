@@ -6,11 +6,12 @@
     left: 200px;
 }
 
-.buttons {
-    position: absolute;
+.instructorHomeBtns {
+    position: relative;
     text-align: center;
-    top: 200px;
+    top: 100px;
     left: 225px;
+    display:inline;
 }
 
 .logoutBtn {
