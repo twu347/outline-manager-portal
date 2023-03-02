@@ -32,7 +32,7 @@ function Login(){
                     navigate('/adminHome');
                 }
                 else if(data.result == 2){
-                    navigate('/Outline1');
+                    navigate('/instructorHome');
                 }
                 else{
                     alert('Username & Password Incorrect')
