@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3333;
 
 //set cors 
 const corsOptions = {
-    origin: process.env.FRONTEND_APP_URL, 
+    origin: "https://se3350-team-40.uc.r.appspot.com", 
     credentials:true,            
     optionSuccessStatus:200
 }

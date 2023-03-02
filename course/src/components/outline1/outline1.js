@@ -25,14 +25,14 @@ function Outline1(){
     const handleForm = async (e) => {
         e.preventDefault();
         var count = 0;
-        await fetch(process.env.REACT_APP_CLIENT_APP_API_ADDRESS + "/api/getDoc").then((res)=>{
+        await fetch(process.env.REACT_APP_SERVER_APP_API_ADDRES + "/api/getDoc").then((res)=>{
             res.json().then(data=>{
                 for(var i=0; i< data.length; i++){
                     if(data[i].courseNumber == document.getElementById('courseNumber').value && data[i].profName == document.getElementById('profName').value)
                     count++;
                 }
                 if(count <=0){
-                    fetch(process.env.REACT_APP_CLIENT_APP_API_ADDRESS + "/api/outline", {
+                    fetch(process.env.REACT_APP_SERVER_APP_API_ADDRES + "/api/outline", {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
@@ -112,7 +112,7 @@ function Outline1(){
                     });
                 }
                 else{
-                    fetch(`${process.env.REACT_APP_CLIENT_APP_API_ADDRESS}/api/putInfo/${document.getElementById('courseNumber').value}/${document.getElementById('profName').value}`, {
+                    fetch(`${process.env.REACT_APP_SERVER_APP_API_ADDRES}/api/putInfo/${document.getElementById('courseNumber').value}/${document.getElementById('profName').value}`, {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
@@ -196,7 +196,7 @@ function Outline1(){
     function showInfo(){
         const courseShow = document.getElementById('courseShow').value;
         const profShow = document.getElementById('profShow').value;
-        fetch(`${process.env.REACT_APP_CLIENT_APP_API_ADDRESS}/api/getInfo/${courseShow}/${profShow}`).then((res)=>{
+        fetch(`${process.env.REACT_APP_SERVER_APP_API_ADDRES}/api/getInfo/${courseShow}/${profShow}`).then((res)=>{
             res.json().then((data)=>{
                 document.getElementById('timeStamp').value = data[0].timeStamp;
                 document.getElementById('courseNumber').value = data[0].courseNumber;

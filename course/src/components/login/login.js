@@ -18,7 +18,7 @@ function Login(){
     // fetch login back-end API to verify username and password 
     function Userlogin(event){
         event.preventDefault();
-        fetch(process.env.REACT_APP_CLIENT_APP_API_ADDRESS + "/api/login", {method: 'POST',
+        fetch(process.env.REACT_APP_SERVER_APP_API_ADDRES + "/api/login", {method: 'POST',
             headers:{
                 'Content-Type' : 'application/json',
             },
