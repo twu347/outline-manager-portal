@@ -6,23 +6,15 @@
     left: 550px;
 }
 
-.boxes {
-    border: 1px solid black;
-    padding: 10px;
-    margin: 10px;
-}
-
-.box1 {
-    overflow: auto;
+.instructorCoursesBox {
+    width: 300px; /* adjust as needed */
+    height: 200px; /* adjust as needed */
+    background-color: lightgrey;
+    border-radius: 10px; /* adjust as needed */
+    position: absolute;
+    top: 200px;
+    left: 100px;
     text-align: center;
-    position: relative;
-    overflow-y: scroll;
-    height: 500px;
-    width: 60%;
-    top: 100px;
-    left: 20%;
-    border: 1px solid black;
-    padding: 10px;
 }
 
 .approve-btn {

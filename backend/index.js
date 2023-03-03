@@ -96,6 +96,14 @@ app.get('/api/getInfo/:courseNumber/:profName', (req, res) => {
     });
 });
 
+// get all information with the instructor name
+app.get('/api/getInstructorInfo/:profName', (req, res) => {
+    outlines.collection('outlines').find({ "profName": req.params.profName }).toArray((err, data) => {
+        if (err) throw err;
+        res.json(data);
+    });
+});
+
 // change course outline base on instructor name and course number 
 app.put('/api/putInfo/:courseNumber/:profName', (req, res) => {
     Outline.updateOne({courseNumber: req.params.courseNumber, profName: req.params.profName},{
