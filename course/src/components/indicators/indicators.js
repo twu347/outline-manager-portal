@@ -22,11 +22,16 @@ function Indicators(){
         navigate('/Courses');
     }
 
+    function goInstructorHome(){
+        navigate('/instructorHome');
+    }
+
     return(
         <div>
-            <button class="managerPortal" onClick={goManagerPortal}>Assign Courses</button>
+            <button className="managerPortal" onClick={goManagerPortal}>Assign Courses</button>
+            <button className="instructorPortal" onClick={goInstructorHome}>Instructor Home</button>
             <div class="header"> 
-                <h2 class="heading">GA Indicator Information</h2>
+                <h2 class="heading1">GA Indicator Information</h2>
             </div>
             <div class="catagories">
                 <button id="1" class="catagoryBtn" onClick={showIndicator}>1 - Knowledge Base</button>
