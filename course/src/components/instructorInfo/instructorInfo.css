@@ -17,6 +17,31 @@
     text-align: center;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.courseChart > div {
+    width: 50%;
+}
+
+.courseChart > div:first-child {
+    text-align: right;
+    padding-right: 5px;
+}
+
 .approve-btn {
     margin-right: 10px;
+}
+
+.personalInfoBox {
+    width: 300px; /* adjust as needed */
+    height: 200px; /* adjust as needed */
+    background-color: lightgrey;
+    border-radius: 10px; /* adjust as needed */
+    position: absolute;
+    top: 200px;
+    left: 450px;
+    text-align: center;
 }

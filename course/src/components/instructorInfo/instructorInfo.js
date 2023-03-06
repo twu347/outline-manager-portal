@@ -8,6 +8,12 @@ import process from "process";
 
 function InstructorInfo(){
     let navigate = useNavigate();
+    const [profName, setProfName] = useState('');
+    const [courseNumbers, setCourseNumbers] = useState([]);
+    const [email, setEmail] = useState('');
+    const [office, setOffice] = useState('');
+    const [extension, setExtension] = useState('');
+    const [courseTitles, setCourseTitles] = useState([]);
 
     function goInstructorHome(){
         navigate('/instructorHome');
@@ -17,18 +23,14 @@ function InstructorInfo(){
         // fetch saved information based on profName and courseNumber
     function showInfo(){
         const profShow = document.getElementById('profShow').value;
-        fetch(`${process.env.REACT_APP_CLIENT_APP_API_ADDRESS}/api/getInstructorInfo/${profShow}`).then((res)=>{
-            res.json().then((data)=>{
-                document.getElementById('courseNumber').innerHTML = 
-                for(let i = 0; i<data.length; i++ ){
-                    return "Course Number: " + data[i].courseNumber.toString();
-                }
-                document.getElementById('courseTitle').innerHTML = "Course Title: " + data[0].courseTitle.toString();
-                document.getElementById('office').innerHTML = "Office: " + data[0].office.toString();
-                document.getElementById('extension').innerHTML = "Extension: " + data[0].extension.toString();
-                document.getElementById('email').innerHTML =  "Email: " + data[0].email.toString();
-                matchedData = data[0];
-            });
+        fetch(`${process.env.REACT_APP_CLIENT_APP_API_ADDRESS}/api/getInstructorInfo/${profShow}`)
+            .then((res) => res.json())
+            .then((data) => {
+                setCourseNumbers(data.map((outline) => outline.courseNumber));
+                setEmail(data[0].email.toString());
+                setOffice(data[0].office.toString());
+                setExtension(data[0].extension.toString());
+                setCourseTitles(data.map((outline) => outline.courseTitle));
         });
     };
     
@@ -40,8 +42,33 @@ function InstructorInfo(){
                     <button onClick={showInfo}> show </button>
                     <button onClick={goInstructorHome}>Back to Instructor Home</button>
                 </div>
-                <div class="instructorCoursesBox">
-                    <h5 type="number" id="courseNumber" className="title" name='courseNumber' required></h5>
+                <div className="instructorCoursesBox">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Course Title</th>
+                                <th>Course Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {courseTitles.map((courseTitle, index) => (
+                                <tr key={index}>
+                                    <td>{courseTitle}</td>
+                                    <td>{courseNumbers[index]}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+                <div className="personalInfoBox">
+                    <div className="personalTitleBox">
+                        <h4 className="personalTitle">Personal Information</h4>
+                    </div>
+                    <div className="personalInfo">
+                        <h5 className="emailText">Email: {email}</h5>
+                        <h5 className="officeText">Office: {office}</h5>
+                        <h5 className="extensionText">Extension: {extension}</h5>
+                    </div>
                 </div>
             </div>
         </div>
