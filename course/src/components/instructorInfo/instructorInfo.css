@@ -8,7 +8,7 @@
 
 .instructorCoursesBox {
     width: 300px; /* adjust as needed */
-    height: 200px; /* adjust as needed */
+    height: 400px; /* adjust as needed */
     background-color: lightgrey;
     border-radius: 10px; /* adjust as needed */
     position: absolute;
@@ -37,11 +37,57 @@ table {
 
 .personalInfoBox {
     width: 300px; /* adjust as needed */
-    height: 200px; /* adjust as needed */
+    height: 400px; /* adjust as needed */
     background-color: lightgrey;
     border-radius: 10px; /* adjust as needed */
     position: absolute;
     top: 200px;
     left: 450px;
     text-align: center;
+}
+
+.outlineStatusBox {
+    width: 300px;
+    height: 400px;
+    background-color: lightgrey;
+    border-radius: 10px;
+    position: absolute;
+    top: 200px;
+    left: 800px;
+    text-align: center;
+  }
+  
+  .outlineStatusTitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .outlineStatusItem {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+
+  .showBtn3 {
+    width: 100px;
+    height: 30px;
+    background: #D9D9D9;
+    border-radius: 30px;
+    transition-duration: 0.4s;
+    left: 5px;
+}
+.instructorPortal3{
+    position: relative;
+    width: 175px;
+    height: 30px;
+    background: #D9D9D9;
+    border-radius: 30px;
+    transition-duration: 0.4s;
+    left: 5px;
+}
+
+.showBtn3:hover, .instructorPortal3:hover {
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
 }

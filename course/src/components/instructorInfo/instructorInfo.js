@@ -14,6 +14,7 @@ function InstructorInfo(){
     const [office, setOffice] = useState('');
     const [extension, setExtension] = useState('');
     const [courseTitles, setCourseTitles] = useState([]);
+    const [outlineStatus, setOutlineStatus] = useState([]);
 
     function goInstructorHome(){
         navigate('/instructorHome');
@@ -31,6 +32,7 @@ function InstructorInfo(){
                 setOffice(data[0].office.toString());
                 setExtension(data[0].extension.toString());
                 setCourseTitles(data.map((outline) => outline.courseTitle));
+                setOutlineStatus(data.map((outline) => `${outline.courseNumber} - ${outline.courseTitle} = ${outline.approved ? 'approved' : 'not approved'}`));
         });
     };
     
@@ -39,8 +41,8 @@ function InstructorInfo(){
             <div >
                 <div>
                     <input id="profShow" placeholder="enter prof name"/>
-                    <button onClick={showInfo}> show </button>
-                    <button onClick={goInstructorHome}>Back to Instructor Home</button>
+                    <button class="showBtn3" onClick={showInfo}> show </button>
+                    <button class="instructorPortal3" onClick={goInstructorHome}>Back to Instructor Home</button>
                 </div>
                 <div className="instructorCoursesBox">
                     <table>
@@ -68,6 +70,16 @@ function InstructorInfo(){
                         <h5 className="emailText">Email: {email}</h5>
                         <h5 className="officeText">Office: {office}</h5>
                         <h5 className="extensionText">Extension: {extension}</h5>
+                    </div>
+                </div>
+                <div className="outlineStatusBox">
+                    <div className="outlineStatusTitleBox">
+                        <h4 className="outlineStatusTitle">Outline Status</h4>
+                    </div>
+                    <div className="outlineStatusInfo">
+                        {outlineStatus.map((outline, index) => (
+                            <h5 key={index}>{outline}</h5>
+                        ))}
                     </div>
                 </div>
             </div>
