@@ -21,6 +21,10 @@ const Outline = new mongoose.Schema({
     yearFrom:{
         type:Number, 
     }, 
+    comment:{
+        type: String,
+        required: false,
+    },
     yearTo:{
         type:Number, 
     },
