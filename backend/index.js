@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3333;
 
 //set cors 
 const corsOptions = {
-    origin: "https://se3350-team-40.uc.r.appspot.com", 
+    origin: 'http://localhost:3000', 
     credentials:true,            
     optionSuccessStatus:200
 }
