@@ -346,6 +346,23 @@ app.put('/api/outline/:_id', async(req, res) => {
     })
 });
 
+// update course outline comment
+app.put('/api/outline/comment/:_id', async(req, res) => {
+    Outline.findOneAndUpdate({_id : req.params._id}, {
+        $set : {
+            comment : req.body.comment,
+        }
+    }).then(result => {
+        res.status(200).json({
+            update_product : result
+        })
+    }).catch(err => {
+        res.status(500).json({
+            error : err
+        })
+    })
+});
+
 // update CEAB attributes
 app.put('/api/ceab/:_id', async(req, res) => {
     CEAB.findOneAndUpdate({_id : req.params._id}, {
