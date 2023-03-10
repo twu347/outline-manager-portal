@@ -1,0 +1,23 @@
+.heading{
+    position: center;
+    left: 550px;
+    top: 60px;
+}
+.boxes {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+}
+
+.box {
+    overflow: auto;
+    text-align: center;
+    position: relative;
+    overflow-y: scroll;
+    height: 570px;
+    width: 60%;
+    top: 100px;
+    left: 20%;
+    border: 1px solid black;
+    padding: 10px;
+}

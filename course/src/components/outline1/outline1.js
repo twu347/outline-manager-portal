@@ -288,6 +288,9 @@ function Outline1(){
         });
     };
 
+    function goStatus(){
+        navigate('/viewStatus');
+    };
 
     // print as PDF 
     function print(){
@@ -497,6 +500,7 @@ function Outline1(){
                     <button id="indicator" onClick={goIndicator}>GA indicator</button>
                     <button onClick={print}>Print as PDF</button>
                     <button onClick={goLogin}>Log Out</button>
+                    <button onClick={goStatus}>View Outlines Status</button>
                 </div>
 
                 <div className="scroll-bar1" id='myPage'>
@@ -516,7 +520,6 @@ function Outline1(){
                         Year 20 <input type="number"  id="yearFrom" className="classDate" name='yearFrom'  onChange={handleInput} placeholder="YY"/>
                         - <input type="number" id="yearTo" className="classDate" name='yearTo'  onChange={handleInput} placeholder="YY"/>
                     </h3>
-                    
                     <h3 className="titles">Description:</h3>
                     <textarea type="text" id="description" className="description-box" name='description'  onChange={handleInput} placeholder="Enter Course Description"/>
 
