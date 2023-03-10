@@ -25,14 +25,14 @@ function Outline1(){
     const handleForm = async (e) => {
         e.preventDefault();
         var count = 0;
-        await fetch(process.env.REACT_APP_CLIENT_APP_API_ADDRESS + "/api/getDoc").then((res)=>{
+        await fetch(process.env.REACT_APP_SERVER_APP_API_ADDRES + "/api/getDoc").then((res)=>{
             res.json().then(data=>{
                 for(var i=0; i< data.length; i++){
                     if(data[i].courseNumber == document.getElementById('courseNumber').value && data[i].profName == document.getElementById('profName').value)
                     count++;
                 }
                 if(count <=0){
-                    fetch(process.env.REACT_APP_CLIENT_APP_API_ADDRESS + "/api/outline", {
+                    fetch(process.env.REACT_APP_SERVER_APP_API_ADDRES + "/api/outline", {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
@@ -107,12 +107,13 @@ function Outline1(){
                             locker: document.getElementById('locker-location').value,
                             mobileDevice: document.getElementById('device-info').value,
                             clicker: document.getElementById('clicker-info').value, 
+                            approved: "false"
                                                         
                         })
                     });
                 }
                 else{
-                    fetch(`${process.env.REACT_APP_CLIENT_APP_API_ADDRESS}/api/putInfo/${document.getElementById('courseNumber').value}/${document.getElementById('profName').value}`, {
+                    fetch(`${process.env.REACT_APP_SERVER_APP_API_ADDRES}/api/putInfo/${document.getElementById('courseNumber').value}/${document.getElementById('profName').value}`, {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
@@ -185,6 +186,7 @@ function Outline1(){
                             locker: document.getElementById('locker-location').value,
                             mobileDevice: document.getElementById('device-info').value,
                             clicker: document.getElementById('clicker-info').value, 
+                            approved: "false"
                         })
                     });
                 }
@@ -196,7 +198,7 @@ function Outline1(){
     function showInfo(){
         const courseShow = document.getElementById('courseShow').value;
         const profShow = document.getElementById('profShow').value;
-        fetch(`${process.env.REACT_APP_CLIENT_APP_API_ADDRESS}/api/getInfo/${courseShow}/${profShow}`).then((res)=>{
+        fetch(`${process.env.REACT_APP_SERVER_APP_API_ADDRES}/api/getInfo/${courseShow}/${profShow}`).then((res)=>{
             res.json().then((data)=>{
                 document.getElementById('timeStamp').value = data[0].timeStamp;
                 document.getElementById('courseNumber').value = data[0].courseNumber;
@@ -286,16 +288,43 @@ function Outline1(){
         });
     };
 
+    function goStatus(){
+        navigate('/viewStatus');
+    };
 
     // print as PDF 
     function print(){
-        var element = document.querySelector("#myPage");
-        var doc = new jsPDF("p", "pt", [2100, element.offsetHeight*10]);
-        doc.html(element,{
-            callback: function(pdf){
-                pdf.save("mupdf.pdf");
-            }
-        })
+
+        const course = document.getElementById('courseNumber').value;
+        const prof = document.getElementById('profName').value;
+
+        if(course != '' && prof!=''){ // This makes sure primary key is not empty !
+            fetch(`http://localhost:3333/api/getInfo/${course}/${prof}`).then((res)=>{
+            res.json().then((data)=>{
+                    if (data.length === 0) { // This makes sure data will be found
+                        alert("Data not found");
+                      } else {
+                        if(data[0].approved == "true"){ // We will give two different result when it is approved or not !
+                            var element = document.querySelector("#myPage");
+                var doc = new jsPDF("p", "pt", [2100, element.offsetHeight*10]);
+                doc.html(element,{
+                    callback: function(pdf){
+                        pdf.save("mupdf.pdf");
+                    }
+                })
+                        }else{
+                            alert("Print disabled !");
+                        }
+                      }
+                
+            });
+        });
+        }else{
+            alert("Empty primary key !")
+        }
+
+
+
     }
 
     // define the GA indicator drop down menu 
@@ -471,6 +500,7 @@ function Outline1(){
                     <button id="indicator" onClick={goIndicator}>GA indicator</button>
                     <button onClick={print}>Print as PDF</button>
                     <button onClick={goLogin}>Log Out</button>
+                    <button onClick={goStatus}>View Outlines Status</button>
                 </div>
 
                 <div className="scroll-bar1" id='myPage'>
@@ -490,7 +520,6 @@ function Outline1(){
                         Year 20 <input type="number"  id="yearFrom" className="classDate" name='yearFrom'  onChange={handleInput} placeholder="YY"/>
                         - <input type="number" id="yearTo" className="classDate" name='yearTo'  onChange={handleInput} placeholder="YY"/>
                     </h3>
-                    
                     <h3 className="titles">Description:</h3>
                     <textarea type="text" id="description" className="description-box" name='description'  onChange={handleInput} placeholder="Enter Course Description"/>
 
@@ -531,7 +560,7 @@ function Outline1(){
                     <h3 className="titles">Co-requisite:</h3>
                     <input id="corequisite" type="text" className="title" name='corequisite'  onChange={handleInput} placeholder="Enter Co-requisites"/>
                     
-                    <span className="policy1"><br></br>Unless you have either the requisites for this course or written special permission from your Dean to enroll in it, you will be removed from this course and it will be deleted from your re-</span>
+                    <span className="policy1"><br></br><br/>Unless you have either the requisites for this course or written special permission from your Dean to enroll in it, you will be removed from this course and it will be deleted from your re-</span>
                     <span className="policy1">cord. This decision may not be appealed. You will receive no adjustment to your fees in the event that you are dropped from a course for failing to have the necessary prerequisites</span>
 
                     <br></br>

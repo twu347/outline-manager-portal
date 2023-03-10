@@ -11,7 +11,9 @@ import AdminHome from "./components/adminPanel/adminHome";
 import ReviewOutline from "./components/reviewOutline/reviewOutline";
 import ViewOutline from "./components/viewOutline/viewOutline";
 import ViewOutlines from "./components/viewOutlines/viewOutlines";
+import Archive from "./components/archive/Archive";
 import Manual from "./components/manual/manual";
+import ViewStatus from "./components/viewStatus/viewStatus";
 import InstructorHome from "./components/instructorHome/instructorHome";
 import InstructorInfo from "./components/instructorInfo/instructorInfo";
 
@@ -35,6 +37,8 @@ class App extends Component{
           <Route path="/outlines" element={<Outline1/>}/>
           <Route path="/viewOutlines" element={<ViewOutlines/>}/>
           <Route path="/manual" element={<Manual/>}/>
+          <Route path="/viewStatus" element={<ViewStatus/>}/>
+          <Route path="/archive" element={<Archive/>}/>
           <Route path="/instructorHome" element={<InstructorHome/>}/>
           <Route path="/instructorInfo" element={<InstructorInfo/>}/>
         </Routes>

@@ -13,10 +13,11 @@ const PORT = process.env.PORT || 3333;
 
 //set cors 
 const corsOptions = {
-    origin: process.env.FRONTEND_APP_URL, 
+    origin: 'http://localhost:3000', 
     credentials:true,            
     optionSuccessStatus:200
 }
+
 
 // set cors headers
 app.use(cors(corsOptions));
@@ -96,9 +97,18 @@ app.get('/api/getInfo/:courseNumber/:profName', (req, res) => {
     });
 });
 
+
 // get all information with the instructor name
 app.get('/api/getInstructorInfo/:profName', (req, res) => {
     outlines.collection('outlines').find({ "profName": req.params.profName }).toArray((err, data) => {
+    if (err) throw err;
+        res.json(data);
+    });
+});
+
+app.get('/api/getInfo/:profName', (req, res) => {
+    outlines.collection('outlines').find({"profName": req.params.profName }).toArray((err, data) => {
+
         if (err) throw err;
         res.json(data);
     });
@@ -178,6 +188,7 @@ app.put('/api/putInfo/:courseNumber/:profName', (req, res) => {
         locker : req.body.locker, 
         mobileDevice : req.body.mobileDevice, 
         clicker : req.body.clicker,
+        approved: req.body.approved,
         }
     }).then(result => {
         res.status(200).json({
@@ -274,6 +285,7 @@ app.post('/api/outline', async(req, res) => {
         locker : req.body.locker, 
         mobileDevice : req.body.mobileDevice, 
         clicker : req.body.clicker,
+        approved: req.body.approved,
     });
     let result = await input.save(); 
     res.send(result);
