@@ -3,6 +3,8 @@ import { Link,Outlet, useNavigate } from "react-router-dom";
 import './login.css'
 import { useState } from "react";
 import Footer from "../footer/footer";
+import process from "process";
+
 function Login(){
     
     // API link 
@@ -16,7 +18,7 @@ function Login(){
     // fetch login back-end API to verify username and password 
     function Userlogin(event){
         event.preventDefault();
-        fetch("http://localhost:3333/api/login", {method: 'POST',
+        fetch(process.env.REACT_APP_SERVER_APP_API_ADDRES + "/api/login", {method: 'POST',
             headers:{
                 'Content-Type' : 'application/json',
             },
@@ -30,7 +32,7 @@ function Login(){
                     navigate('/adminHome');
                 }
                 else if(data.result == 2){
-                    navigate('/Outline1');
+                    navigate('/instructorHome');
                 }
                 else{
                     alert('Username & Password Incorrect')
@@ -41,7 +43,6 @@ function Login(){
 
     return(
         <div>
-            <h2 className="heading">Login To Portal</h2>
             <form class="login">
 
                 {/* <h2 class="heading">Login To Portal</h2> */}
@@ -55,6 +56,7 @@ function Login(){
             <div class="splitBar"></div>
 
             <div>
+                <h2 className="aboutHeading2">Login To Portal</h2>
                 <h2 class="aboutHeading">About Portal</h2>
             </div>
 

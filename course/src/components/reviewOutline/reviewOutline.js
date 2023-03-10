@@ -3,6 +3,7 @@ import './reviewOutline.css'
 import { useState } from "react";
 import CourseList from "../courseList/courseList";
 import { Link,Outlet, useNavigate } from "react-router-dom";
+import process from "process";
 
 function ReviewOutline() {
     const [courseOutlines, setCourseOutlines] = useState([]);
@@ -12,13 +13,24 @@ function ReviewOutline() {
         navigate('/viewOutline');
     }
 
+    function goLogin(){
+        navigate('/');
+    }
+
+    function goAdminPanel(){
+        navigate('/adminHome');
+    }
+
     useEffect(() => {
-        fetch('http://localhost:3333/api/courseOutlines')
+        fetch(process.env.REACT_APP_SERVER_APP_API_ADDRES + '/api/courseOutlines')
             .then(res => res.json())
             .then(data => setCourseOutlines(data));
     }, []);
 
     return (
+        <div>
+            <button onClick={goAdminPanel}>Return to Admin Panel</button>
+            <button onClick={goLogin}>Logout</button>
         <div class = "box1">
             {courseOutlines.map(courseOutline => (
                 <div class="boxes" key={courseOutline._id}>
@@ -52,6 +64,7 @@ function ReviewOutline() {
                     <button onClick={goViewOutline}>Review</button>
                 </div>
             ))}
+        </div>
         </div>
     );
 }
