@@ -29,12 +29,12 @@ function ViewStatus(){
             <div class="search-box">
                 <input type="text" id="prof-search" placeholder="Enter Prof Name"></input>
                 <button class="search" onClick={Search}>View Outlines</button>
-                <button class="instructorPortal" onClick={goInstructorPortal}>Back to Home</button>
+                <button class="instructorPortal12" onClick={goInstructorPortal}>Back to Home</button>
             </div>
             <div class="header"> 
-                <h2 class="heading">Outlines Approval Status</h2>
+                <h2 class="heading123">Outlines Approval Status</h2>
             </div>
-            <div class="box">
+            <div class="box123">
                 {courseTitles.map((courseTitles, index) => 
                     <div class="boxes" key={index}>
                         <p>Course Title: {courseTitles}, Course Number: {courseNumbers[index]}</p>
