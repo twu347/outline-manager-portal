@@ -12,6 +12,10 @@ import ReviewOutline from "./components/reviewOutline/reviewOutline";
 import ViewOutline from "./components/viewOutline/viewOutline";
 import ViewOutlines from "./components/viewOutlines/viewOutlines";
 
+import Manual from "./components/manual/manual";
+import Archive from "./components/archive/Archive";
+
+
 
 class App extends Component{
   render(){
@@ -32,6 +36,10 @@ class App extends Component{
           <Route path="/viewOutline" element={<ViewOutline/>}/>
           <Route path="/outlines" element={<Outline1/>}/>
           <Route path="/viewOutlines" element={<ViewOutlines/>}/>
+
+          <Route path="/manual" element={<Manual/>}/>
+          <Route path="/archive" element={<Archive/>}/>
+
         </Routes>
       </BrowserRouter>
 
