@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link,Outlet, useNavigate } from "react-router-dom";
 import { jsPDF } from "jspdf";
-import './outline1.css'
+import './outline1.css';
+import process from "process";
 
 function Outline1(){
 
@@ -14,21 +15,24 @@ function Outline1(){
         matchedData[id] = e.target.value
     }
 
-    // prevent refresh page 
+    function goLogin(){
+        navigate('/')
+    }
+
     function goIndicator(){
         navigate('/Indicators');
     }
     const handleForm = async (e) => {
         e.preventDefault();
         var count = 0;
-        await fetch('http://localhost:3333/api/getDoc').then((res)=>{
+        await fetch(process.env.REACT_APP_SERVER_APP_API_ADDRES + "/api/getDoc").then((res)=>{
             res.json().then(data=>{
                 for(var i=0; i< data.length; i++){
                     if(data[i].courseNumber == document.getElementById('courseNumber').value && data[i].profName == document.getElementById('profName').value)
                     count++;
                 }
                 if(count <=0){
-                    fetch('http://localhost:3333/api/outline', {
+                    fetch(process.env.REACT_APP_SERVER_APP_API_ADDRES + "/api/outline", {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
@@ -109,7 +113,7 @@ function Outline1(){
                     });
                 }
                 else{
-                    fetch(`http://localhost:3333/api/putInfo/${document.getElementById('courseNumber').value}/${document.getElementById('profName').value}`, {
+                    fetch(`${process.env.REACT_APP_SERVER_APP_API_ADDRES}/api/putInfo/${document.getElementById('courseNumber').value}/${document.getElementById('profName').value}`, {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
@@ -194,7 +198,7 @@ function Outline1(){
     function showInfo(){
         const courseShow = document.getElementById('courseShow').value;
         const profShow = document.getElementById('profShow').value;
-        fetch(`http://localhost:3333/api/getInfo/${courseShow}/${profShow}`).then((res)=>{
+        fetch(`${process.env.REACT_APP_SERVER_APP_API_ADDRES}/api/getInfo/${courseShow}/${profShow}`).then((res)=>{
             res.json().then((data)=>{
                 document.getElementById('timeStamp').value = data[0].timeStamp;
                 document.getElementById('courseNumber').value = data[0].courseNumber;
@@ -490,9 +494,9 @@ function Outline1(){
                     <input id="courseShow" placeholder="Enter course number"/>
                     <input id="profShow" placeholder="Enter prof name"/>
                     <button onClick={showInfo}> Show </button>
-                    
                     <button id="indicator" onClick={goIndicator}>GA indicator</button>
                     <button onClick={print}>Print as PDF</button>
+                    <button onClick={goLogin}>Log Out</button>
                 </div>
 
                 <div className="scroll-bar1" id='myPage'>

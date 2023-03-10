@@ -1,0 +1,9 @@
+runtime: nodejs18
+service: server
+
+handlers:
+  - url: /api/login
+    script: auto
+  - url: /api/username
+    script: auto
+

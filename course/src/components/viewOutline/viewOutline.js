@@ -4,6 +4,8 @@ import { useState } from "react";
 import CourseList from "../courseList/courseList";
 import { Link,Outlet, useNavigate } from "react-router-dom";
 
+import process from "process";
+
 function ViewOutline(){
     let navigate = useNavigate();
 
@@ -17,7 +19,7 @@ function ViewOutline(){
     function showInfo(){
         const courseShow = document.getElementById('courseShow').value;
         const profShow = document.getElementById('profShow').value;
-        fetch(`http://localhost:3333/api/getInfo/${courseShow}/${profShow}`).then((res)=>{
+        fetch(`${process.env.REACT_APP_SERVER_APP_API_ADDRES}/api/getInfo/${courseShow}/${profShow}`).then((res)=>{
             res.json().then((data)=>{
                 document.getElementById('courseNumber').innerHTML = "Course Number: " + data[0].courseNumber.toString();
                 document.getElementById('courseTitle').innerHTML = "Course Title: " + data[0].courseTitle.toString();
