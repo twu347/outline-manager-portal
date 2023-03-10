@@ -1,0 +1,56 @@
+.header {
+    white-space: nowrap;
+    text-align: center;
+    position: absolute;
+    top: 100px;
+    left: 200px;
+}
+
+.buttons {
+    position: absolute;
+    text-align: center;
+    top: 200px;
+    left: 225px;
+}
+
+.logoutBtn {
+    position: absolute;
+    text-align: center;
+    top: -150px;
+    left: 700px;
+    padding: 5px;
+    margin: 100px;
+    height: 40px;
+    width: 100px;
+    background: #D9D9D9;
+    transition-duration: 0.4s;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.assignBtn, .reviewBtn {
+    padding: 5px;
+    margin: 100px;
+    height: 75px;
+    width: 250px;
+    background: #D9D9D9;
+    transition-duration: 0.4s;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.assignBtn:hover, .reviewBtn:hover, .logoutBtn:hover {
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.assignBtn:active, .reviewBtn:active, .logoutBtn:active {
+    background-color: blue;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+

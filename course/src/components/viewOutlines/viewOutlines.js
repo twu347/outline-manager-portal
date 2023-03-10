@@ -12,7 +12,7 @@ function ViewOutlines(){
     }
     
     useEffect(() => {
-    fetch(process.env.REACT_APP_CLIENT_APP_API_ADDRESS + '/api/courseOutlines')
+    fetch(process.env.REACT_APP_SERVER_APP_API_ADDRES + '/api/courseOutlines')
     .then(res=>res.json())
     .then(data => setCourseOutlines(data));
     }, []);

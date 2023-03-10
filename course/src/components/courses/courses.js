@@ -26,7 +26,7 @@ function Courses(){
 
   // fetch login API
   function setUsers(){
-    fetch(process.env.REACT_APP_CLIENT_APP_API_ADDRESS + "/api/logins").then((res)=>{
+    fetch(process.env.REACT_APP_SERVER_APP_API_ADDRES + "/api/logins").then((res)=>{
       res.json().then((data)=>{
         setUser(data);
       });
@@ -35,7 +35,7 @@ function Courses(){
 
   // fetch course API
   function setCourses(){
-    fetch(process.env.REACT_APP_CLIENT_APP_API_ADDRESS + '/api/courses').then((res)=>{
+    fetch(process.env.REACT_APP_SERVER_APP_API_ADDRES + '/api/courses').then((res)=>{
       res.json().then((data)=>{
         setCourse(data);
       })
@@ -46,7 +46,7 @@ function Courses(){
   function assignCourse(){
     const inputUsername = document.getElementById('prof').value;
     const inputCourse = document.getElementById('course').value;
-    fetch(`${process.env.REACT_APP_CLIENT_APP_API_ADDRESS}/api/putProf/${inputUsername}`, {
+    fetch(`${process.env.REACT_APP_SERVER_APP_API_ADDRES}/api/putProf/${inputUsername}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({courseName: inputCourse})
@@ -65,7 +65,7 @@ function Courses(){
   function deleteCourse(){
     const deleteUsername = document.getElementById('deleteProf').value;
     const deleteCourse = document.getElementById('deleteCourse').value;
-    fetch(`${process.env.REACT_APP_CLIENT_APP_API_ADDRESS}/api/deleteProf/${deleteUsername}`, {
+    fetch(`${process.env.REACT_APP_SERVER_APP_API_ADDRES}/api/deleteProf/${deleteUsername}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({coursename: deleteCourse})
