@@ -97,8 +97,18 @@ app.get('/api/getInfo/:courseNumber/:profName', (req, res) => {
     });
 });
 
+
+// get all information with the instructor name
+app.get('/api/getInstructorInfo/:profName', (req, res) => {
+    outlines.collection('outlines').find({ "profName": req.params.profName }).toArray((err, data) => {
+    if (err) throw err;
+        res.json(data);
+    });
+});
+
 app.get('/api/getInfo/:profName', (req, res) => {
     outlines.collection('outlines').find({"profName": req.params.profName }).toArray((err, data) => {
+
         if (err) throw err;
         res.json(data);
     });

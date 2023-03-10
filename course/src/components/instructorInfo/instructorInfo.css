@@ -1,0 +1,93 @@
+.header {
+    white-space: nowrap;
+    text-align: center;
+    position: absolute;
+    top: 100px;
+    left: 550px;
+}
+
+.instructorCoursesBox {
+    width: 300px; /* adjust as needed */
+    height: 400px; /* adjust as needed */
+    background-color: lightgrey;
+    border-radius: 10px; /* adjust as needed */
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.courseChart > div {
+    width: 50%;
+}
+
+.courseChart > div:first-child {
+    text-align: right;
+    padding-right: 5px;
+}
+
+.approve-btn {
+    margin-right: 10px;
+}
+
+.personalInfoBox {
+    width: 300px; /* adjust as needed */
+    height: 400px; /* adjust as needed */
+    background-color: lightgrey;
+    border-radius: 10px; /* adjust as needed */
+    position: absolute;
+    top: 200px;
+    left: 450px;
+    text-align: center;
+}
+
+.outlineStatusBox {
+    width: 300px;
+    height: 400px;
+    background-color: lightgrey;
+    border-radius: 10px;
+    position: absolute;
+    top: 200px;
+    left: 800px;
+    text-align: center;
+  }
+  
+  .outlineStatusTitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .outlineStatusItem {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+
+  .showBtn3 {
+    width: 100px;
+    height: 30px;
+    background: #D9D9D9;
+    border-radius: 30px;
+    transition-duration: 0.4s;
+    left: 5px;
+}
+.instructorPortal3{
+    position: relative;
+    width: 175px;
+    height: 30px;
+    background: #D9D9D9;
+    border-radius: 30px;
+    transition-duration: 0.4s;
+    left: 5px;
+}
+
+.showBtn3:hover, .instructorPortal3:hover {
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
+}

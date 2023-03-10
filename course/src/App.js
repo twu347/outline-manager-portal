@@ -15,6 +15,7 @@ import Archive from "./components/archive/Archive";
 import Manual from "./components/manual/manual";
 import ViewStatus from "./components/viewStatus/viewStatus";
 import InstructorHome from "./components/instructorHome/instructorHome";
+import InstructorInfo from "./components/instructorInfo/instructorInfo";
 
 class App extends Component{
   render(){
@@ -39,6 +40,7 @@ class App extends Component{
           <Route path="/viewStatus" element={<ViewStatus/>}/>
           <Route path="/archive" element={<Archive/>}/>
           <Route path="/instructorHome" element={<InstructorHome/>}/>
+          <Route path="/instructorInfo" element={<InstructorInfo/>}/>
         </Routes>
       </BrowserRouter>
 
