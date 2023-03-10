@@ -18,6 +18,7 @@ const corsOptions = {
     optionSuccessStatus:200
 }
 
+
 // set cors headers
 app.use(cors(corsOptions));
 router.get("/", (req, res) => {
@@ -170,6 +171,7 @@ app.put('/api/putInfo/:courseNumber/:profName', (req, res) => {
         locker : req.body.locker, 
         mobileDevice : req.body.mobileDevice, 
         clicker : req.body.clicker,
+        approved: req.body.approved,
         }
     }).then(result => {
         res.status(200).json({
@@ -266,6 +268,7 @@ app.post('/api/outline', async(req, res) => {
         locker : req.body.locker, 
         mobileDevice : req.body.mobileDevice, 
         clicker : req.body.clicker,
+        approved: req.body.approved,
     });
     let result = await input.save(); 
     res.send(result);

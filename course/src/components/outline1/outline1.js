@@ -107,6 +107,7 @@ function Outline1(){
                             locker: document.getElementById('locker-location').value,
                             mobileDevice: document.getElementById('device-info').value,
                             clicker: document.getElementById('clicker-info').value, 
+                            approved: "false"
                                                         
                         })
                     });
@@ -185,6 +186,7 @@ function Outline1(){
                             locker: document.getElementById('locker-location').value,
                             mobileDevice: document.getElementById('device-info').value,
                             clicker: document.getElementById('clicker-info').value, 
+                            approved: "false"
                         })
                     });
                 }
@@ -289,13 +291,37 @@ function Outline1(){
 
     // print as PDF 
     function print(){
-        var element = document.querySelector("#myPage");
-        var doc = new jsPDF("p", "pt", [2100, element.offsetHeight*10]);
-        doc.html(element,{
-            callback: function(pdf){
-                pdf.save("mupdf.pdf");
-            }
-        })
+
+        const course = document.getElementById('courseNumber').value;
+        const prof = document.getElementById('profName').value;
+
+        if(course != '' && prof!=''){ // This makes sure primary key is not empty !
+            fetch(`http://localhost:3333/api/getInfo/${course}/${prof}`).then((res)=>{
+            res.json().then((data)=>{
+                    if (data.length === 0) { // This makes sure data will be found
+                        alert("Data not found");
+                      } else {
+                        if(data[0].approved == "true"){ // We will give two different result when it is approved or not !
+                            var element = document.querySelector("#myPage");
+                var doc = new jsPDF("p", "pt", [2100, element.offsetHeight*10]);
+                doc.html(element,{
+                    callback: function(pdf){
+                        pdf.save("mupdf.pdf");
+                    }
+                })
+                        }else{
+                            alert("Print disabled !");
+                        }
+                      }
+                
+            });
+        });
+        }else{
+            alert("Empty primary key !")
+        }
+
+
+
     }
 
     // define the GA indicator drop down menu 
