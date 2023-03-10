@@ -329,11 +329,11 @@ app.put('/api/outline1/:_id', async(req, res) => {
     })
 });
 
-// update course outline first page
-app.put('/api/outline/:_id', async(req, res) => {
+// update course outline comment
+app.put('/api/outline/comment/:_id', async(req, res) => {
     Outline.findOneAndUpdate({_id : req.params._id}, {
-        $set : {
-            approved : "true", 
+        $push : {
+            comment : req.body.comment,
         }
     }).then(result => {
         res.status(200).json({
