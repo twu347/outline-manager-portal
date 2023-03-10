@@ -24,11 +24,11 @@
     transform: translateY(4px);
 }
 
-.heading {
-    position: absolute;
+.heading{
+    position: fixed;
     width: 214px;
     height: 36px;
-    left: 110px;
+    left: -300px;
     top: 248px;
     font-family: 'Inter';
     font-style: normal;

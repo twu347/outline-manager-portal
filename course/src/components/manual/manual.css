@@ -1,0 +1,112 @@
+.manualContainer{
+    width: 1400px;
+    height: 500px;
+    position: relative;
+    top: 100px;
+    left: 70px;
+    border: 3px solid gray;
+    font-family : 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    word-wrap: normal;
+    overflow: scroll;
+    padding-left: 30px;
+    padding-right: 30px;
+    line-height: 1.3;
+}
+
+.manualContainer .manual-title{
+    position: relative;
+    text-align: center;
+    color: rebeccapurple;
+    
+}
+
+.manualContainer .introduction{
+    position: relative;
+}
+
+.manualContainer .introduction .intro-title{
+    text-align: center;
+    color: rebeccapurple;
+}
+
+.manualContainer .introduction .intro-content{
+   text-align: justify;
+}
+
+.manualContainer .login-page{
+    position: relative;
+}
+
+.manualContainer .login-page .login-title{
+    text-align: center;
+    color: rebeccapurple;
+}
+
+.manualContainer .login-page .login-content{
+    text-align: justify;
+}
+
+.manualContainer .creating-outline{
+    position: relative;
+}
+
+.manualContainer .creating-outline .creating-outline-title{
+    text-align: center;
+    color: rebeccapurple;
+}
+
+.manualContainer .creating-outline .creating-outline-content{
+    text-align: justify;
+}
+
+.manualContainer .printing-outline{
+    position: relative;
+}
+
+.manualContainer .printing-outline .printing-outline-title{
+    text-align: center;
+    color: rebeccapurple;
+}
+
+.manualContainer .printing-outline .printing-outline-content{
+    text-align: justify;
+}
+
+.manualContainer .accessing-ga{
+    position: relative;
+}
+
+.manualContainer .accessing-ga .accessing-ga-title{
+    text-align: center;
+    color: rebeccapurple;
+}
+
+.manualContainer .accessing-ga .accessing-ga-content{
+    text-align: justify;
+}
+
+.manualContainer .approving-outline{
+    position: relative;
+}
+
+.manualContainer .approving-outline .approving-outline-title{
+    text-align: center;
+    color: rebeccapurple;
+}
+
+.manualContainer .approving-outline .approving-outline-content{
+    text-align: justify;
+}
+
+.manualContainer .assign-course{
+    position: relative;
+}
+
+.manualContainer .assign-course .assign-course-title{
+    text-align: center;
+    color: rebeccapurple;
+}
+
+.manualContainer .assign-course .assign-course-content{
+    text-align: justify;
+}
