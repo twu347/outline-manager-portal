@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3333;
 
 //set cors 
 const corsOptions = {
-    origin: 'http://localhost:3000', 
+    origin: "https://se3350-team-40.uc.r.appspot.com", 
     credentials:true,            
     optionSuccessStatus:200
 }
@@ -329,11 +329,11 @@ app.put('/api/outline1/:_id', async(req, res) => {
     })
 });
 
-// update course outline comment
-app.put('/api/outline/comment/:_id', async(req, res) => {
+// update course outline first page
+app.put('/api/outline/:_id', async(req, res) => {
     Outline.findOneAndUpdate({_id : req.params._id}, {
-        $push : {
-            comment : req.body.comment,
+        $set : {
+            approved : "true", 
         }
     }).then(result => {
         res.status(200).json({
