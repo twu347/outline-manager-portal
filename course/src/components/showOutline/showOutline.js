@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import './showOutline.css'
 import { Link,Outlet, useNavigate } from "react-router-dom";
 
@@ -10,6 +10,17 @@ function ShowOutline(){
     function goReviewOutline(){
         navigate('/reviewOutline');
     }
+
+    const [name, setName] = useState('');
+    const [comment, setComment] = useState('');
+
+    const handleNameChange = (event) => {
+    setName(event.target.value);
+    };
+
+    const handleCommentChange = (event) => {
+    setComment(event.target.value);
+    };
 
     var matchedData={};
 
@@ -47,6 +58,29 @@ function ShowOutline(){
         });
     };
 
+    const handleSubmit = (event) => {
+        const courseShow = document.getElementById('courseShow').value;
+        const profShow = document.getElementById('profShow').value;
+        event.preventDefault();
+        fetch(`/api/putInfo/${courseShow}/${profShow}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            comment: `${name}: ${comment}`
+        })
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            // optionally update the state to show the new comment
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    };
+
     return(
         <div>
             <div >
@@ -55,6 +89,17 @@ function ShowOutline(){
                     <input id="profShow" placeholder="enter prof name"/>
                     <button onClick={showInfo}> show </button>
                     <button onClick={goReviewOutline}>Back to Review Panel</button>
+                </div>
+                <div className="comment-form">
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="name">Name: </label>
+                        <input type="text" id="name" name="name" value={name} onChange={handleNameChange} />
+                    <br />
+                    <label htmlFor="comment">Comment: </label>
+                        <textarea type="text" id="comment" name="comment" value={comment} onChange={handleCommentChange} />
+                    <br />
+                    <input type="submit" value="Submit" />
+                </form>
                 </div>
                 <div className="scroll-bar">
 
