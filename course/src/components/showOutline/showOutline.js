@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
-import './viewOutline.css'
-import { useState } from "react";
-import CourseList from "../courseList/courseList";
+import './showOutline.css'
 import { Link,Outlet, useNavigate } from "react-router-dom";
 
 import process from "process";
 
-function ViewOutline(){
+function ShowOutline(){
     let navigate = useNavigate();
 
     function goReviewOutline(){
@@ -226,4 +224,4 @@ function ViewOutline(){
     )
 };
 
-export default ViewOutline;
+export default ShowOutline;
