@@ -3,9 +3,15 @@ import './adminHome.css'
 import { useState } from "react";
 
 import { Link,Outlet, useNavigate } from "react-router-dom";
+import { setAdminToken } from "../adminToken/adminToken";
 
 function AdminHome(){
     let navigate = useNavigate();
+
+    function logout(){
+        setAdminToken(false);
+        navigate('/');
+    }
 
     function goCourses(){
         navigate('/Courses')
@@ -29,6 +35,7 @@ function AdminHome(){
 
     return(
         <div>
+            <button onClick={logout}>Logout</button>
             <div class="header">
                 <button class="logoutBtn" onClick={goLogin}>Log Out</button>
                 <button class="passwordBtn" onClick={goChangePassword}>Change Password</button>
