@@ -56,6 +56,7 @@ const CEAB = require('./OutlineSchema/ceab.js');
 const Topics = require('./OutlineSchema/topics.js');
 const Outline = require('./OutlineSchema/outline.js');
 const Course = require('./course.js');
+const Comment = require('./OutlineSchema/comment.js');
 const JWT = require('./OutlineSchema/userModel.js');
 
 // require lodash
@@ -209,6 +210,27 @@ app.put('/api/putInfo/:courseNumber/:profName', (req, res) => {
             error:err
         })
     })
+});  
+
+// change course outline base on instructor name and course number 
+app.put('/api/putComment/:courseNumber/:profName', (req, res) => {
+    Comment.updateOne({courseNumber: req.params.courseNumber, profName: req.params.profName},{
+        $set:{
+            profName : req.body.profName,
+            courseNumber : req.body.courseNumber,
+            comment : req.body.comment,
+        }
+    }).then(result => {
+        res.status(200).json({
+            updated_product : result
+        })
+    })
+    .catch(err =>{
+        console.log(err);
+        res.status(500).json({
+            error:err
+        })
+    })
 });
 
 // fetch outlines in outline collection 
@@ -299,6 +321,17 @@ app.post('/api/outline', async(req, res) => {
     res.send(result);
 })
 
+// create a new course comment 
+app.post('/api/comment', async(req, res) => {
+    let input = new Comment({
+        profName : req.body.profName,
+        courseNumber : req.body.courseNumber,
+        comment : req.body.comment,
+    });
+    let result = await input.save(); 
+    res.send(result);
+})
+
 // assign CEAB attributes 
 app.post('/api/ceab', async (req, res) => {
     let ceab = new CEAB({
@@ -362,6 +395,23 @@ app.put('/api/outline/:_id', async(req, res) => {
     Outline.findOneAndUpdate({_id : req.params._id}, {
         $set : {
             approved : "true", 
+        }
+    }).then(result => {
+        res.status(200).json({
+            update_product : result
+        })
+    }).catch(err => {
+        res.status(500).json({
+            error : err
+        })
+    })
+});
+
+// update course outline comment
+app.put('/api/outline/comment/:courseNumber/:profName', async(req, res) => {
+    Comment.findOneAndUpdate({courseNumber: req.params.courseNumber, profName: req.params.profName}, {
+        $set : {
+            comment : req.body.comment,
         }
     }).then(result => {
         res.status(200).json({

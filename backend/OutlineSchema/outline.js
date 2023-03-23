@@ -24,7 +24,7 @@ const Outline = new mongoose.Schema({
     },
     yearFrom:{
         type:Number, 
-    }, 
+    },
     yearTo:{
         type:Number, 
     },
