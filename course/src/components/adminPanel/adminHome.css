@@ -29,7 +29,23 @@
     box-shadow: 0 9px #999;
 }
 
-.assignBtn, .reviewBtn {
+.passwordBtn {
+    position: absolute;
+    text-align: center;
+    top: -150px;
+    left: 500px;
+    padding: 5px;
+    margin: 100px;
+    height: 40px;
+    width: 150px;
+    background: #D9D9D9;
+    transition-duration: 0.4s;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.assignBtn, .reviewBtn, .viewStatusBtn {
     padding: 5px;
     margin: 100px;
     height: 75px;
@@ -41,14 +57,14 @@
     box-shadow: 0 9px #999;
 }
 
-.assignBtn:hover, .reviewBtn:hover, .logoutBtn:hover {
+.assignBtn:hover, .reviewBtn:hover, .logoutBtn:hover, .passwordBtn:hover, .viewStatusBtn:hover {
     background-color: lightblue;
     color: black;
     font-weight: bold;
     cursor: pointer;
 }
 
-.assignBtn:active, .reviewBtn:active, .logoutBtn:active {
+.assignBtn:active, .reviewBtn:active, .logoutBtn:active, .passwordBtn:active, .viewStatusBtn:active {
     background-color: blue;
     box-shadow: 0 5px #666;
     transform: translateY(4px);

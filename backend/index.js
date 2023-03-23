@@ -73,6 +73,21 @@ app.get('/api/username', (req, res) => {
     });
 });
 
+app.post('/api/users', async (req, res) => {
+    if(req.body.username && req.body.password){
+        let user = await User.findOne(req.body);
+        if(user){
+            res.send({result:true})
+        }
+        else{
+            res.send({result:"Username or Password is incorrect"});
+        }
+    }
+    else{
+        res.send({result:"Username or Password is incorrect"});
+    }
+});
+
 app.get('/api/courseOutlines', (req, res) => {
      
     outlines.collection('outlines').find({}).toArray((err, data) => {
@@ -219,6 +234,24 @@ app.put('/api/putComment/:courseNumber/:profName', (req, res) => {
             profName : req.body.profName,
             courseNumber : req.body.courseNumber,
             comment : req.body.comment,
+        }
+    }).then(result => {
+        res.status(200).json({
+            updated_product : result
+        })
+    })
+    .catch(err =>{
+        console.log(err);
+        res.status(500).json({
+            error:err
+        })
+    })
+});
+
+app.put('/api/putInfo/:userName', (req, res) => {
+    User.updateOne({username: req.params.userName},{
+        $set:{
+        password : req.body.password,
         }
     }).then(result => {
         res.status(200).json({

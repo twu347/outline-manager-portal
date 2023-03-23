@@ -25,16 +25,26 @@ function AdminHome(){
         navigate('/')
     }
 
+    function goChangePassword(){
+        navigate('/changePassword')
+    }
+
+    function goViewStatus(){
+        navigate('/viewStatus')
+    }
+
     return(
         <div>
             <button onClick={logout}>Logout</button>
             <div class="header">
                 <button class="logoutBtn" onClick={goLogin}>Log Out</button>
+                <button class="passwordBtn" onClick={goChangePassword}>Change Password</button>
                 <h3>Please Select A Type of Service:</h3>
             </div>
             <div class="buttons">
                 <button class="assignBtn" onClick={goCourses}>Assign Courses</button>
                 <button class="reviewBtn" onClick={goReview}>Review Course Outline</button>
+                <button class="viewStatusBtn" onClick={goViewStatus}>View Outlines Status</button>
             </div>
         </div>
         
