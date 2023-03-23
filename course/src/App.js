@@ -17,6 +17,7 @@ import InstructorHome from "./components/instructorHome/instructorHome";
 import InstructorInfo from "./components/instructorInfo/instructorInfo";
 import AdminToken from "./components/adminToken/adminToken";
 import InstructorToken from "./components/instructorToken/instructorToken";
+import ViewComments from "./components/viewComments/viewComments";
 
 class App extends Component{
   render(){
@@ -38,6 +39,7 @@ class App extends Component{
              <Route path="/instructorHome" element={<InstructorHome/>}/>
              <Route path="/instructorInfo" element={<InstructorInfo/>}/>
              <Route path="/archive" element={<Archive/>}/>
+             <Route path="/viewComments" element={<ViewComments/>}/>
           </Route>
 
           <Route path="/"  element={<Login />} exact/>
