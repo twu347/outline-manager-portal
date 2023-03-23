@@ -115,6 +115,14 @@ app.get('/api/getInstructorInfo/:profName', (req, res) => {
     });
 });
 
+// get all comments with the instructor name
+app.get('/api/getComments/:profName', (req, res) => {
+    outlines.collection('comments').find({ "profName": req.params.profName }).toArray((err, data) => {
+    if (err) throw err;
+        res.json(data);
+    });
+});
+
 app.get('/api/getInfo/:profName', (req, res) => {
     outlines.collection('outlines').find({"profName": req.params.profName }).toArray((err, data) => {
 
