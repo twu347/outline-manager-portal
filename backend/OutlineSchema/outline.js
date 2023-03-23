@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 // this schema should try to combine with ceab.js schema 
 const Outline = new mongoose.Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'JWT',
+    },
     courseNumber:{
         type:Number, 
         required:true,

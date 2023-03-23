@@ -4,7 +4,7 @@
   "description": "This is the backend for Course Outline Manager Application ",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon index.js", 
+    "test": "nodemon index.js",
     "start": "node index.js"
   },
   "repository": {
@@ -18,9 +18,13 @@
   },
   "homepage": "https://github.com/twu347/SE3350---React-UI#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.21",
     "mongodb": "^4.13.0",
     "mongoose": "^6.8.4",

@@ -29,7 +29,7 @@ function InstructorHome(){
                 <button class="logoutBtn" onClick={goLogin}>Log Out</button>
                 <h3>Please Select A Type of Service:</h3>
             </div>
-            <div class="buttons">
+            <div class="instructorHomeBtns">
                 <button class="assignBtn" onClick={goOutline1}>Create/Edit Outline</button>
                 <button class="reviewBtn" onClick={goIndicators}>GA Indicators</button>
                 <button class="reviewBtn" onClick={goInstructorInfo}>My Account</button>

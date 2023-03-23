@@ -4,6 +4,8 @@ import './login.css'
 import { useState } from "react";
 import Footer from "../footer/footer";
 import process from "process";
+import AdminToken, { getAdminToken, setAdminToken, useAuth } from "../adminToken/adminToken";
+import { setInstructorToken } from "../instructorToken/instructorToken";
 
 function Login(){
     
@@ -18,24 +20,22 @@ function Login(){
     // fetch login back-end API to verify username and password 
     function Userlogin(event){
         event.preventDefault();
-        fetch(process.env.REACT_APP_SERVER_APP_API_ADDRES + "/api/login", {method: 'POST',
+        fetch(process.env.REACT_APP_SERVER_APP_API_ADDRES + "/api/registerUser/login", {method: 'POST',
             headers:{
                 'Content-Type' : 'application/json',
             },
             body:JSON.stringify({
-                username: username,
+                name: username,
                 password: password,
             }),
         }).then((res)=>{
             res.json().then(data=>{
-                if(data.result == 1){
+                if(data.name == 'Admin'){
+                    setAdminToken(true);
                     navigate('/adminHome');
-                }
-                else if(data.result == 2){
+                }else{
+                    setInstructorToken(true);
                     navigate('/instructorHome');
-                }
-                else{
-                    alert('Username & Password Incorrect')
                 }
             });
         });
@@ -44,6 +44,9 @@ function Login(){
     return(
         <div>
             <form class="login">
+
+                {/* <h2 class="heading">Login To Portal</h2> */}
+
                 <input type="text" class="username" placeholder="Please Enter Your Username" value={username} onChange={(e) => setName(e.target.value)}/>
                 <input type="text" class="password" placeholder="Please Enter Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <a href="https://www.registrar.uwo.ca/resources/student_center_access_guide.html" class="forgotLink">Forgot Username or Password?</a >
