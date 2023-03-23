@@ -4,8 +4,6 @@ import { useState } from "react";
 import CourseList from "../courseList/courseList";
 import { Link,Outlet, useNavigate } from "react-router-dom";
 
-import process from "process";
-
 function ViewOutline(){
     let navigate = useNavigate();
 

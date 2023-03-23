@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link,Outlet, useNavigate } from "react-router-dom";
 import { jsPDF } from "jspdf";
 import './outline1.css';
-import process from "process";
 
 function Outline1(){
 
@@ -19,8 +18,15 @@ function Outline1(){
         navigate('/')
     }
 
+    // prevent refresh page 
     function goIndicator(){
         navigate('/Indicators');
+    }
+    function goArchive(){
+        navigate('/Archive')
+    }
+    function goEditOutline(){
+        navigate('/editOutline')
     }
     const handleForm = async (e) => {
         e.preventDefault();
@@ -31,6 +37,89 @@ function Outline1(){
                     if(data[i].courseNumber == document.getElementById('courseNumber').value && data[i].profName == document.getElementById('profName').value)
                     count++;
                 }
+                // Here I created a new schema for view each edit history.
+                fetch('http://localhost:3333/api/editOutline', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            timeStamp: document.getElementById('timeStamp').value,
+                            profName:document.getElementById('profName').value ,
+                            courseNumber:document.getElementById('courseNumber').value,
+                            courseTitle:document.getElementById('courseTitle').value, 
+                            yearFrom:document.getElementById('yearFrom').value, 
+                            yearTo:document.getElementById('yearTo').value, 
+                            description:document.getElementById('description').value, 
+                            office:document.getElementById('office').value, 
+                            extension:document.getElementById('extension').value, 
+                            email:document.getElementById('email').value, 
+                            consultation:document.getElementById('consulation').value, 
+                            calender:document.getElementById('calender').value, 
+                            lectureHours:document.getElementById('lectureHours').value, 
+                            labHours:document.getElementById('labHours').value, 
+                            tutHours:document.getElementById('tutHours').value, 
+                            antirequisite:document.getElementById('antirequisite').value, 
+                            prerequisites:document.getElementById('prerequisite').value, 
+                            corequisite:document.getElementById('corequisite').value, 
+                            CEABScience:document.getElementById('CEABScience').value, 
+                            CEABDesign:document.getElementById('CEABDesign').value, 
+                            textbook:document.getElementById('textbook').value, 
+                            requiredRef:document.getElementById('requiredRef').value, 
+                            recommendRef:document.getElementById('recommendRef').value,
+                            GAType1: document.getElementById('ga1').value,
+                            GAType2: document.getElementById('ga2').value,
+                            GAType3: document.getElementById('ga3').value,
+                            GAType4: document.getElementById('ga4').value,
+                            GAValue1: document.getElementById('nm1').value,
+                            GAValue2: document.getElementById('nm2').value,
+                            GAValue3: document.getElementById('nm3').value,
+                            GAValue4: document.getElementById('nm4').value,
+                            knowledge: document.getElementById('knowledge-base').value, 
+                            problem: document.getElementById('problem-analysis').value, 
+                            investigation: document.getElementById('investigation').value,
+                            design: document.getElementById('design').value,
+                            tools: document.getElementById('engineering-tools').value,
+                            team: document.getElementById('individual-team').value,
+                            communication: document.getElementById('communication-skills').value,
+                            professionalism: document.getElementById('professionalism').value,
+                            impact: document.getElementById('impact').value,
+                            ethics: document.getElementById('ethic-equity').value,
+                            economics: document.getElementById('project-management').value,
+                            learning: document.getElementById('life-long-learning').value,
+                            textarea01: document.getElementById('textarea01').value,
+                            textarea02: document.getElementById('textarea02').value,
+                            textarea03: document.getElementById('textarea03').value,
+                            textarea04: document.getElementById('textarea04').value,
+                            textarea11: document.getElementById('textarea11').value,
+                            textarea12: document.getElementById('textarea12').value,
+                            textarea13: document.getElementById('textarea13').value,
+                            textarea14: document.getElementById('textarea14').value,
+                            textarea21: document.getElementById('textarea21').value,
+                            textarea22: document.getElementById('textarea22').value,
+                            textarea23: document.getElementById('textarea23').value,
+                            textarea24: document.getElementById('textarea24').value,
+                            textarea31: document.getElementById('textarea31').value,
+                            textarea32: document.getElementById('textarea32').value,
+                            textarea33: document.getElementById('textarea33').value,
+                            textarea34: document.getElementById('textarea34').value,
+                            gradeHomework: document.getElementById('homeworkWeight').value,
+                            gradeQuiz: document.getElementById('quizWeight').value,
+                            gradeLab: document.getElementById('labWeight').value,
+                            gradeMidterm: document.getElementById('midtermWeight').value,
+                            homeworkAssignment: document.getElementById('homework-assignment-info').value,
+                            quizzes: document.getElementById('quizzes-info').value,
+                            lab: document.getElementById('lab-info').value,
+                            midterm: document.getElementById('midterm-info').value,
+                            latePolicy: document.getElementById('late-policy').value,
+                            locker: document.getElementById('locker-location').value,
+                            mobileDevice: document.getElementById('device-info').value,
+                            clicker: document.getElementById('clicker-info').value, 
+                            approved: "false"
+                                                        
+                        })
+                    });
+
+
+
                 if(count <=0){
                     fetch(process.env.REACT_APP_SERVER_APP_API_ADDRES + "/api/outline", {
                         method: 'POST',
@@ -491,13 +580,15 @@ function Outline1(){
  
     return(
         <div>
-            <div >
+            <div>
                 <div>
 
                     <input id="courseShow" placeholder="Enter course number"/>
                     <input id="profShow" placeholder="Enter prof name"/>
                     <button onClick={showInfo}> Show </button>
+                    <button id="archive" onClick={goArchive}>View Archive</button>
                     <button id="indicator" onClick={goIndicator}>GA indicator</button>
+                    <button id="editOutline" onClick={goEditOutline}>View Edit Outline</button>
                     <button onClick={print}>Print as PDF</button>
                     <button onClick={goLogin}>Log Out</button>
                     <button onClick={goStatus}>View Outlines Status</button>
@@ -512,7 +603,7 @@ function Outline1(){
                     <h3 className="line1">Department of Electrical and Computer Engineering</h3>
             
                     <h3 className="line1">
-                        ECE <input type="number" id="courseNumber" className="classNumber" name='courseNumber'  onChange={handleInput} placeholder="XXXX A/B" required/>
+                        Course ID <input type="text" id="courseNumber" className="classNumber" name='courseNumber'  onChange={handleInput} placeholder="XXXX A/B" required/>
                         A/B:<input type="text"   id="courseTitle"  className="classTitle" name='courseTitle'  onChange={handleInput} placeholder="Course Title"/>
                     </h3>
                     

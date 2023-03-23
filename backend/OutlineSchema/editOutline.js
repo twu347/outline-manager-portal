@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // this schema should try to combine with ceab.js schema 
-const Outline = new mongoose.Schema({
+const EditOutline = new mongoose.Schema({
     courseNumber:{
         type:String, 
         required:true,
@@ -234,5 +234,5 @@ const Outline = new mongoose.Schema({
     }
 });
 
-const model = mongoose.model('Outline', Outline);
+const model = mongoose.model('editOutline', EditOutline);
 module.exports = model;

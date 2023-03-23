@@ -4,9 +4,9 @@ import { useState } from "react";
 import Prof from "../prof/prof";
 import CourseList from "../courseList/courseList";
 import { Link,Outlet, useNavigate } from "react-router-dom";
-import process from "process";
 
 function Courses(){
+  
   let navigate = useNavigate();
   // define use state 
   const [users, setUser] = useState([]);
