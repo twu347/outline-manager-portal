@@ -23,10 +23,15 @@ function InstructorHome(){
         navigate('/instructorInfo')
     }
 
+    function goChangePassword(){
+        navigate('/changePassword')
+    }
+
     return(
         <div>
             <div class="header">
                 <button class="logoutBtn" onClick={goLogin}>Log Out</button>
+                <button class="passwordBtn" onClick={goChangePassword}>Change Password</button>
                 <h3>Please Select A Type of Service:</h3>
             </div>
             <div class="instructorHomeBtns">

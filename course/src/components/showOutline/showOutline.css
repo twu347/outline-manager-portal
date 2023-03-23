@@ -57,3 +57,19 @@
     align-items: center;
     left:100px;
 }
+
+.comment-form {
+    width: 90%;
+    top: 60px;
+    max-width: 600px; /* change as needed */
+    margin: 0 auto; /* center horizontally */
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: relative;
+} 
+
+#comment {
+    width: fit-content;
+}

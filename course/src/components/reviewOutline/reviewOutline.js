@@ -10,7 +10,7 @@ function ReviewOutline() {
     let navigate = useNavigate();
 
     function goViewOutline(){
-        navigate('/viewOutline');
+        navigate('/showOutline');
     }
 
     function goLogin(){

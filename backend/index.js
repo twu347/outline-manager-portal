@@ -8,6 +8,10 @@ const cors = require('cors');
 // connection to express 
 const app = express();
 
+const jwt = require('jsonwebtoken'); 
+const bcrypt = require('bcryptjs');
+const asyncHandler = require('express-async-handler');
+
 // localhost port 3333, google cloud console use environment variable port 
 const PORT = process.env.PORT || 3333;
 
@@ -17,7 +21,6 @@ const corsOptions = {
     credentials:true,            
     optionSuccessStatus:200
 }
-
 
 // set cors headers
 app.use(cors(corsOptions));
@@ -53,8 +56,14 @@ const CEAB = require('./OutlineSchema/ceab.js');
 const Topics = require('./OutlineSchema/topics.js');
 const Outline = require('./OutlineSchema/outline.js');
 const Course = require('./course.js');
+const Comment = require('./OutlineSchema/comment.js');
+const JWT = require('./OutlineSchema/userModel.js');
+
 // require lodash
 const { result } = require('lodash');
+
+// require protected route middleware 
+const { protect } = require('./middleware/authMiddleware.js');
 
 // fetch all username and password
 app.get('/api/username', (req, res) => {
@@ -62,6 +71,21 @@ app.get('/api/username', (req, res) => {
         if (err) throw err;
         res.json(data);
     });
+});
+
+app.post('/api/users', async (req, res) => {
+    if(req.body.username && req.body.password){
+        let user = await User.findOne(req.body);
+        if(user){
+            res.send({result:true})
+        }
+        else{
+            res.send({result:"Username or Password is incorrect"});
+        }
+    }
+    else{
+        res.send({result:"Username or Password is incorrect"});
+    }
 });
 
 app.get('/api/courseOutlines', (req, res) => {
@@ -201,6 +225,45 @@ app.put('/api/putInfo/:courseNumber/:profName', (req, res) => {
             error:err
         })
     })
+});  
+
+// change course outline base on instructor name and course number 
+app.put('/api/putComment/:courseNumber/:profName', (req, res) => {
+    Comment.updateOne({courseNumber: req.params.courseNumber, profName: req.params.profName},{
+        $set:{
+            profName : req.body.profName,
+            courseNumber : req.body.courseNumber,
+            comment : req.body.comment,
+        }
+    }).then(result => {
+        res.status(200).json({
+            updated_product : result
+        })
+    })
+    .catch(err =>{
+        console.log(err);
+        res.status(500).json({
+            error:err
+        })
+    })
+});
+
+app.put('/api/putInfo/:userName', (req, res) => {
+    User.updateOne({username: req.params.userName},{
+        $set:{
+        password : req.body.password,
+        }
+    }).then(result => {
+        res.status(200).json({
+            updated_product : result
+        })
+    })
+    .catch(err =>{
+        console.log(err);
+        res.status(500).json({
+            error:err
+        })
+    })
 });
 
 // fetch outlines in outline collection 
@@ -291,6 +354,17 @@ app.post('/api/outline', async(req, res) => {
     res.send(result);
 })
 
+// create a new course comment 
+app.post('/api/comment', async(req, res) => {
+    let input = new Comment({
+        profName : req.body.profName,
+        courseNumber : req.body.courseNumber,
+        comment : req.body.comment,
+    });
+    let result = await input.save(); 
+    res.send(result);
+})
+
 // assign CEAB attributes 
 app.post('/api/ceab', async (req, res) => {
     let ceab = new CEAB({
@@ -354,6 +428,23 @@ app.put('/api/outline/:_id', async(req, res) => {
     Outline.findOneAndUpdate({_id : req.params._id}, {
         $set : {
             approved : "true", 
+        }
+    }).then(result => {
+        res.status(200).json({
+            update_product : result
+        })
+    }).catch(err => {
+        res.status(500).json({
+            error : err
+        })
+    })
+});
+
+// update course outline comment
+app.put('/api/outline/comment/:courseNumber/:profName', async(req, res) => {
+    Comment.findOneAndUpdate({courseNumber: req.params.courseNumber, profName: req.params.profName}, {
+        $set : {
+            comment : req.body.comment,
         }
     }).then(result => {
         res.status(200).json({
@@ -536,6 +627,77 @@ app.get('/api/username/:username', (req, res) => {
         res.send(result);
     });
 });
+
+// generate JWT web token 
+const generateToken = (id) => {
+    return jwt.sign({id}, process.env.JWT_SECRET, {
+        expiresIn: '1000d', 
+    })
+}
+
+// register a user with JST 
+app.post('/api/registerUser', asyncHandler(
+    async(req, res) => {
+        const {name, password} = req.body; 
+        if(!name || !password){
+            res.status(400);
+            throw new Error('fields are empty');
+        }
+        const userExists = await JWT.findOne({name}); 
+        if(userExists){
+            res.status(400); 
+            throw new Error('user already exist');
+        }
+        // hash the password
+        const salt = await bcrypt.genSalt(10); 
+        const hashedPassword = await bcrypt.hash(password, salt);
+        // register the user
+        const user = await JWT.create({
+            name, 
+            password: hashedPassword,
+        }); 
+        // send response 
+        if(user){
+            res.status(200).json({
+                _id: user._id, 
+                name: user.name, 
+                token: generateToken(user._id)
+            })
+        }
+        else{
+            res.status(400); 
+            throw new Error('invalid user data');
+        }
+    })
+);
+
+// login with JWT 
+app.post('/api/registerUser/login', asyncHandler(
+    async(req, res) => {
+        const {name, password} = req.body; 
+        const user = await JWT.findOne({name});
+        if(user && (await bcrypt.compare(password, user.password))){
+            console.log("他是傻逼");
+            res.json({
+                _id: user._id, 
+                name: user.name, 
+                token: generateToken(user._id)
+            })
+        }
+        else{
+            console.log(name);
+            console.log(password);
+            res.status(400); 
+            throw new Error('invalid credentials');
+        }
+    }
+));
+
+app.get('/api/registerUser/display', protect, asyncHandler(
+    async(req, res) => {
+        res.json("Hello");
+    }
+));
 
 // listen port 3333
 app.listen(PORT, () =>{
