@@ -7,7 +7,7 @@ import process from "process";
 function ChangePassword(){
     let navigate = useNavigate();
     function goInstructorPortal(){
-        navigate('/Outline1')
+        navigate('/instructorHome')
     }
 
     const [password, setPassword] = useState([]);

@@ -23,6 +23,10 @@ function AdminHome(){
         navigate('/changePassword')
     }
 
+    function goViewStatus(){
+        navigate('/viewStatus')
+    }
+
     return(
         <div>
             <div class="header">
@@ -33,6 +37,7 @@ function AdminHome(){
             <div class="buttons">
                 <button class="assignBtn" onClick={goCourses}>Assign Courses</button>
                 <button class="reviewBtn" onClick={goReview}>Review Course Outline</button>
+                <button class="viewStatusBtn" onClick={goViewStatus}>View Outlines Status</button>
             </div>
         </div>
         
