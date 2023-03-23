@@ -1,16 +1,25 @@
-import React, { useEffect } from "react";
-import './viewOutline.css'
-import { useState } from "react";
-import CourseList from "../courseList/courseList";
+import React, { useEffect, useState } from "react";
+import './showOutline.css'
 import { Link,Outlet, useNavigate } from "react-router-dom";
 import process from "process";
 
-function ViewOutline(){
+function ShowOutline(){
     let navigate = useNavigate();
 
     function goReviewOutline(){
         navigate('/reviewOutline');
     }
+
+    const [name, setName] = useState('');
+    const [comment, setComment] = useState('');
+
+    const handleNameChange = (event) => {
+    setName(event.target.value);
+    };
+
+    const handleCommentChange = (event) => {
+    setComment(event.target.value);
+    };
 
     var matchedData={};
 
@@ -48,6 +57,49 @@ function ViewOutline(){
         });
     };
 
+    var matchedData={};
+
+    // recognzie user input 
+    const handleInput = (e) =>{
+        const id = e.target.id;
+        matchedData[id] = e.target.value
+    }
+
+    const handleForm = async (e) => {
+        e.preventDefault();
+        var count = 0;
+        await fetch(process.env.REACT_APP_SERVER_APP_API_ADDRES + "/api/getDoc").then((res)=>{
+            res.json().then(data=>{
+                for(var i=0; i< data.length; i++){
+                    if(data[i].courseNumber == document.getElementById('courseNumber').value && data[i].profName == document.getElementById('profName').value)
+                    count++;
+                }
+                if(count <=0){
+                    fetch(process.env.REACT_APP_SERVER_APP_API_ADDRES + "/api/comment", {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            courseNumber : document.getElementById('courseShow').value,
+                            profName : document.getElementById('profShow').value,
+                            comment: document.getElementById('name').value.toString() + ": " + document.getElementById('comment').value.toString(),
+                        })
+                    });
+                }
+                else{
+                    fetch(`${process.env.REACT_APP_SERVER_APP_API_ADDRES}/api/putComment/${document.getElementById('courseNumber').value}/${document.getElementById('profName').value}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            courseNumber : document.getElementById('courseShow').value,
+                            profName : document.getElementById('profShow').value,
+                            comment: document.getElementById('name').value.toString() + ": " + document.getElementById('comment').value.toString(),
+                        })
+                    });
+                }
+            })
+        })
+    }
+
     return(
         <div>
             <div >
@@ -56,6 +108,17 @@ function ViewOutline(){
                     <input id="profShow" placeholder="enter prof name"/>
                     <button onClick={showInfo}> show </button>
                     <button onClick={goReviewOutline}>Back to Review Panel</button>
+                </div>
+                <div className="comment-form">
+                <form onSubmit={handleForm}>
+                    <label htmlFor="name">Name: </label>
+                        <input type="text" id="name" className="name-box" name="name" onChange={handleInput} placeholder="enter your name"/>
+                    <br />
+                    <label htmlFor="comment">Comment: </label>
+                        <textarea type="text" id="comment" className="comment-box" name="comment" onChange={handleInput} placeholder="Enter comment"/>
+                    <br />
+                    <input type="submit" value="Submit" />
+                </form>
                 </div>
                 <div className="scroll-bar">
 
@@ -225,4 +288,4 @@ function ViewOutline(){
     )
 };
 
-export default ViewOutline;
+export default ShowOutline;
