@@ -7,6 +7,7 @@ import { Link,Outlet, useNavigate } from "react-router-dom";
 import process from "process";
 
 function Courses(){
+  
   let navigate = useNavigate();
   // define use state 
   const [users, setUser] = useState([]);

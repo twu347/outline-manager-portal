@@ -1,0 +1,7 @@
+.listArchive {
+    display: block;
+    background-color: red;
+    padding: 10px; /* add 10px of padding to all sides of each div */
+    margin-bottom: 10px;
+    width: 200px;
+  }

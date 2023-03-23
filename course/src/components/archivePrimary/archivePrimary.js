@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import './archive.css'
 
-import { useState } from "react";
-
-export default function archivePrimary(props){
+export default function ArchivePrimary(props){
     return(
-        <div>
-        {props.courseNumber}, {props.prof}
+        <div className="listArchive">
+        Course number: {props.courseNumber},    
+        <br/>
+        Professor: {props.prof}
         </div>
     )
 }

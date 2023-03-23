@@ -55,6 +55,7 @@ const Page1 = require('./OutlineSchema/page1.js');
 const CEAB = require('./OutlineSchema/ceab.js');
 const Topics = require('./OutlineSchema/topics.js');
 const Outline = require('./OutlineSchema/outline.js');
+const EditOutline = require('./OutlineSchema/editOutline.js');
 const Course = require('./course.js');
 const Comment = require('./OutlineSchema/comment.js');
 const JWT = require('./OutlineSchema/userModel.js');
@@ -71,6 +72,21 @@ app.get('/api/username', (req, res) => {
         if (err) throw err;
         res.json(data);
     });
+});
+
+app.post('/api/users', async (req, res) => {
+    if(req.body.username && req.body.password){
+        let user = await User.findOne(req.body);
+        if(user){
+            res.send({result:true})
+        }
+        else{
+            res.send({result:"Username or Password is incorrect"});
+        }
+    }
+    else{
+        res.send({result:"Username or Password is incorrect"});
+    }
 });
 
 app.get('/api/courseOutlines', (req, res) => {
@@ -241,9 +257,35 @@ app.put('/api/putComment/:courseNumber/:profName', (req, res) => {
     })
 });
 
+app.put('/api/putInfo/:userName', (req, res) => {
+    User.updateOne({username: req.params.userName},{
+        $set:{
+        password : req.body.password,
+        }
+    }).then(result => {
+        res.status(200).json({
+            updated_product : result
+        })
+    })
+    .catch(err =>{
+        console.log(err);
+        res.status(500).json({
+            error:err
+        })
+    })
+});
+
 // fetch outlines in outline collection 
 app.get('/api/getDoc', (req, res) => {
     outlines.collection('outlines').find({}).toArray((err, data) => {
+        if (err) throw err;
+        res.json(data);
+    });
+});
+
+// fetch edit outlines in outline collection 
+app.get('/api/getEditOutline', (req, res) => {
+    outlines.collection('editoutlines').find({}).toArray((err, data) => {
         if (err) throw err;
         res.json(data);
     });
@@ -329,7 +371,86 @@ app.post('/api/outline', async(req, res) => {
     res.send(result);
 })
 
+
+// create a new edit course outline 
+app.post('/api/editOutline', async(req, res) => {
+    let input = new EditOutline({
+        timeStamp : req.body.timeStamp,
+        courseNumber : req.body.courseNumber, 
+        courseTitle : req.body.courseTitle, 
+        yearFrom : req.body.yearFrom, 
+        yearTo : req.body.yearTo, 
+        description : req.body.description, 
+        profName : req.body.profName, 
+        office : req.body.office, 
+        extension : req.body.extension, 
+        email : req.body.email, 
+        consultation : req.body.consultation, 
+        calender : req.body.calender, 
+        lectureHours : req.body.lectureHours, 
+        labHours : req.body.labHours, 
+        tutHours : req.body.tutHours, 
+        antirequisite : req.body.antirequisite, 
+        prerequisites : req.body.prerequisites, 
+        corequisite : req.body.corequisite, 
+        CEABScience : req.body.CEABScience, 
+        CEABDesign : req.body.CEABDesign, 
+        textbook : req.body.textbook, 
+        requiredRef : req.body.requiredRef, 
+        recommendRef : req.body.recommendRef,
+        knowledge : req.body.knowledge, 
+        problem : req.body.problem, 
+        investigation : req.body.investigation, 
+        design : req.body.design, 
+        tools : req.body.tools, 
+        team : req.body.team, 
+        communication : req.body.communication, 
+        professionalism : req.body.professionalism, 
+        impact : req.body.impact, 
+        ethics : req.body.ethics, 
+        economics : req.body.economics, 
+        learning : req.body.learning, 
+        textarea01 : req.body.textarea01, 
+        textarea02 : req.body.textarea02, 
+        textarea03 : req.body.textarea03, 
+        textarea04 : req.body.textarea04, 
+        textarea11 : req.body.textarea11, 
+        textarea12 : req.body.textarea12, 
+        textarea13 : req.body.textarea13, 
+        textarea14 : req.body.textarea14, 
+        textarea21 : req.body.textarea21, 
+        textarea22 : req.body.textarea22, 
+        textarea23 : req.body.textarea23, 
+        textarea24 : req.body.textarea24, 
+        textarea31 : req.body.textarea31, 
+        textarea32 : req.body.textarea32, 
+        textarea33 : req.body.textarea33, 
+        textarea34 : req.body.textarea34, 
+        GAType1 : req.body.GAType1, 
+        GAType2 : req.body.GAType2, 
+        GAType3 : req.body.GAType3, 
+        GAType4 : req.body.GAType4, 
+        GAValue1 : req.body.GAValue1, 
+        GAValue2 : req.body.GAValue2, 
+        GAValue3 : req.body.GAValue3, 
+        GAValue4 : req.body.GAValue4, 
+        gradeHomework : req.body.gradeHomework, 
+        gradeQuiz : req.body.gradeQuiz, 
+        gradeLab : req.body.gradeLab, 
+        gradeMidterm : req.body.gradeMidterm, 
+        homeworkAssignment : req.body.homeworkAssignment, 
+        quizzes : req.body.quizzes, 
+        lab : req.body.lab, 
+        midterm : req.body.midterm, 
+        latePolicy : req.body.latePolicy, 
+        locker : req.body.locker, 
+        mobileDevice : req.body.mobileDevice, 
+        clicker : req.body.clicker,
+        approved: req.body.approved,
 // create a new course comment 
+    })
+});
+
 app.post('/api/comment', async(req, res) => {
     let input = new Comment({
         profName : req.body.profName,

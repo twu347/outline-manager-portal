@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import ArchivePrimary from "../archivePrimary/archivePrimary";
-
+import { useNavigate } from "react-router-dom";
+import ArchivePrimary from "../archivePrimary/ArchivePrimary";
+import './archive.css'
 function Archive (){
     const [primary, setPrimary] = useState([]);
-
+    let navigate= useNavigate();
+    function back(){
+        navigate('/Outline1');
+    }
 const setArchive = (e) => {
-    
-
   fetch('http://localhost:3333/api/getDoc').then((res) => {
         res.json().then(data => {
             setPrimary(data)
@@ -18,9 +20,12 @@ useEffect(()=>{setArchive();},[primary])
 const archiveElements =primary.map(archive=> <ArchivePrimary key = {archive._id} courseNumber = {archive.courseNumber} prof = {archive.profName}/> ) 
 
 return (
-    <div>
+<div>
+    <button onClick={back}>Back</button>
+    <div className="element">
         {archiveElements}
     </div>
+</div>
 )
 }
 
