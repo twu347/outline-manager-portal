@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ArchivePrimary from "../archivePrimary/ArchivePrimary";
+import ArchivePrimary from "../archivePrimary/archivePrimary";
 import './archive.css'
 function Archive (){
     const [primary, setPrimary] = useState([]);
