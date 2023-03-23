@@ -58,28 +58,48 @@ function ShowOutline(){
         });
     };
 
-    const handleSubmit = (event) => {
-        const courseShow = document.getElementById('courseShow').value;
-        const profShow = document.getElementById('profShow').value;
-        event.preventDefault();
-        fetch(`/api/putInfo/${courseShow}/${profShow}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            comment: `${name}: ${comment}`
+    var matchedData={};
+
+    // recognzie user input 
+    const handleInput = (e) =>{
+        const id = e.target.id;
+        matchedData[id] = e.target.value
+    }
+
+    const handleForm = async (e) => {
+        e.preventDefault();
+        var count = 0;
+        await fetch(process.env.REACT_APP_SERVER_APP_API_ADDRES + "/api/getDoc").then((res)=>{
+            res.json().then(data=>{
+                for(var i=0; i< data.length; i++){
+                    if(data[i].courseNumber == document.getElementById('courseNumber').value && data[i].profName == document.getElementById('profName').value)
+                    count++;
+                }
+                if(count <=0){
+                    fetch(process.env.REACT_APP_SERVER_APP_API_ADDRES + "/api/comment", {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            courseNumber : document.getElementById('courseShow').value,
+                            profName : document.getElementById('profShow').value,
+                            comment: document.getElementById('name').value.toString() + ": " + document.getElementById('comment').value.toString(),
+                        })
+                    });
+                }
+                else{
+                    fetch(`${process.env.REACT_APP_SERVER_APP_API_ADDRES}/api/putComment/${document.getElementById('courseNumber').value}/${document.getElementById('profName').value}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            courseNumber : document.getElementById('courseShow').value,
+                            profName : document.getElementById('profShow').value,
+                            comment: document.getElementById('name').value.toString() + ": " + document.getElementById('comment').value.toString(),
+                        })
+                    });
+                }
+            })
         })
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data);
-            // optionally update the state to show the new comment
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-    };
+    }
 
     return(
         <div>
@@ -91,12 +111,12 @@ function ShowOutline(){
                     <button onClick={goReviewOutline}>Back to Review Panel</button>
                 </div>
                 <div className="comment-form">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleForm}>
                     <label htmlFor="name">Name: </label>
-                        <input type="text" id="name" name="name" value={name} onChange={handleNameChange} />
+                        <input type="text" id="name" className="name-box" name="name" onChange={handleInput} placeholder="enter your name"/>
                     <br />
                     <label htmlFor="comment">Comment: </label>
-                        <textarea type="text" id="comment" name="comment" value={comment} onChange={handleCommentChange} />
+                        <textarea type="text" id="comment" className="comment-box" name="comment" onChange={handleInput} placeholder="Enter comment"/>
                     <br />
                     <input type="submit" value="Submit" />
                 </form>
