@@ -22,6 +22,10 @@ function InstructorHome(){
         navigate('/instructorInfo')
     }
 
+    function goViewComment(){
+        navigate('/viewComments')
+    }
+  
     function goChangePassword(){
         navigate('/changePassword')
     }
@@ -37,6 +41,7 @@ function InstructorHome(){
                 <button class="assignBtn" onClick={goOutline1}>Create/Edit Outline</button>
                 <button class="reviewBtn" onClick={goIndicators}>GA Indicators</button>
                 <button class="reviewBtn" onClick={goInstructorInfo}>My Account</button>
+                <button class="reviewBtn" onClick={goViewComment}>View Comments</button>
             </div>
         </div>
         

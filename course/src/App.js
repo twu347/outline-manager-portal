@@ -18,6 +18,7 @@ import EditOutline from "./components/editOutline/EditOutline";
 import ChangePassword from './components/changePassword/changePassword';
 import AdminToken from "./components/adminToken/adminToken";
 import InstructorToken from "./components/instructorToken/instructorToken";
+import ViewComments from "./components/viewComments/viewComments";
 
 class App extends Component{
   render(){
@@ -39,8 +40,9 @@ class App extends Component{
              <Route path="/instructorHome" element={<InstructorHome/>}/>
              <Route path="/instructorInfo" element={<InstructorInfo/>}/>
              <Route path="/archive" element={<Archive/>}/>
-             <Route path="/archive" element={<Archive/>}/>
+             <Route path="/viewComments" element={<ViewComments/>}/>
              <Route path="/editOutline" element={<EditOutline/>}/>
+
           </Route>
 
           <Route path="/"  element={<Login />} exact/>
