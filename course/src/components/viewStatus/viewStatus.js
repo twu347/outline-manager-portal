@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./viewStatus.css";
 import { Link,Outlet, useNavigate } from "react-router-dom";
+import process from "process";
 
 function ViewStatus(){
     let navigate = useNavigate();
