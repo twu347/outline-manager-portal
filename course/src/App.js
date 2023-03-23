@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
 import React, { Component } from 'react';
 import Header from './components/header/header';
-import Footer from './components/footer/footer';
 import Login from './components/login/login';
 import Courses from './components/courses/courses';
 import Indicators from "./components/indicators/indicators";
@@ -15,6 +14,7 @@ import Manual from "./components/manual/manual";
 import ViewStatus from "./components/viewStatus/viewStatus";
 import InstructorHome from "./components/instructorHome/instructorHome";
 import InstructorInfo from "./components/instructorInfo/instructorInfo";
+import EditOutline from "./components/editOutline/EditOutline";
 import ChangePassword from './components/changePassword/changePassword';
 import AdminToken from "./components/adminToken/adminToken";
 import InstructorToken from "./components/instructorToken/instructorToken";
@@ -39,6 +39,8 @@ class App extends Component{
              <Route path="/instructorHome" element={<InstructorHome/>}/>
              <Route path="/instructorInfo" element={<InstructorInfo/>}/>
              <Route path="/archive" element={<Archive/>}/>
+             <Route path="/archive" element={<Archive/>}/>
+             <Route path="/editOutline" element={<EditOutline/>}/>
           </Route>
 
           <Route path="/"  element={<Login />} exact/>
@@ -50,11 +52,14 @@ class App extends Component{
           <Route path="/showOutline" element={<ShowOutline/>}/>
           <Route path="/outlines" element={<Outline1/>}/>
           <Route path="/viewOutlines" element={<ViewOutlines/>}/>
+
           <Route path="/manual" element={<Manual/>}/>
           <Route path="/viewStatus" element={<ViewStatus/>}/>
           <Route path="/archive" element={<Archive/>}/>
           <Route path="/instructorHome" element={<InstructorHome/>}/>
           <Route path="/instructorInfo" element={<InstructorInfo/>}/>
+
+
           <Route path="/changePassword" element={<ChangePassword/>}/>
         </Routes>
       </BrowserRouter>

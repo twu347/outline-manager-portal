@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import './instructorHome.css'
 import { useState } from "react";
-
 import { Link,Outlet, useNavigate } from "react-router-dom";
 
 function InstructorHome(){
