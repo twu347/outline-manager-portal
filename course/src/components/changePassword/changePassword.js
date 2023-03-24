@@ -10,8 +10,12 @@ function ChangePassword(){
         navigate('/instructorHome')
     }
 
+    function goAdminPortal(){
+        navigate('/adminHome')
+    }
+
     const [password, setPassword] = useState([]);
-    const [username, setUsername] = useState('');
+    const [name, setName] = useState('');
     document.addEventListener("DOMContentLoaded", function(event) {
         document.getElementById('newPassword').disabled = true;
     });
@@ -23,7 +27,7 @@ function ChangePassword(){
                 'Content-Type' : 'application/json',
             },
             body:JSON.stringify({
-                username: username,
+                name: name,
                 password: password,
             }),
         }).then((res)=>{
@@ -40,7 +44,7 @@ function ChangePassword(){
 
     function setPwd(){
         const newPassword = document.getElementById('newPassword').value;
-        fetch(`${process.env.REACT_APP_CLIENT_APP_API_ADDRESS}/api/putInfo/${username}`, {
+        fetch(`${process.env.REACT_APP_CLIENT_APP_API_ADDRESS}/api/putInfo/${name}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -55,7 +59,7 @@ function ChangePassword(){
             <div>
                 <h1 class="heading23">Change Your Password</h1>
                 <form class="step1">
-                    <input type="text" class="userName" placeholder="Please Enter Your Username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+                    <input type="text" class="userName" placeholder="Please Enter Your Username" value={name} onChange={(e) => setName(e.target.value)}/>
                     <input type="text" class="oldPassword" placeholder="Please Enter Old Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                     <button class="confirmBtn" onClick={confirm}>Confirm</button>
                 </form>
@@ -64,7 +68,8 @@ function ChangePassword(){
                 <form class="step2">
                     <input id="newPassword" class="newPwd" placeholder="Enter new password"></input>
                     <button class="setPwdBtn" onClick={setPwd}>Set Password</button>
-                    <button class="portalBtn" onClick={goInstructorPortal}>Instructor Portal</button>
+                    <button class="instructorPortalBtn" onClick={goInstructorPortal}>Instructor Portal</button>
+                    <button class="adminPortalBtn" onClick={goAdminPortal}>Admin Portal</button>
                 </form>
             </div>
         </div>

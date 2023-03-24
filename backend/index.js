@@ -75,8 +75,10 @@ app.get('/api/username', (req, res) => {
 });
 
 app.post('/api/users', async (req, res) => {
-    if(req.body.username && req.body.password){
-        let user = await User.findOne(req.body);
+    const {name, password} = req.body;
+
+    if(req.body.name && req.body.password){
+        let user = await JWT.findOne(req.body);
         if(user){
             res.send({result:true})
         }
@@ -258,7 +260,7 @@ app.put('/api/putComment/:courseNumber/:profName', (req, res) => {
 });
 
 app.put('/api/putInfo/:userName', (req, res) => {
-    User.updateOne({username: req.params.userName},{
+    JWT.updateOne({name: req.params.userName},{
         $set:{
         password : req.body.password,
         }
@@ -745,12 +747,12 @@ app.post('/api/registerUser', asyncHandler(
             throw new Error('user already exist');
         }
         // hash the password
-        const salt = await bcrypt.genSalt(10); 
-        const hashedPassword = await bcrypt.hash(password, salt);
+        // const salt = await bcrypt.genSalt(10); 
+        // const hashedPassword = await bcrypt.hash(password, salt);
         // register the user
         const user = await JWT.create({
             name, 
-            password: hashedPassword,
+            password,
         }); 
         // send response 
         if(user){
@@ -772,8 +774,8 @@ app.post('/api/registerUser/login', asyncHandler(
     async(req, res) => {
         const {name, password} = req.body; 
         const user = await JWT.findOne({name});
-        if(user && (await bcrypt.compare(password, user.password))){
-            console.log("他是傻逼");
+        if(user && password == user.password){
+            console.log("είναι ηλίθιος");
             res.json({
                 _id: user._id, 
                 name: user.name, 

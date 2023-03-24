@@ -1,7 +1,10 @@
 {
   "dependencies": {
     "bcrypt": "^5.1.0",
+<<<<<<< Updated upstream
     "bcryptjs": "^2.4.3",
+=======
+>>>>>>> Stashed changes
     "dotenv": "^16.0.3",
     "express-async-handler": "^1.2.0",
     "js-yaml": "^4.1.0",
