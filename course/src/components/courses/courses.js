@@ -82,9 +82,9 @@ function Courses(){
   return(
     
     <div>
-      <button class="goIndicator" onClick={goIndicator}>GA indicator</button>
-      <button class="backToLogin" onClick={goAdminPanel}>Return to Admin Panel</button>
-      <button class="viewOutlines" onClick={goOutlines}>View Course Outlines</button>
+      <button class="gaIndicatorBtn3" onClick={goIndicator}>GA indicator</button>
+      <button class="returnToPanelBtn3" onClick={goAdminPanel}>Return to Admin Panel</button>
+      <button class="viewCourseOutlineBtn3" onClick={goOutlines}>View Course Outlines</button>
       {/* display instructor information */}
       <div className="left-box">
         <div className="left-text"> Instructors And Related Course</div>
