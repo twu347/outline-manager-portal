@@ -22,7 +22,7 @@ const editOutlineElements =primary.map(editOutline=> <OutlineElement key = {edit
 
 return (
 <div>
-    <button onClick={back}>Back</button>
+    <button id="backBtn2" onClick={back}>Back</button>
     <div className="element">
         {editOutlineElements}
     </div>
