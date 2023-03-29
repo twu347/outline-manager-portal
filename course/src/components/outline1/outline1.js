@@ -29,6 +29,10 @@ function Outline1(){
     function goEditOutline(){
         navigate('/editOutline')
     }
+
+    function goHome(){
+        navigate('/instructorHome')
+    }
     const handleForm = async (e) => {
         e.preventDefault();
         var count = 0;
@@ -378,10 +382,6 @@ function Outline1(){
         });
     };
 
-    function goStatus(){
-        navigate('/viewStatus');
-    };
-
     // print as PDF 
     function print(){
 
@@ -586,18 +586,18 @@ function Outline1(){
 
                     <input id="courseShow" placeholder="Enter course number"/>
                     <input id="profShow" placeholder="Enter prof name"/>
-                    <button onClick={showInfo}> Show </button>
+                    <button id="show" onClick={showInfo}> Show </button>
                     <button id="archive" onClick={goArchive}>View Archive</button>
                     <button id="indicator" onClick={goIndicator}>GA indicator</button>
-                    <button id="editOutline" onClick={goEditOutline}>View Edit Outline</button>
-                    <button onClick={print}>Print as PDF</button>
-                    <button onClick={goLogin}>Log Out</button>
-                    <button onClick={goStatus}>View Outlines Status</button>
+                    <button id="editOutline" onClick={goEditOutline}>View History</button>
+                    <button id="printPDF" onClick={print}>Print as PDF</button>
+                    <button id="logOut" onClick={goLogin}>Log Out</button>
+                    <button id="home" onClick={goHome}>Back to Home</button>
                 </div>
 
                 <div className="scroll-bar1" id='myPage'>
 
-                    <button onClick={handleForm}>Save</button>
+                    <button id="saveBtn" onClick={handleForm}>Save</button>
                     <input type="text" id='timeStamp' placeholder="Enter time you edited"/>
                     <h3 className="line1">Western University</h3>
                     <h3 className="line1">Faculty of Engineering</h3>

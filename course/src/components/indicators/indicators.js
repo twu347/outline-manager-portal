@@ -18,17 +18,12 @@ import { Link,Outlet, useNavigate } from "react-router-dom";
 function Indicators(){
     let navigate = useNavigate();
 
-    function goManagerPortal(){
-        navigate('/Courses');
-    }
-
     function goInstructorHome(){
         navigate('/instructorHome');
     }
 
     return(
         <div>
-            <button className="managerPortal" onClick={goManagerPortal}>Assign Courses</button>
             <button className="instructorPortal" onClick={goInstructorHome}>Instructor Home</button>
             <div class="header"> 
                 <h2 class="heading12">GA Indicator Information</h2>

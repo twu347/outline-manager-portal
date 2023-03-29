@@ -4,9 +4,7 @@ import './archive.css'
 export default function ArchivePrimary(props){
     return(
         <div className="listArchive">
-        Course number: {props.courseNumber},    
-        <br/>
-        Professor: {props.prof}
+        Course number: {props.courseNumber}, Professor: {props.prof}
         </div>
     )
 }

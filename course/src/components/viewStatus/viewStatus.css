@@ -29,10 +29,26 @@
     background: #D9D9D9;
     border-radius: 30px;
     transition-duration: 0.4s;
-    left: 50px;
+    left: 1030px;
 }
 
 .instructorPortal12:hover {
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
+}
+
+.search{
+    position: relative;
+    width: 120px;
+    height: 30px;
+    background: #D9D9D9;
+    border-radius: 30px;
+    transition-duration: 0.4s;
+    left: 20px;
+}
+
+.search:hover{
     background-color: lightblue;
     color: black;
     font-weight: bold;

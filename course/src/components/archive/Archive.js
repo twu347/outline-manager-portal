@@ -21,7 +21,7 @@ const archiveElements =primary.map(archive=> <ArchivePrimary key = {archive._id}
 
 return (
 <div>
-    <button onClick={back}>Back</button>
+    <button class="homeBtn1" onClick={back}>Back to Edit Outline</button>
     <div className="element">
         {archiveElements}
     </div>

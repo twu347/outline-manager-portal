@@ -10,7 +10,7 @@ function ViewStatus(){
     const [outlineStatus, setOutlineStatus] = useState([]);
     
     function goInstructorPortal(){
-        navigate('/Outline1');
+        navigate('/instructorHome');
     }
 
     function Search(){
