@@ -114,12 +114,6 @@
     font-weight: bold;
 }
 
-.gaIndicatorBtn3:hover {
-    background-color: lightblue;
-    color: black;
-    font-weight: bold;
-}
-
 .returnToPanelBtn3:hover {
     background-color: lightblue;
     color: black;
@@ -132,27 +126,11 @@
     font-weight: bold;
 }
 
-.gaIndicatorBtn3 {
-    position: absolute;
-    text-align: center;
-    top: -50px;
-    left: 930px;
-    padding: 5px;
-    margin: 100px;
-    height: 40px;
-    width: 100px;
-    background: #D9D9D9;
-    transition-duration: 0.4s;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-}
-
 .returnToPanelBtn3 {
     position: absolute;
     text-align: center;
     top: -50px;
-    left: 700px;
+    left: 900px;
     padding: 5px;
     margin: 100px;
     height: 40px;
@@ -162,6 +140,7 @@
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
+    cursor: pointer;
 }
 
 .viewCourseOutlineBtn3 {
@@ -178,4 +157,5 @@
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
+    cursor: pointer;
 }

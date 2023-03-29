@@ -13,10 +13,6 @@ function Courses(){
   const [users, setUser] = useState([]);
   const [courses, setCourse] = useState([]);
 
-  function goIndicator(){
-    navigate('/indicators')
-  }
-
   function goAdminPanel(){
     navigate('/adminHome')
   }
@@ -82,7 +78,6 @@ function Courses(){
   return(
     
     <div>
-      <button class="gaIndicatorBtn3" onClick={goIndicator}>GA indicator</button>
       <button class="returnToPanelBtn3" onClick={goAdminPanel}>Return to Admin Panel</button>
       <button class="viewCourseOutlineBtn3" onClick={goOutlines}>View Course Outlines</button>
       {/* display instructor information */}
