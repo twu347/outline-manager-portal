@@ -23,7 +23,7 @@ function ViewComments(){
     var matchedData={};
         // fetch saved information based on profName and courseNumber
     function showInfo(){
-        const profShow = document.getElementById('profShow').value;
+        const profShow = document.getElementById('profShow21').value;
         fetch(`${process.env.REACT_APP_CLIENT_APP_API_ADDRESS}/api/getComments/${profShow}`)
             .then((res) => res.json())
             .then((data) => {
@@ -36,8 +36,8 @@ function ViewComments(){
         <div>
             <div >
                 <div>
-                    <input id="profShow" placeholder="enter prof name"/>
-                    <button class="showBtn3" onClick={showInfo}> show </button>
+                    <input id="profShow21" placeholder="Enter prof name"/>
+                    <button class="showBtn31" onClick={showInfo}> Show </button>
                     <button class="instructorPortal3" onClick={goInstructorHome}>Back to Instructor Home</button>
                 </div>
                 <div className="instructorCoursesBox1">
