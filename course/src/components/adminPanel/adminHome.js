@@ -35,7 +35,6 @@ function AdminHome(){
 
     return(
         <div>
-            <button onClick={logout}>Logout</button>
             <div class="header">
                 <button class="logoutBtn" onClick={goLogin}>Log Out</button>
                 <button class="passwordBtn" onClick={goChangePassword}>Change Password</button>
