@@ -103,22 +103,22 @@ function ShowOutline(){
     return(
         <div>
             <div >
-                <div>
-                    <input id="courseShow" placeholder="enter course number"/>
-                    <input id="profShow" placeholder="enter prof name"/>
-                    <button onClick={showInfo}> show </button>
-                    <button onClick={goReviewOutline}>Back to Review Panel</button>
+                <div className="topBar6">
+                    <input id="courseShow" className="courseNumber3" placeholder="enter course number"/>
+                    <input id="profShow" className="profName3" placeholder="enter prof name"/>
+                    <button className="showInfoBtn6" onClick={showInfo}> Show Info </button>
+                    <button className="returnToPanelBtn5" onClick={goReviewOutline}>Back to Review Panel</button>
                 </div>
                 <div className="comment-form">
-                <form onSubmit={handleForm}>
-                    <label htmlFor="name">Name: </label>
-                        <input type="text" id="name" className="name-box" name="name" onChange={handleInput} placeholder="enter your name"/>
-                    <br />
-                    <label htmlFor="comment">Comment: </label>
-                        <textarea type="text" id="comment" className="comment-box" name="comment" onChange={handleInput} placeholder="Enter comment"/>
-                    <br />
-                    <input type="submit" value="Submit" />
-                </form>
+                    <form onSubmit={handleForm}>
+                        <label htmlFor="name">Name: </label>
+                            <input type="text" id="name" className="name-box" name="name" onChange={handleInput} placeholder="enter your name"/>
+                        <br />
+                        <label htmlFor="comment">Comment: </label>
+                            <textarea type="text" id="comment" className="comment-box" name="comment" onChange={handleInput} placeholder="Enter comment"/>
+                        <br />
+                        <input className="submitBtn2" type="submit" value="Submit" />
+                    </form>
                 </div>
                 <div className="scroll-bar">
 

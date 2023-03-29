@@ -1,3 +1,47 @@
+.topBar6 {
+    top: 80px;
+    left: 80px;
+    position: relative;
+    padding: 10px;
+}
+
+.courseNumber3, .profName3{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 20px;
+    margin: 10px;
+}
+
+.showInfoBtn6 {
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: 2pxblack;
+    width: 150px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 10px;
+}
+
+.showInfoBtn6:hover {
+    background-color: green;
+    color: #fff;
+    border: 2pxblack;
+}
+
+.showInfoBtn6:active {
+    transform: translateY(2px);
+    outline: none;
+}
+
+.showInfoBtn6:hover::after {
+    content: '\2193';
+    display: block;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
 .scroll-bar{
     height: 500px;
     width: 90%;
@@ -60,8 +104,8 @@
 
 .comment-form {
     width: 90%;
-    top: 60px;
-    max-width: 600px; /* change as needed */
+    top: 90px;
+    max-width: 900px; /* change as needed */
     margin: 0 auto; /* center horizontally */
     padding: 20px;
     box-sizing: border-box;
@@ -70,6 +114,63 @@
     position: relative;
 } 
 
-#comment {
-    width: fit-content;
+.name-box {
+    display: flex;
+    width: 800px;
+}
+
+.comment-box {
+    position: relative;
+    width: 800px;
+    height: fit-content;
+    display: flex;
+}
+
+.line1{
+    display: block;
+    left: 0px;
+    position: relative;
+}
+
+.returnToPanelBtn5:hover {
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
+}
+
+.returnToPanelBtn5 {
+    position: absolute;
+    cursor: pointer;
+    text-align: center;
+    top: -150px;
+    left: 900px;
+    padding: 5px;
+    margin: 100px;
+    height: 40px;
+    width: 170px;
+    background: #D9D9D9;
+    transition-duration: 0.4s;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.submitBtn2 {
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: 2pxblack;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 10px;
+}
+
+.submitBtn2:hover {
+    background-color: green;
+    color: #fff;
+    border: 2pxblack;
+}
+
+.submitBtn2:active {
+    transform: translateY(2px);
+    outline: none;
 }

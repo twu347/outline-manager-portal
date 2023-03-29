@@ -29,8 +29,7 @@ function ReviewOutline() {
 
     return (
         <div>
-            <button onClick={goAdminPanel}>Return to Admin Panel</button>
-            <button onClick={goLogin}>Logout</button>
+            <button class="returnToPanelBtn4" onClick={goAdminPanel}>Return to Admin Panel</button>
         <div class = "box1">
             {courseOutlines.map(courseOutline => (
                 <div class="boxes" key={courseOutline._id}>
@@ -61,7 +60,7 @@ function ReviewOutline() {
                 >
                     Approve
                 </button>
-                    <button onClick={goViewOutline}>Review</button>
+                    <button class="review-btn4" onClick={goViewOutline}>Review</button>
                 </div>
             ))}
         </div>
