@@ -47,17 +47,10 @@ class App extends Component{
           </Route>
 
           <Route path="/"  element={<Login />} exact/>
-          <Route path="/courses" element={<Courses />}/>
           <Route path="/indicators" element={<Indicators/>}/>
-          <Route path="/reviewOutline" element={<ReviewOutline/>}/>
           <Route path="/showOutline" element={<ShowOutline/>}/>
-          <Route path="/outlines" element={<Outline1/>}/>
           <Route path="/viewOutlines" element={<ViewOutlines/>}/>
           <Route path="/manual" element={<Manual/>}/>
-          <Route path="/instructorHome" element={<InstructorHome/>}/>
-          <Route path="/instructorInfo" element={<InstructorInfo/>}/>
-
-
           <Route path="/changePassword" element={<ChangePassword/>}/>
         </Routes>
       </BrowserRouter>
