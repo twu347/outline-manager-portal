@@ -40,7 +40,7 @@ function Courses(){
       res.json().then((data)=>{
         setCourse(data);
       })
-   })    
+    })    
   }
 
   // assign course based on input 

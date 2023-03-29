@@ -39,9 +39,9 @@
 
 .right-content{
     position:relative; 
-    top:-400px;
     text-align: center;
     line-height: 30px;
+    top: 50px;
 }
 
 .input-instructor{
