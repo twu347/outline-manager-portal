@@ -25,7 +25,6 @@ function Indicators(){
     return(
         <div>
             <div className="navigateBtns">
-                <button className="managerPortal2" onClick={goManagerPortal}>Assign Courses</button>
                 <button className="instructorPortal2" onClick={goInstructorHome}>Instructor Home</button>
             </div>
             <div class="header"> 
