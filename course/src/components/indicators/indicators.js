@@ -18,10 +18,6 @@ import { Link,Outlet, useNavigate } from "react-router-dom";
 function Indicators(){
     let navigate = useNavigate();
 
-    function goManagerPortal(){
-        navigate('/Courses');
-    }
-
     function goInstructorHome(){
         navigate('/instructorHome');
     }

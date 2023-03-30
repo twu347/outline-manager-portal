@@ -246,3 +246,155 @@ textarea {
     border-collapse: collapse;
 }
 
+#show{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    background: #D9D9D9;
+    border-radius: 30px;
+    transition-duration: 0.4s;
+    left: 360px;
+}
+
+#show:hover{
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
+}
+
+#archive{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    background: #D9D9D9;
+    border-radius: 30px;
+    transition-duration: 0.4s;
+    left: 470px;
+}
+
+#archive:hover{
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
+}
+
+#indicator{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    background: #D9D9D9;
+    border-radius: 30px;
+    transition-duration: 0.4s;
+    left: 580px;
+}
+
+#indicator:hover{
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
+}
+
+#editOutline{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    background: #D9D9D9;
+    border-radius: 30px;
+    transition-duration: 0.4s;
+    left: 690px;
+}
+
+#editOutline:hover{
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
+}
+
+#printPDF{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    background: #D9D9D9;
+    border-radius: 30px;
+    transition-duration: 0.4s;
+    left: 800px;
+}
+
+#printPDF:hover{
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
+}
+
+#logOut{
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    background: #D9D9D9;
+    border-radius: 30px;
+    transition-duration: 0.4s;
+    left: 1310px;
+}
+
+#logOut:hover{
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
+}
+
+#home{
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    background: #D9D9D9;
+    border-radius: 30px;
+    transition-duration: 0.4s;
+    left: 1200px;
+}
+
+#home:hover{
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
+}
+
+#saveBtn{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    background: #D9D9D9;
+    border-radius: 30px;
+    transition-duration: 0.4s;
+    left: 180px;
+    top: 5px;
+}
+
+#saveBtn:hover{
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
+}
+
+#timeStamp{
+    position: absolute;
+    width: 160px;
+    height: 30px;
+    background: #D9D9D9;
+    top: 5px;
+    left: 5px;
+}
+
+#courseShow{
+    position: absolute;
+    width: 160px;
+    height: 30px;
+    left: 185px;
+    background: #D9D9D9;
+}
+
+#profShow{
+    position: absolute;
+    width: 160px;
+    height: 30px;
+    background: #D9D9D9;
+}
