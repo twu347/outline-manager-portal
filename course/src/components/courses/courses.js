@@ -13,10 +13,6 @@ function Courses(){
   const [users, setUser] = useState([]);
   const [courses, setCourse] = useState([]);
 
-  function goIndicator(){
-    navigate('/indicators')
-  }
-
   function goAdminPanel(){
     navigate('/adminHome')
   }
@@ -40,7 +36,7 @@ function Courses(){
       res.json().then((data)=>{
         setCourse(data);
       })
-   })    
+    })    
   }
 
   // assign course based on input 
@@ -82,9 +78,8 @@ function Courses(){
   return(
     
     <div>
-      <button class="goIndicator" onClick={goIndicator}>GA indicator</button>
-      <button class="backToLogin" onClick={goAdminPanel}>Return to Admin Panel</button>
-      <button class="viewOutlines" onClick={goOutlines}>View Course Outlines</button>
+      <button class="returnToPanelBtn3" onClick={goAdminPanel}>Return to Admin Panel</button>
+      <button class="viewCourseOutlineBtn3" onClick={goOutlines}>View Course Outlines</button>
       {/* display instructor information */}
       <div className="left-box">
         <div className="left-text"> Instructors And Related Course</div>

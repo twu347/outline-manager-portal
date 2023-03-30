@@ -110,3 +110,68 @@
 .manualContainer .assign-course .assign-course-content{
     text-align: justify;
 }
+
+.manualContainer .view-account{
+    position: relative;
+}
+
+.manualContainer .view-account .account-title{
+    text-align: center;
+    color: rebeccapurple; 
+}
+
+.manualContainer .view-account .account-content{
+    text-align: justify;
+}
+
+.manualContainer .change-password{
+    position: relative;
+}
+
+.manualContainer .change-password .password-title{
+    text-align: center;
+    color: rebeccapurple;
+}
+
+.manualContainer .change-password .password-content{
+    text-align: justify;
+}
+
+.manualContainer .access-archive{
+    position: relative;
+}
+
+.manualContainer .access-archive .archive-title{
+    text-align: center;
+    color: rebeccapurple;
+}
+
+.manualContainer .access-archive .archive-content{
+    position: justify;
+}
+
+.manualContainer .view-comments{
+    position: relative;
+}
+
+.manualContainer .view-comments .comments-title{
+    text-align: center;
+    color: rebeccapurple;
+}
+
+.manualContainer .view-comments .comments-content{
+    position: justify;
+}
+
+.manualContainer .post-comments{
+    position: relative;
+}
+
+.manualContainer .post-comments .post-comments-title{
+    text-align: center;
+    color: rebeccapurple;
+}
+
+.manualContainer .post-comments .post-comments-content{
+    position: justify;
+}

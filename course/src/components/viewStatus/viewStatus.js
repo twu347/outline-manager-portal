@@ -9,8 +9,8 @@ function ViewStatus(){
     const [courseTitles, setCourseTitles] = useState([]);
     const [outlineStatus, setOutlineStatus] = useState([]);
     
-    function goInstructorPortal(){
-        navigate('/instructorHome');
+    function goAdminPortal(){
+        navigate('/adminHome');
     }
 
     function Search(){
@@ -26,10 +26,10 @@ function ViewStatus(){
     
     return(
         <div>
-            <div class="search-box">
-                <input type="text" id="prof-search" placeholder="Enter Prof Name"></input>
-                <button class="search" onClick={Search}>View Outlines</button>
-                <button class="instructorPortal12" onClick={goInstructorPortal}>Back to Home</button>
+            <div class="search-box9">
+                <input type="text" id="prof-search" className="prof-search" placeholder="Enter Prof Name"></input>
+                <button class="viewOutlinesBtn1" onClick={Search}>View Outlines</button>
+                <button class="instructorPortal12" onClick={goAdminPortal}>Back to Admin Panel</button>
             </div>
             <div class="header"> 
                 <h2 class="heading123">Outlines Approval Status</h2>

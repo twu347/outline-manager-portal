@@ -775,7 +775,6 @@ app.post('/api/registerUser/login', asyncHandler(
         const {name, password} = req.body; 
         const user = await JWT.findOne({name});
         if(user && password == user.password){
-            console.log("είναι ηλίθιος");
             res.json({
                 _id: user._id, 
                 name: user.name, 

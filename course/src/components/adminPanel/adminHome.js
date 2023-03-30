@@ -35,11 +35,12 @@ function AdminHome(){
 
     return(
         <div>
-            <button onClick={logout}>Logout</button>
             <div class="header">
                 <button class="logoutBtn" onClick={goLogin}>Log Out</button>
                 <button class="passwordBtn" onClick={goChangePassword}>Change Password</button>
-                <h3>Please Select A Type of Service:</h3>
+                <div class="left-content">
+                    <h3 class="adminSubtitle">Please Select A Type of Service:</h3>
+                </div>
             </div>
             <div class="buttons">
                 <button class="assignBtn" onClick={goCourses}>Assign Courses</button>

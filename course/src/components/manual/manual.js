@@ -37,6 +37,25 @@ function Manual(){
                     </p>
                 </div>
 
+                <div className="view-account">
+                    <h3 className="account-title">View My Account</h3>
+                    <p className="account-content">
+                        To view your account information, follow these steps: <br/><br/>
+                        &emsp; 1. Log in to the system using your provided username and password. <br/>
+                        &emsp; 2. On the main menu, click on the "View My Account" tab. <br/>
+                        &emsp; 3. Your account information, such as your name, email address, and contact information, will be displayed on this page.<br/><br/>
+                        Please note that this feature is designed for users to view their own account information only. If you need to update or change any of your account information, please contact the Faculty of Engineering Technologies Service for further assistance.
+                    </p>
+                </div>
+
+                <div className="change-password">
+                    <h3 className="password-title">Change Password</h3>
+                    <p className="password-content">
+                    If you wish to change your password for the Course Outline Manager System, you can do so by logging in to the system and navigating to the "Change Password" page. 
+                    On this page, you will be prompted to enter your existing username and password, as well as your desired new password. It is important to choose a strong and unique password to ensure the security of your account. However, if you have forgotten your password and cannot log in to the system, you will need to contact the Faculty of Engineering Technologies Service for further assistance. They will be able to guide you through the process of resetting your password and regaining access to the system.
+                    </p>
+                </div>
+
                 <div className="creating-outline">
                     <h3 className="creating-outline-title">Instructor Side Application - Creating an Outline</h3>
                     <p className="creating-outline-content">
@@ -82,6 +101,33 @@ function Manual(){
                     </p>
                 </div>
 
+                <div className="access-archive">
+                    <h3 className="archive-title">Instructor Side Application - Accessing Archive Materials</h3>
+                    <p className="archive-content">
+                        As an instructor, you have the ability to review and compare previous versions of your course outline by accessing the Archive Materials. The Archive Materials are previous versions of your course outline that have been approved by the faculty. To access the Archive Materials, follow these steps: <br/><br/>
+                        &emsp; 1. Log in to the system using your provided username and password.<br/>
+                        &emsp; 2. On the main menu, click on the "Archive" tab.<br/>
+                        &emsp; 3. Enter the course number and instructor name in the designated fields.<br/>
+                        &emsp; 4. Click on the "Search" button to retrieve the previous versions of the course outline.<br/>
+                        &emsp; 5. You will be directed to a page where you can view the previous versions of the course outline and compare them with the current version.<br/>
+                        &emsp; 6. You can also use the Archive Materials as a reference when editing your current course outline. <br/><br/>
+                        Please note that the Archive Materials are approval material only, meaning that the faculty has already approved these outlines. If you wish to make changes to your current course outline, you will need to submit it to the administrators for approval. If you have any questions or concerns, please contact the administrators for assistance.
+                    </p>
+                </div>
+
+                <div className="view-comments">
+                    <h3 className="comments-title">Instructor Side Application - View Comments</h3>
+                    <p className="comments-content">
+                        As an instructor, you have the ability to view comments that have been posted by administrators on your course outlines. Viewing comments allows you to receive feedback on the course outlines and make changes that could be made to improve the quality of the course. To view comments on a course outline, follow these steps: <br/><br/>
+                        1. Log in to the system using your provided username and password. <br/>
+                        2. On the main menu, click on the "View Course Outlines" tab. <br/>
+                        3. Select the course outline that you wish to view comments on from the list of available outlines. <br/>
+                        4. Scroll down to the "Comments" section at the bottom of the page.<br/>
+                        5. All comments that have been posted by administrators will be displayed in this section.<br/>
+                        6. Read through the comments and use them as a reference when making changes to your course outline.<br/><br/>
+                    </p>
+                </div>
+
                 <div className="approving-outline">
                     <h3 className="approving-outline-title">Administrator Side Application - Approving Course Outline </h3>
                     <p className="approving-outlint-content">
@@ -109,6 +155,22 @@ function Manual(){
                         &emsp; 6. To remove an assigned course from an instructor, select the instructor from the list of available instructors and the course from the list of assigned courses.<br/>
                         &emsp; 7. Click on the "Remove" button to remove the assigned course from the instructor.<br/><br/>
                         Please note that all courses are offered by the Faculty of Engineering at Western University, and administrators are not able to add courses to the system. Administrators are only able to assign courses to instructors who have been approved by the Faculty of Engineering at Western University.
+                    </p>
+                </div>
+
+                <div className="post-comments">
+                    <h3 className="post-comments-title">Administrator Side Application - Post Comments</h3>
+                    <p className="post-comments-content">
+                        As an administrator, you have the ability to post comments on course outlines that have been submitted by instructors. Posting comments allows you to provide feedback on the course outlines and suggest changes that could be made to improve the quality of the course. To post a comment on a course outline, follow these steps: <br/><br/>
+                        &emsp; 1. Log in to the system using your provided username and password. <br/>
+                        &emsp; 2. On the main menu, click on the "View Outline" tab. <br/>
+                        &emsp; 3. Enter the course number and instructor name in the designated fields. <br/>
+                        &emsp; 4. Click on the "Search" button to retrieve the course outline. <br/>
+                        &emsp; 5. Once the course outline is displayed, scroll down to the "Comments" section at the bottom of the page. <br/>
+                        &emsp; 6. Click on the "Add Comment" button to post a comment on the course outline. <br/>
+                        &emsp; 7. Enter your comment in the designated field and click on the "Submit" button to post the comment. <br/>
+                        &emsp; 8. The instructor will be able to view the comment on their side of the system and make changes to the course outline based on the feedback provided. <br/><br/>
+                        Please note that the comments section is designed for constructive feedback only. All comments should be respectful and professional in nature. If you have any questions or concerns, please contact the Faculty for further assistances.
                     </p>
                 </div>
 

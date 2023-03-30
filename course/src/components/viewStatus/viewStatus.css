@@ -1,8 +1,25 @@
-.heading123{
-    position: center;
-    left: 550px;
-    top: 60px;
+.search-box9 {
+    top: 80px;
+    left: 80px;
+    position: relative;
+    padding: 10px;
 }
+
+.heading123{
+    position: relative;
+    left: -20px;
+    top: 30px;
+}
+
+.prof-search{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 20px;
+    margin: 10px;
+}
+
 .boxes {
     border: 1px solid black;
     padding: 10px;
@@ -22,34 +39,53 @@
     padding: 10px;
 }
 
-.instructorPortal12{
-    position: relative;
-    width: 120px;
-    height: 30px;
-    background: #D9D9D9;
-    border-radius: 30px;
-    transition-duration: 0.4s;
-    left: 1030px;
-}
-
 .instructorPortal12:hover {
     background-color: lightblue;
     color: black;
     font-weight: bold;
 }
 
-.search{
-    position: relative;
-    width: 120px;
-    height: 30px;
+.instructorPortal12 {
+    position: absolute;
+    cursor: pointer;
+    text-align: center;
+    top: -150px;
+    left: 900px;
+    padding: 5px;
+    margin: 100px;
+    height: 40px;
+    width: 170px;
     background: #D9D9D9;
-    border-radius: 30px;
     transition-duration: 0.4s;
-    left: 20px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
 }
 
-.search:hover{
-    background-color: lightblue;
-    color: black;
-    font-weight: bold;
+.viewOutlinesBtn1 {
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: 2pxblack;
+    width: 150px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 10px;
+}
+
+.viewOutlinesBtn1:hover {
+    background-color: green;
+    color: #fff;
+    border: 2pxblack;
+}
+
+.viewOutlinesBtn1:active {
+    transform: translateY(2px);
+    outline: none;
+}
+
+.viewOutlinesBtn1:hover::after {
+    content: '\2193';
+    display: block;
+    font-size: 14px;
+    margin-top: 5px;
 }

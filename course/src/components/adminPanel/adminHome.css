@@ -6,11 +6,18 @@
     left: 200px;
 }
 
-.buttons {
+h3 {
+    font-size: 20px;
+    margin-left: 20px;
     position: absolute;
-    text-align: center;
-    top: 200px;
-    left: 225px;
+    left: -450px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
 }
 
 .logoutBtn {
