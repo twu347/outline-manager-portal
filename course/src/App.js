@@ -31,27 +31,28 @@ class App extends Component{
       <BrowserRouter>
         <Routes>
           <Route element={<AdminToken/>}>
-             <Route path="/adminHome" element={<AdminHome/>} exact/>
-             <Route path="/reviewOutline" element={<ReviewOutline/>} exact/>
-             <Route path="/courses" element={<Courses />} exact/>
-             <Route path="/viewStatus" element={<ViewStatus/>}/>
+            <Route path="/adminHome" element={<AdminHome/>} exact/>
+            <Route path="/reviewOutline" element={<ReviewOutline/>} exact/>
+            <Route path="/courses" element={<Courses />} exact/>
+            <Route path="/viewStatus" element={<ViewStatus/>}/>
+            <Route path="/showOutline" element={<ShowOutline/>}/>
+            <Route path="/viewOutlines" element={<ViewOutlines/>}/>
+            <Route path="/manual" element={<Manual/>}/>
+            <Route path="/changePassword" element={<ChangePassword/>}/>
           </Route>
         
           <Route element={<InstructorToken/>}>
-             <Route path="/instructorHome" element={<InstructorHome/>}/>
-             <Route path="/instructorInfo" element={<InstructorInfo/>}/>
-             <Route path="/archive" element={<Archive/>}/>
-             <Route path="/viewComments" element={<ViewComments/>}/>
-             <Route path="/editOutline" element={<EditOutline/>}/>
-             <Route path="/outline1" element={<Outline1/>}/>
+            <Route path="/instructorHome" element={<InstructorHome/>}/>
+            <Route path="/instructorInfo" element={<InstructorInfo/>}/>
+            <Route path="/archive" element={<Archive/>}/>
+            <Route path="/viewComments" element={<ViewComments/>}/>
+            <Route path="/editOutline" element={<EditOutline/>}/>
+            <Route path="/outline1" element={<Outline1/>}/>
+            <Route path="/indicators" element={<Indicators/>}/>
+            <Route path="/manual" element={<Manual/>}/>
+            <Route path="/changePassword" element={<ChangePassword/>}/>
           </Route>
-
           <Route path="/"  element={<Login />} exact/>
-          <Route path="/indicators" element={<Indicators/>}/>
-          <Route path="/showOutline" element={<ShowOutline/>}/>
-          <Route path="/viewOutlines" element={<ViewOutlines/>}/>
-          <Route path="/manual" element={<Manual/>}/>
-          <Route path="/changePassword" element={<ChangePassword/>}/>
         </Routes>
       </BrowserRouter>
 

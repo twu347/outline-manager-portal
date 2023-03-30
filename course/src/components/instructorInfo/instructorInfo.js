@@ -38,10 +38,10 @@ function InstructorInfo(){
     return(
         <div>
             <div >
-                <div>
-                    <input id="profShow" placeholder="Enter prof name"/>
+                <div className="topBar19">
+                    <input id="profShow" className="profSearch3" placeholder="Enter prof name"/>
                     <button class="showBtn3" onClick={showInfo}> Show </button>
-                    <button class="instructorPortal3" onClick={goInstructorHome}>Back to Instructor Home</button>
+                    <button class="instructorPortal13" onClick={goInstructorHome}>Back to Instructor Home</button>
                 </div>
                 <div className="instructorCoursesBox">
                     <table>

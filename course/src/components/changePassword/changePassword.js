@@ -57,6 +57,10 @@ function ChangePassword(){
     return(
         <div>
             <div>
+                <div className="topBar777">
+                    <button class="instructorPortalBtn" onClick={goInstructorPortal}>Instructor Portal</button>
+                    <button class="adminPortalBtn" onClick={goAdminPortal}>Admin Portal</button>
+                </div>
                 <h1 class="heading23">Change Your Password</h1>
                 <form class="step1">
                     <input type="text" class="userName" placeholder="Please Enter Your Username" value={name} onChange={(e) => setName(e.target.value)}/>
@@ -68,8 +72,6 @@ function ChangePassword(){
                 <form class="step2">
                     <input id="newPassword" class="newPwd" placeholder="Enter new password"></input>
                     <button class="setPwdBtn" onClick={setPwd}>Set Password</button>
-                    <button class="instructorPortalBtn" onClick={goInstructorPortal}>Instructor Portal</button>
-                    <button class="adminPortalBtn" onClick={goAdminPortal}>Admin Portal</button>
                 </form>
             </div>
         </div>

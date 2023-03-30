@@ -582,8 +582,7 @@ function Outline1(){
     return(
         <div>
             <div>
-                <div>
-
+                <div className="topBar10">
                     <input id="courseShow" placeholder="Enter course number"/>
                     <input id="profShow" placeholder="Enter prof name"/>
                     <button id="show" onClick={showInfo}> Show </button>

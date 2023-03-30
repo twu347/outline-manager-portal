@@ -1,3 +1,10 @@
+.topBar19 {
+    top: 80px;
+    left: 80px;
+    position: relative;
+    padding: 10px;
+}
+
 .header {
     white-space: nowrap;
     text-align: center;
@@ -69,26 +76,63 @@ table {
   }
 
   .showBtn3 {
-    position: absolute;
-    width: 100px;
-    height: 30px;
-    background: #D9D9D9;
-    border-radius: 30px;
-    transition-duration: 0.4s;
-    left: 180px;
-}
-.instructorPortal3{
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: 2pxblack;
+    width: 150px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 10px;
+    left: 200px;
     position: relative;
-    width: 175px;
-    height: 30px;
-    background: #D9D9D9;
-    border-radius: 30px;
-    transition-duration: 0.4s;
-    left: 5px;
 }
 
-.showBtn3:hover, .instructorPortal3:hover {
+.showBtn3:hover{
+    background-color: green;
+    color: #fff;
+    border: 2pxblack;
+}
+
+.showBtn3:active {
+    transform: translateY(2px);
+    outline: none;
+}
+
+.showBtn3:hover::after {
+    content: '\2193';
+    display: block;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.instructorPortal13{
+    position: absolute;
+    cursor: pointer;
+    text-align: center;
+    top: -150px;
+    left: 900px;
+    padding: 5px;
+    margin: 100px;
+    height: 40px;
+    width: 170px;
+    background: #D9D9D9;
+    transition-duration: 0.4s;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.instructorPortal13:hover {
     background-color: lightblue;
     color: black;
     font-weight: bold;
+}
+
+.profSearch3 {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 20px;
+    margin: 10px;
 }

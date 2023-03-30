@@ -35,7 +35,7 @@ function ViewComments(){
     return(
         <div>
             <div >
-                <div>
+                <div className="topBar136">
                     <input id="profShow21" placeholder="Enter prof name"/>
                     <button class="showBtn31" onClick={showInfo}> Show </button>
                     <button class="instructorPortal3" onClick={goInstructorHome}>Back to Instructor Home</button>
